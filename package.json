@@ -11,7 +11,8 @@
     "jquery": "latest",
     "jquery-sidebar": "latest",
     "grunt-contrib-less": "~0.6.4",
-    "grunt-contrib-uglify": "latest"
+    "grunt-contrib-uglify": "latest",
+    "grunt-contrib-watch": "latest"
   },
   "engines": {
     "node": ">=0.8.0"

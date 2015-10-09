@@ -3,7 +3,8 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     less: {
       task: {
-        src: ['src/less/bootstrap.less'], 
+        src: ['src/less/bootstrap.less', 
+        'bower_components/pushy/css/pushy.css'],
         dest: 'app/css/style.css'
       },
       options: {
@@ -31,17 +32,21 @@ module.exports = function(grunt) {
         'banner': ''
       }
     },
+
     uglify: {
       task: {
-        src: ['bower_components/jquery/jquery.min.js',
-          'bower_components/modernizr/modernizr.js',
-          'src/js/*.js'], 
+        src: ['bower_components/modernizr/modernizr.js',
+          'bower_components/jquery/jquery.min.js',
+          'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          'bower_components/pushy/js/pushy.min.js',
+          'src/js/*.js'
+        ],
         dest: 'app/js/app.js'
       },
       options: {
-        'mangle': {},
+        'mangle': false,
         'compress': {},
-        'beautify': false,
+        'beautify': true,
         'expression': false,
         'report': 'min',
         'sourceMap': false,
@@ -55,11 +60,17 @@ module.exports = function(grunt) {
         'banner': '',
         'footer': ''
       }
-    }
+    },
+    
+    watch: {
+      files: ['src/**'],
+      tasks: ['build'],
+    },
   });
 
   grunt.loadNpmTasks('grunt-contrib-less');
   grunt.loadNpmTasks('grunt-contrib-uglify');
+  grunt.loadNpmTasks('grunt-contrib-watch');
 
   grunt.registerTask('build', ['less', 'uglify']);
 };
