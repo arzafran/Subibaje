@@ -1,8 +1,9 @@
 {
-    "name": "FrontendBoilerplate",
-    "private": true,
-    "dependencies": {
-		"bootstrap": "~3.0.3"
-	},
-    "devDependencies": {}
+  "name": "Subibaje",
+  "version": "0.0.0",
+  "dependencies": {
+    "modernizr": "~2.6.2",
+    "jquery": "~1.9.1"
+  },
+  "devDependencies": {}
 }
