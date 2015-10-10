@@ -36,6 +36,7 @@ module.exports = function(grunt) {
       task: {
         src: ['bower_components/modernizr/modernizr.js',
           'bower_components/jquery/dist/jquery.min.js',
+          'bower_components/handlebars/handlebars.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
           'bower_components/slidereveal/dist/jquery.slidereveal.min.js',
           'src/js/*.js'

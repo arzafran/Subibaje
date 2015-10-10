@@ -13,29 +13,6 @@
   <!-- Slide Menu -->
   <div id="slider" class="sidebar-wrapper">
     <ul class="sidebar-nav">
-      <li class="sidebar-brand">
-      </li>
-      <li>
-        <a href="#">Dashboard</a>
-      </li>
-      <li>
-        <a href="#">Shortcuts</a>
-      </li>
-      <li>
-        <a href="#">Overview</a>
-      </li>
-      <li>
-        <a href="#">Events</a>
-      </li>
-      <li>
-        <a href="#">About</a>
-      </li>
-      <li>
-        <a href="#">Services</a>
-      </li>
-      <li>
-        <a href="#">Contact</a>
-      </li>
     </ul>
   </div>
   <!-- /Slide Menu -->
@@ -51,11 +28,52 @@
     </div>
   </nav>
   <!-- /Header -->
-  <div class="container">
-    Adipiscing in turpis, adipiscing porta massa. Ridiculus urna diam. Ridiculus dignissim aliquet! Mid in lorem platea mus egestas lectus rhoncus odio phasellus, tristique, nisi ultricies aliquet, sit magna cursus dolor. Velit! Odio? Aenean est ultricies. Tortor adipiscing urna ridiculus cras enim dignissim ac aliquam scelerisque quis sit a ac, eu turpis pid odio mattis. Odio in in tincidunt massa. Integer? Enim augue et, ultricies? Integer nunc odio, elit pellentesque tincidunt? Quis amet augue ridiculus, natoque nec platea porttitor? Tempor aliquet non, dolor, sed ultrices dignissim duis, mauris, augue. Adipiscing in turpis, adipiscing porta massa. Ridiculus urna diam. Ridiculus dignissim aliquet! Mid in lorem platea mus egestas lectus rhoncus odio phasellus, tristique, nisi ultricies aliquet, sit magna cursus dolor. Velit! Odio? Aenean est ultricies. Tortor adipiscing urna ridiculus cras enim dignissim ac aliquam scelerisque quis sit a ac, eu turpis pid odio mattis. Odio in in tincidunt massa. Integer? Enim augue et, ultricies? Integer nunc odio, elit pellentesque tincidunt? Quis amet augue ridiculus, natoque nec platea porttitor? Tempor aliquet non, dolor, sed ultrices dignissim duis, mauris, augue. Adipiscing in turpis, adipiscing porta massa. Ridiculus urna diam. Ridiculus dignissim aliquet! Mid in lorem platea mus egestas lectus rhoncus odio phasellus, tristique, nisi ultricies aliquet, sit magna cursus dolor. Velit! Odio? Aenean est ultricies. Tortor adipiscing urna ridiculus cras enim dignissim ac aliquam scelerisque quis sit a ac, eu turpis pid odio mattis. Odio in in tincidunt massa. Integer? Enim augue et, ultricies? Integer nunc odio, elit pellentesque tincidunt? Quis amet augue ridiculus, natoque nec platea porttitor? Tempor aliquet non, dolor, sed ultrices dignissim duis, mauris, augue. Adipiscing in turpis, adipiscing porta massa. Ridiculus urna diam. Ridiculus dignissim aliquet! Mid in lorem platea mus egestas lectus rhoncus odio phasellus, tristique, nisi ultricies aliquet, sit magna cursus dolor. Velit! Odio? Aenean est ultricies. Tortor adipiscing urna ridiculus cras enim dignissim ac aliquam scelerisque quis sit a ac, eu turpis pid odio mattis. Odio in in tincidunt massa. Integer? Enim augue et, ultricies? Integer nunc odio, elit pellentesque tincidunt? Quis amet augue ridiculus, natoque nec platea porttitor? Tempor aliquet non, dolor, sed ultrices dignissim duis, mauris, augue. Adipiscing in turpis, adipiscing porta massa. Ridiculus urna diam. Ridiculus dignissim aliquet! Mid in lorem platea mus egestas lectus rhoncus odio phasellus, tristique, nisi ultricies aliquet, sit magna cursus dolor. Velit! Odio? Aenean est ultricies. Tortor adipiscing urna ridiculus cras enim dignissim ac aliquam scelerisque quis sit a ac, eu turpis pid odio mattis. Odio in in tincidunt massa. Integer? Enim augue et, ultricies? Integer nunc odio, elit pellentesque tincidunt? Quis amet augue ridiculus, natoque nec platea porttitor? Tempor aliquet non, dolor, sed ultrices dignissim duis, mauris, augue.
+
+  <!-- Main Container -->
+  <div id="main-container" class="container">
   </div>
+  <!-- /Main Container -->
 
   <script src="js/app.js"></script>
 </body>
+
+  <script id="sidebar-template" type="text/x-handlebars-template">
+    <li class="sidebar-brand">
+    </li>
+    {{#each item}}
+      <li>
+        <a href="#{{this}}">{{this}}</a>
+      </li>
+    {{/each}}
+  </script>
+
+  <script id="modal-template" type="text/x-handlebars-template">
+
+  </script>
+
+  <script id="main-template" type="text/x-handlebars-template">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <td>Nombre</td>
+          <td>Apellido</td>
+          <td>Dni</td>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each users}}
+          <tr>
+            <td>{{this.name.first}}</td>
+            <td>{{this.name.last}}</td>
+            <td>{{this.dni}}</td>
+          </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  </script>
+
+
 
 </html>
