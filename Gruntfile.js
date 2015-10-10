@@ -3,8 +3,7 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     less: {
       task: {
-        src: ['src/less/bootstrap.less', 
-        'bower_components/pushy/css/pushy.css'],
+        src: ['src/less/bootstrap.less'],
         dest: 'app/css/style.css'
       },
       options: {
@@ -36,9 +35,8 @@ module.exports = function(grunt) {
     uglify: {
       task: {
         src: ['bower_components/modernizr/modernizr.js',
-          'bower_components/jquery/jquery.min.js',
+          'bower_components/jquery/dist/jquery.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
-          'bower_components/pushy/js/pushy.min.js',
           'src/js/*.js'
         ],
         dest: 'app/js/app.js'
