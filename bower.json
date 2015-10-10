@@ -6,7 +6,6 @@
     "jquery": "latest",
     "bootstrap": "latest",
     "slidereveal": "latest",
-    "handlebars": "~4.0.3"
   },
   "devDependencies": {}
 }

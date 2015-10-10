@@ -2,7 +2,6 @@
   "name": "Subibaje",
   "version": "0.0.0",
   "dependencies": {
-    "underscore": "~1.5.1",
     "grunt-contrib-less": "~0.6.4"
   },
   "devDependencies": {
