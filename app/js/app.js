@@ -3999,30 +3999,13 @@ if (window.Modernizr = function(window, document, undefined) {
     };
 }(jQuery), $(function() {
     slider = $("#slider").slideReveal({
-        position: "right",
-        speed: 600,
-        trigger: $("#trigger"),
-        show: function(obj) {
-            console.log(obj);
-        },
-        shown: function(obj) {
-            console.log(obj);
-        },
-        hide: function(obj) {
-            console.log(obj);
-        },
-        hidden: function(obj) {
-            console.log(obj);
-        }
-    }), slider2 = $("#slider2").slideReveal({
         push: !1,
         position: "left",
         speed: 600,
-        trigger: $("#trigger2"),
-        top: 100
-    }), setTimeout(function() {
-        slider.slideReveal("show", !1);
-    }, 1e3), setTimeout(function() {
-        slider.slideReveal("hide", !1);
-    }, 3e3);
+        trigger: $("#trigger"),
+        show: function(obj) {},
+        shown: function(obj) {},
+        hide: function(obj) {},
+        hidden: function(obj) {}
+    });
 });
