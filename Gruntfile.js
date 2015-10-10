@@ -37,6 +37,7 @@ module.exports = function(grunt) {
         src: ['bower_components/modernizr/modernizr.js',
           'bower_components/jquery/dist/jquery.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          'bower_components/slidereveal/dist/jquery.slidereveal.min.js',
           'src/js/*.js'
         ],
         dest: 'app/js/app.js'
