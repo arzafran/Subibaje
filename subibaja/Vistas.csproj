@@ -53,8 +53,14 @@
     <Content Include="AltaEstablecimientos.aspx" />
     <Content Include="AltaNivelesEducativos.aspx" />
     <Content Include="AltaUsuarios.aspx" />
+    <Content Include="app\css\style.css" />
+    <Content Include="app\index.html" />
+    <Content Include="app\js\app.js" />
     <Content Include="css\app.css" />
+    <Content Include="Gruntfile.js" />
     <Content Include="index.aspx" />
+    <Content Include="src\js\main.js" />
+    <Content Include="src\js\menu.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -85,6 +91,14 @@
     <Compile Include="AltaUsuarios.aspx.designer.cs">
       <DependentUpon>AltaUsuarios.aspx</DependentUpon>
     </Compile>
+    <Compile Include="App.Master.cs">
+      <DependentUpon>App.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="App.Master.designer.cs">
+      <DependentUpon>App.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ModernButton.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -107,6 +121,89 @@
       <Project>{5365C5E9-1B2A-4B28-A21E-55D5CD2E191F}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App.Master" />
+    <None Include="bower.json" />
+    <None Include="package.json" />
+    <None Include="README.md" />
+    <None Include="src\fonts\glyphicons-halflings-regular.eot" />
+    <None Include="src\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="src\fonts\glyphicons-halflings-regular.ttf" />
+    <None Include="src\fonts\glyphicons-halflings-regular.woff" />
+    <None Include="src\fonts\glyphicons-halflings-regular.woff2" />
+    <None Include="src\less\alerts.less" />
+    <None Include="src\less\badges.less" />
+    <None Include="src\less\bootstrap.less" />
+    <None Include="src\less\breadcrumbs.less" />
+    <None Include="src\less\button-groups.less" />
+    <None Include="src\less\buttons.less" />
+    <None Include="src\less\carousel.less" />
+    <None Include="src\less\close.less" />
+    <None Include="src\less\code.less" />
+    <None Include="src\less\component-animations.less" />
+    <None Include="src\less\dropdowns.less" />
+    <None Include="src\less\forms.less" />
+    <None Include="src\less\glyphicons.less" />
+    <None Include="src\less\grid.less" />
+    <None Include="src\less\input-groups.less" />
+    <None Include="src\less\jumbotron.less" />
+    <None Include="src\less\labels.less" />
+    <None Include="src\less\list-group.less" />
+    <None Include="src\less\media.less" />
+    <None Include="src\less\mixins.less" />
+    <None Include="src\less\mixins\alerts.less" />
+    <None Include="src\less\mixins\background-variant.less" />
+    <None Include="src\less\mixins\border-radius.less" />
+    <None Include="src\less\mixins\buttons.less" />
+    <None Include="src\less\mixins\center-block.less" />
+    <None Include="src\less\mixins\clearfix.less" />
+    <None Include="src\less\mixins\forms.less" />
+    <None Include="src\less\mixins\gradients.less" />
+    <None Include="src\less\mixins\grid-framework.less" />
+    <None Include="src\less\mixins\grid.less" />
+    <None Include="src\less\mixins\hide-text.less" />
+    <None Include="src\less\mixins\image.less" />
+    <None Include="src\less\mixins\labels.less" />
+    <None Include="src\less\mixins\list-group.less" />
+    <None Include="src\less\mixins\nav-divider.less" />
+    <None Include="src\less\mixins\nav-vertical-align.less" />
+    <None Include="src\less\mixins\opacity.less" />
+    <None Include="src\less\mixins\pagination.less" />
+    <None Include="src\less\mixins\panels.less" />
+    <None Include="src\less\mixins\progress-bar.less" />
+    <None Include="src\less\mixins\reset-filter.less" />
+    <None Include="src\less\mixins\reset-text.less" />
+    <None Include="src\less\mixins\resize.less" />
+    <None Include="src\less\mixins\responsive-visibility.less" />
+    <None Include="src\less\mixins\size.less" />
+    <None Include="src\less\mixins\tab-focus.less" />
+    <None Include="src\less\mixins\table-row.less" />
+    <None Include="src\less\mixins\text-emphasis.less" />
+    <None Include="src\less\mixins\text-overflow.less" />
+    <None Include="src\less\mixins\vendor-prefixes.less" />
+    <None Include="src\less\modals.less" />
+    <None Include="src\less\navbar.less" />
+    <None Include="src\less\navs.less" />
+    <None Include="src\less\normalize.less" />
+    <None Include="src\less\pager.less" />
+    <None Include="src\less\pagination.less" />
+    <None Include="src\less\panels.less" />
+    <None Include="src\less\popovers.less" />
+    <None Include="src\less\print.less" />
+    <None Include="src\less\progress-bars.less" />
+    <None Include="src\less\responsive-embed.less" />
+    <None Include="src\less\responsive-utilities.less" />
+    <None Include="src\less\scaffolding.less" />
+    <None Include="src\less\sidebar.less" />
+    <None Include="src\less\tables.less" />
+    <None Include="src\less\theme.less" />
+    <None Include="src\less\thumbnails.less" />
+    <None Include="src\less\tooltip.less" />
+    <None Include="src\less\type.less" />
+    <None Include="src\less\utilities.less" />
+    <None Include="src\less\variables.less" />
+    <None Include="src\less\wells.less" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />
