@@ -1,0 +1,11 @@
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\subibaja.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\subibaja.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\accesoDatos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\Controladoras.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\Modelos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\accesoDatos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\Controladoras.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\bin\Modelos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\obj\Debug\subibaja.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\subibaja\obj\Debug\subibaja.pdb

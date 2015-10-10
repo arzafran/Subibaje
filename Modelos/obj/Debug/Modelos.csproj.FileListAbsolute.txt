@@ -1,0 +1,5 @@
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Modelos\bin\Debug\Modelos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Modelos\bin\Debug\Modelos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Modelos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Modelos\obj\Debug\Modelos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Modelos\obj\Debug\Modelos.pdb

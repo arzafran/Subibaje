@@ -1,0 +1,9 @@
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\Controladoras.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\Controladoras.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\accesoDatos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\Modelos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\accesoDatos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\bin\Debug\Modelos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\obj\Debug\Controladoras.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\Controladoras\obj\Debug\Controladoras.pdb
