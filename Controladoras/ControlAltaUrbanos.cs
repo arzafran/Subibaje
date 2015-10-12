@@ -10,10 +10,12 @@ namespace Controladoras
     public class ControlAltaUrbanos
     {
         private ListaUrbanos DatosUrbano = ListaUrbanos.Instance();
+        public ListaCiudades ciudades = ListaCiudades.Instance();
 
-        public void Nuevo(string linea)
+        public void Nuevo(string linea, int idCiudad)
         {
-            Urbano oUrbano = new Urbano(linea);
+            Ciudad oCiudad = ciudades.BuscarPorId(idCiudad);
+            Urbano oUrbano = new Urbano(linea, oCiudad);
             DatosUrbano.Agregar(oUrbano);
         }
 

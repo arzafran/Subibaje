@@ -5,19 +5,18 @@ using System.Text;
 
 namespace Modelos
 {
-    public class Ciudad
+    public class Ruta
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public Ciudad Origen { get; set; }
+        public Ciudad Destino { get; set; }
 
-        public override string ToString()
-        {
-            return this.Nombre;
-        }
-
-        public Ciudad(string nombre)
+        public Ruta(string nombre, Ciudad origen, Ciudad destino)
         {
             Nombre = nombre;
+            Origen = origen;
+            Destino = destino;
         }
     }
 }

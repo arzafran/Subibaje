@@ -10,10 +10,16 @@ namespace Controladoras
     public class ControlAltaEmpresas
     {
         private ListaEmpresas DatosEmpresa = ListaEmpresas.Instance();
+        public ListaRutas rutas = ListaRutas.Instance();
 
-        public void Nuevo(string nombre)
+        public void Nuevo(string nombre, List<int> listaIds)
         {
-            Empresa oEmpresa = new Empresa(nombre);
+            List<Ruta> _rutas = new List<Ruta>();
+            foreach (int id in listaIds)
+            {
+                _rutas.Add(rutas.BuscarPorId(id));
+            }
+            Empresa oEmpresa = new Empresa(nombre, _rutas);
             DatosEmpresa.Agregar(oEmpresa);
         }
 

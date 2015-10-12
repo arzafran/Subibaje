@@ -10,16 +10,16 @@
 namespace subibaja {
     
     
-    public partial class Empresas {
+    public partial class Rutas {
         
         /// <summary>
-        /// Control grdEmpresas.
+        /// Control grdUrbanos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdEmpresas;
+        protected global::System.Web.UI.WebControls.GridView grdUrbanos;
         
         /// <summary>
         /// Control txtNombre.
@@ -31,22 +31,22 @@ namespace subibaja {
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
         
         /// <summary>
-        /// Control Panel1.
+        /// Control ddlOrigen.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
+        protected global::System.Web.UI.WebControls.DropDownList ddlOrigen;
         
         /// <summary>
-        /// Control ckRutas.
+        /// Control ddlDestino.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList ckRutas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlDestino;
         
         /// <summary>
         /// Control btnAgregar.

@@ -19,16 +19,22 @@
         <div id="slider" class="sidebar-wrapper">
             <ul class="sidebar-nav">
                 <li>
+                    <a href="Ciudades.aspx">Ciudades</a>
+                </li>
+                <li>
                     <a href="Empresas.aspx">Empresas LD</a>
                 </li>
                 <li>
                     <a href="Establecimientos.aspx">Establecimientos</a>
                 </li>
                 <li>
-                    <a href="Ciudades.aspx">Ciudades</a>
+                    <a href="Urbanos.aspx">Lineas urbanas</a>
                 </li>
                 <li>
                     <a href="NivelesEducativos.aspx">Niveles</a>
+                </li>
+                <li>
+                    <a href="Rutas.aspx">Rutas</a>
                 </li>
                 <li>
                     <a href="Usuarios.aspx">Usuarios</a>

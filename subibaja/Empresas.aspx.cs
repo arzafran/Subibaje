@@ -13,18 +13,37 @@ namespace subibaja
     {
         private ControlAltaEmpresas controladora = new ControlAltaEmpresas();
 
+        private List<int> listaIdsSeleccionados()
+        {
+            List<int> _rutas = new List<int>();
+
+            foreach (ListItem _item in ckRutas.Items)
+            {
+                if (_item.Selected)
+                {
+                    _rutas.Add(Convert.ToInt32(_item.Value));
+                }
+            }
+
+            return _rutas;
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
-            grdNiveles.DataSource = controladora.TraerTodos();
-            GenerarColumnas(grdNiveles);
+            grdEmpresas.DataSource = controladora.TraerTodos();
+            ckRutas.DataSource = controladora.rutas.TraerTodos();
+            GenerarColumnas(grdEmpresas);
             if (!IsPostBack)
-                grdNiveles.DataBind();
+            {
+                grdEmpresas.DataBind();
+                ckRutas.DataBind();
+            }
         }
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
-            controladora.Nuevo(txtNombre.Text);
-            grdNiveles.DataBind();
+            controladora.Nuevo(txtNombre.Text, listaIdsSeleccionados());
+            grdEmpresas.DataBind();
             this.LimpiarControles(Page.Controls);
         }
     }

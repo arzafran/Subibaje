@@ -10,43 +10,34 @@
 namespace subibaja {
     
     
-    public partial class Empresas {
+    public partial class Urbanos {
         
         /// <summary>
-        /// Control grdEmpresas.
+        /// Control grdUrbanos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdEmpresas;
+        protected global::System.Web.UI.WebControls.GridView grdUrbanos;
         
         /// <summary>
-        /// Control txtNombre.
+        /// Control txtLinea.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox txtNombre;
+        protected global::System.Web.UI.WebControls.TextBox txtLinea;
         
         /// <summary>
-        /// Control Panel1.
+        /// Control ddlLinea.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel Panel1;
-        
-        /// <summary>
-        /// Control ckRutas.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.CheckBoxList ckRutas;
+        protected global::System.Web.UI.WebControls.DropDownList ddlLinea;
         
         /// <summary>
         /// Control btnAgregar.

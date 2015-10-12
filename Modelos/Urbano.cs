@@ -10,10 +10,11 @@ namespace Modelos
         public int Id { get; set; }
         public string Linea { get; set; }
         public Ciudad Ciudad { get; set; }
-
-        public Urbano(string linea)
+        
+        public Urbano(string linea, Ciudad ciudad)
         {
             Linea = linea;
+            Ciudad = ciudad;
         }
     }
 }

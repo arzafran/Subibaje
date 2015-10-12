@@ -11,7 +11,7 @@ namespace subibaja
 {
     public partial class Establecimientos : Pagina
     {
-        ControlAltaEstablecimientos controladora = new ControlAltaEstablecimientos();
+        private ControlAltaEstablecimientos controladora = new ControlAltaEstablecimientos();
 
         private List<int> listaIdsSeleccionados()
         {
@@ -26,7 +26,6 @@ namespace subibaja
             }
 
             return _niveles;
-
         }
 
         protected void Page_Load(object sender, EventArgs e)
