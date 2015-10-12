@@ -9,6 +9,7 @@ namespace Modelos
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public Ciudad Ciudad { get; set; }
         public string Niveles 
         {
             get 
@@ -23,10 +24,11 @@ namespace Modelos
         }
         public List<NivelEducativo> ListaNiveles { get; set; }
 
-        public Establecimiento(string nombre, List<NivelEducativo> niveles)
+        public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles)
         {
             Nombre = nombre;
             ListaNiveles = niveles;
+            Ciudad = ciudad;
         }
     }
 }

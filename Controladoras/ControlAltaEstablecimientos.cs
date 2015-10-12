@@ -11,15 +11,17 @@ namespace Controladoras
     {
         private ListaEstablecimientos DatosEstablecimiento = ListaEstablecimientos.Instance();
         public ListaNivelesEducativos niveles = ListaNivelesEducativos.Instance();
+        public ListaCiudades ciudades = ListaCiudades.Instance();
 
-        public void Nuevo(string descripcion, List<int> listaIds)
+        public void Nuevo(string descripcion, int idCiudad, List<int> listaIds)
         {
             List<NivelEducativo> _niveles = new List<NivelEducativo>();
             foreach (int id in listaIds)
             { 
                 _niveles.Add(niveles.BuscarPorId(id));
             }
-            Establecimiento oEstablecimiento = new Establecimiento(descripcion, _niveles);
+            Ciudad _ciudad = ciudades.BuscarPorId(idCiudad);
+            Establecimiento oEstablecimiento = new Establecimiento(descripcion, _ciudad, _niveles);
             DatosEstablecimiento.Agregar(oEstablecimiento);
         }
 

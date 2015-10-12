@@ -5,21 +5,19 @@ using System.Text;
 
 namespace Modelos
 {
-    public class Ciudad
+    public class Provincia
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
-        public Provincia Provincia { get; set; }
 
         public override string ToString()
         {
             return this.Nombre;
         }
 
-        public Ciudad(string nombre, Provincia provincia)
+        public Provincia(string nombre)
         {
             Nombre = nombre;
-            Provincia = provincia;
         }
     }
 }

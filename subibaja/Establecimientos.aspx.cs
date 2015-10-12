@@ -32,17 +32,21 @@ namespace subibaja
         {
             grdEstablecimientos.DataSource = controladora.TraerTodos();
             ckNiveles.DataSource = controladora.niveles.TraerTodos();
+            ddlCiudad.DataSource = controladora.ciudades.TraerTodos();
+            ddlCiudad.DataValueField = "Id";
+            ddlCiudad.DataTextField = "Nombre";
             GenerarColumnas(grdEstablecimientos);
             if (!IsPostBack)
             {
                 grdEstablecimientos.DataBind();
                 ckNiveles.DataBind();
+                ddlCiudad.DataBind();
             }
         }
 
         protected void btnAgregar_Click1(object sender, EventArgs e)
         {
-            controladora.Nuevo(txtNombre.Text, listaIdsSeleccionados());
+            controladora.Nuevo(txtNombre.Text, Convert.ToInt32(ddlCiudad.SelectedValue), listaIdsSeleccionados());
             grdEstablecimientos.DataBind();
             this.LimpiarControles(Page.Controls);
         }

@@ -60,6 +60,7 @@
     <Content Include="Gruntfile.js" />
     <Content Include="index.aspx" />
     <Content Include="NivelesEducativos.aspx" />
+    <Content Include="Provincias.aspx" />
     <Content Include="Rutas.aspx" />
     <Content Include="src\js\main.js" />
     <Content Include="src\js\menu.js" />
@@ -121,6 +122,13 @@
       <DependentUpon>NivelesEducativos.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Provincias.aspx.cs">
+      <DependentUpon>Provincias.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Provincias.aspx.designer.cs">
+      <DependentUpon>Provincias.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Rutas.aspx.cs">
       <DependentUpon>Rutas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

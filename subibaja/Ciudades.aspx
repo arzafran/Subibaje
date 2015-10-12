@@ -23,9 +23,16 @@
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="txtNombre">Descripcion:</label>
+                        <label class="col-sm-2 control-label" for="txtNombre">Nombre:</label>
                         <div class="col-sm-10">
                             <asp:TextBox autocomplete="off" CssClass="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label" for="ddlProvincia">Provincia:</label>
+                        <div class="col-sm-10">
+                            <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="form-control">
+                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">

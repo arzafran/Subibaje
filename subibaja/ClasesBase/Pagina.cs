@@ -24,7 +24,9 @@ namespace subibaja.ClasesBase
                 PropertyInfo[] properties = tipoCompleto.GetProperties(flags);
                 string[] palabras = tipoCompleto.ToString().Split('.');
                 string tipo = palabras.Last();
-                
+                int totalColumnas = 0;
+                Unit u = new Unit("30px");
+
                 foreach (PropertyInfo property in properties)
                 {
                     var oTipo = property.PropertyType;
@@ -40,12 +42,16 @@ namespace subibaja.ClasesBase
                 enlaceEdicion.Text = "<span class='glyphicon glyphicon-edit'></span>";
                 enlaceEdicion.DataNavigateUrlFields = new string[] { "Id" };
                 enlaceEdicion.DataNavigateUrlFormatString = "Edit/" + tipo + "?Id={0}";
+                enlaceEdicion.ItemStyle.Width = u;
                 gv.Columns.Add(enlaceEdicion);
                 HyperLinkField enlaceBorrado = new HyperLinkField();
                 enlaceBorrado.Text = "<span class='glyphicon glyphicon-remove'></span>";
                 enlaceBorrado.DataNavigateUrlFields = new string[] { "Id" };
                 enlaceBorrado.DataNavigateUrlFormatString = "Remove/" + tipo + "?Id={0}";
+                enlaceBorrado.ItemStyle.Width = u;
                 gv.Columns.Add(enlaceBorrado);
+                totalColumnas = gv.Columns.Count;
+                
             }
         }
 

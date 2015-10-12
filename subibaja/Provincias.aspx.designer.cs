@@ -10,16 +10,16 @@
 namespace subibaja {
     
     
-    public partial class Ciudades {
+    public partial class Provincias {
         
         /// <summary>
-        /// Control grdCiudades.
+        /// Control grdProvincias.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdCiudades;
+        protected global::System.Web.UI.WebControls.GridView grdProvincias;
         
         /// <summary>
         /// Control txtNombre.
@@ -29,15 +29,6 @@ namespace subibaja {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox txtNombre;
-        
-        /// <summary>
-        /// Control ddlProvincia.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlProvincia;
         
         /// <summary>
         /// Control btnAgregar.

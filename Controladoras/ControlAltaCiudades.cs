@@ -10,10 +10,12 @@ namespace Controladoras
     public class ControlAltaCiudades
     {
         private ListaCiudades DatosCiudades = ListaCiudades.Instance();
+        public ListaProvincias provincias = ListaProvincias.Instance();
 
-        public void Nuevo(string nombre)
+        public void Nuevo(string nombre, int idProvincia)
         {
-            Ciudad oCiudad = new Ciudad(nombre);
+            Provincia oProvincia = provincias.BuscarPorId(idProvincia);
+            Ciudad oCiudad = new Ciudad(nombre, oProvincia);
             DatosCiudades.Agregar(oCiudad);
         }
 
