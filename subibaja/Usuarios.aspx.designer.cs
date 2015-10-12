@@ -10,7 +10,16 @@
 namespace subibaja {
     
     
-    public partial class AltaUsuarios {
+    public partial class Usuarios {
+        
+        /// <summary>
+        /// Control grdUsuarios.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.GridView grdUsuarios;
         
         /// <summary>
         /// Control txtNombre.
@@ -65,14 +74,5 @@ namespace subibaja {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::subibaja.Controles.ModernButton btnAgregar;
-        
-        /// <summary>
-        /// Control grdUsuarios.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdUsuarios;
     }
 }

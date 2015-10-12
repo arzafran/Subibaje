@@ -50,17 +50,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AltaEstablecimientos.aspx" />
-    <Content Include="AltaNivelesEducativos.aspx" />
-    <Content Include="AltaUsuarios.aspx" />
     <Content Include="app\css\style.css" />
     <Content Include="app\index.html" />
     <Content Include="app\js\app.js" />
+    <Content Include="Ciudades.aspx" />
     <Content Include="css\app.css" />
+    <Content Include="Empresas.aspx" />
+    <Content Include="Establecimientos.aspx" />
     <Content Include="Gruntfile.js" />
     <Content Include="index.aspx" />
+    <Content Include="NivelesEducativos.aspx" />
     <Content Include="src\js\main.js" />
     <Content Include="src\js\menu.js" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -70,27 +72,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AltaEstablecimientos.aspx.cs">
-      <DependentUpon>AltaEstablecimientos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AltaEstablecimientos.aspx.designer.cs">
-      <DependentUpon>AltaEstablecimientos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AltaNivelesEducativos.aspx.cs">
-      <DependentUpon>AltaNivelesEducativos.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AltaNivelesEducativos.aspx.designer.cs">
-      <DependentUpon>AltaNivelesEducativos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="AltaUsuarios.aspx.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="AltaUsuarios.aspx.designer.cs">
-      <DependentUpon>AltaUsuarios.aspx</DependentUpon>
-    </Compile>
     <Compile Include="App.Master.cs">
       <DependentUpon>App.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -98,7 +79,31 @@
     <Compile Include="App.Master.designer.cs">
       <DependentUpon>App.Master</DependentUpon>
     </Compile>
+    <Compile Include="Ciudades.aspx.cs">
+      <DependentUpon>Ciudades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Ciudades.aspx.designer.cs">
+      <DependentUpon>Ciudades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClasesBase\Pagina.cs">
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
     <Compile Include="Controles\ModernButton.cs" />
+    <Compile Include="Empresas.aspx.cs">
+      <DependentUpon>Empresas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Empresas.aspx.designer.cs">
+      <DependentUpon>Empresas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Establecimientos.aspx.cs">
+      <DependentUpon>Establecimientos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Establecimientos.aspx.designer.cs">
+      <DependentUpon>Establecimientos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -106,7 +111,21 @@
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="NivelesEducativos.aspx.cs">
+      <DependentUpon>NivelesEducativos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="NivelesEducativos.aspx.designer.cs">
+      <DependentUpon>NivelesEducativos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\accesoDatos\accesoDatos.csproj">

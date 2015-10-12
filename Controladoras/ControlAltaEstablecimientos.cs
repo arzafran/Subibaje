@@ -12,17 +12,15 @@ namespace Controladoras
         private ListaEstablecimientos DatosEstablecimiento = ListaEstablecimientos.Instance();
         public ListaNivelesEducativos niveles = ListaNivelesEducativos.Instance();
 
-        public void Nuevo(string descripcion, List<int> levels)
+        public void Nuevo(string descripcion, List<int> listaIds)
         {
-            List<NivelEducativo> _niveles = null;
-            levels.ForEach(delegate(int c)
-                {
-                    _niveles.Add(niveles.BuscarPorId(c));
-                }
-            );
-            Establecimiento oNivel = new Establecimiento(descripcion);
-            oNivel.Niveles = _niveles;
-            DatosEstablecimiento.Agregar(oNivel);
+            List<NivelEducativo> _niveles = new List<NivelEducativo>();
+            foreach (int id in listaIds)
+            { 
+                _niveles.Add(niveles.BuscarPorId(id));
+            }
+            Establecimiento oEstablecimiento = new Establecimiento(descripcion, _niveles);
+            DatosEstablecimiento.Agregar(oEstablecimiento);
         }
 
         public List<Establecimiento> TraerTodos()

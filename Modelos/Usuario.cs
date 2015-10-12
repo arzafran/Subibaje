@@ -7,17 +7,17 @@ namespace Modelos
 {
     public class Usuario
     {
+        private string _password;
         public int Id { get ; set; }
         public string Nombre { get; set; }
         public int Dni { get; set; }
         public string Email { get; set; }
-        public string Password { get; set; }
 
         public Usuario(string nombre, string password, string mail, int dni) 
         {
             Nombre = nombre;
             Email = mail;
-            Password = password;
+            _password = password;
             Dni = dni;
         }
     }

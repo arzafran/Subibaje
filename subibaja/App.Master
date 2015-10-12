@@ -18,29 +18,33 @@
         <!-- Slide Menu -->
         <div id="slider" class="sidebar-wrapper">
             <ul class="sidebar-nav">
-                <li class="sidebar-brand">
+                <li>
+                    <a href="Empresas.aspx">Empresas LD</a>
                 </li>
                 <li>
-                    <a href="AltaUsuarios.aspx">Usuarios</a>
+                    <a href="Establecimientos.aspx">Establecimientos</a>
                 </li>
                 <li>
-                    <a href="AltaEstablecimientos.aspx">Establecimientos</a>
+                    <a href="Ciudades.aspx">Ciudades</a>
                 </li>
                 <li>
-                    <a href="AltaNivelesEducativos.aspx">Niveles</a>
+                    <a href="NivelesEducativos.aspx">Niveles</a>
+                </li>
+                <li>
+                    <a href="Usuarios.aspx">Usuarios</a>
                 </li>
             </ul>
         </div>
         <!-- /Slide Menu -->
         <!-- Header -->
-        <nav class="navbar navbar-default navbar-top">
+        <nav class="navbar navbar-default navbar-top navbar-deaca">
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.aspx">
                         <img alt="Subibaje" src="">
                     </a>
                 </div>
-                <a href="#" class="btn btn-default navbar-btn pull-right" id="trigger">&#9776;</a>
+                <a href="#" class="btn btn-celeste navbar-btn pull-right" id="trigger">&#9776;</a>
             </div>
         </nav>
         <!-- /Header -->
@@ -50,6 +54,9 @@
         
             </asp:ContentPlaceHolder>
         </div>
+        <asp:ContentPlaceHolder ID="modalCarga" runat="server">
+        
+        </asp:ContentPlaceHolder>
         <!-- /Main Content-->
         <!-- Scripts -->
         <script src="app/js/app.js" type="text/javascript"></script>

@@ -40,8 +40,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAltaCiudades.cs" />
+    <Compile Include="ControlAltaEmpresas.cs" />
     <Compile Include="ControlAltaEstablecimientos.cs" />
     <Compile Include="ControlAltaNivelesEducativos.cs" />
+    <Compile Include="ControlAltaUrbanos.cs" />
     <Compile Include="ControlAltaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

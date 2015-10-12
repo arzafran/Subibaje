@@ -5,24 +5,27 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Controladoras;
+using subibaja.ClasesBase;
 
 namespace subibaja
 {
-    public partial class AltaNivelEducativo : System.Web.UI.Page
+    public partial class NivelesEducativos : Pagina
     {
         private ControlAltaNivelesEducativos controladora = new ControlAltaNivelesEducativos();
-
 
         protected void Page_Load(object sender, EventArgs e)
         {
             grdNiveles.DataSource = controladora.TraerTodos();
-            grdNiveles.DataBind();
+            GenerarColumnas(grdNiveles);
+            if (!IsPostBack)
+                grdNiveles.DataBind();
         }
 
-        protected void Agregar_Click(object sender, EventArgs e)
+        protected void btnAgregar_Click(object sender, EventArgs e)
         {
             controladora.Nuevo(txtDescripcion.Text);
             grdNiveles.DataBind();
+            this.LimpiarControles(Page.Controls);
         }
     }
 }

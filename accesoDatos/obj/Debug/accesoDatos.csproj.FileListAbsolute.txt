@@ -5,3 +5,10 @@ C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\s
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\accesoDatos\obj\Debug\accesoDatos.dll
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\subibaja\accesoDatos\obj\Debug\accesoDatos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\bin\Debug\accesoDatos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\bin\Debug\accesoDatos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\bin\Debug\Modelos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\bin\Debug\Modelos.pdb
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\accesoDatos.dll
+C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\accesoDatos.pdb

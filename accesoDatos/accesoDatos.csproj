@@ -42,8 +42,11 @@
   <ItemGroup>
     <Compile Include="CapaDatosAbstractaSingleton.cs" />
     <Compile Include="ICapaDatos.cs" />
+    <Compile Include="ListaCiudades.cs" />
+    <Compile Include="ListaEmpresas.cs" />
     <Compile Include="ListaEstablecimientos.cs" />
     <Compile Include="ListaNivelesEducativos.cs" />
+    <Compile Include="ListaUrbanos.cs" />
     <Compile Include="ListaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
