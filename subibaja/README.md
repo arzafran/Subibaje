@@ -9,6 +9,8 @@ SUBE-like app for public institutions in Mar del Plata.
 
 ## Install dependencies
 > npm install
+
+
 > bower install
 
 ## Build the app
@@ -18,12 +20,3 @@ compiles less, and uglyfies js
 
 ## Watch files for changes
 > grunt watch
-
-
-
-
-
-
-
-
-
