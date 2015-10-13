@@ -884,6 +884,14 @@ a.list-group-item-danger.active,button.list-group-item-danger.active,a.list-grou
 .well-sm{padding:9px;border-radius:2px}
 .close{float:right;font-size:21px;font-weight:bold;line-height:1;color:#000;text-shadow:0 1px 0 #fff;opacity:.2;filter:alpha(opacity=20)}.close:hover,.close:focus{color:#000;text-decoration:none;cursor:pointer;opacity:.5;filter:alpha(opacity=50)}
 button.close{padding:0;cursor:pointer;background:transparent;border:0;-webkit-appearance:none}
+.form-inline .form-group{margin-bottom:15px}
+.btn-agregar{position:fixed;right:10px;bottom:10px}
+.btn-celeste{background-color:#03a9f4;color:#FFF}
+.separa-titulo{height:3px;color:#e91e63;background-color:#e91e63;width:75px;text-align:center;margin-bottom:35px;margin-top:0;border:none}
+.cabecera-titulo{text-align:center;margin-bottom:5px}
+.navbar-deaca{border:none;background-color:#03a9f4;color:#FFF}
+.sidebar-nav{z-index:1000}
+.navbar-default{box-shadow:0 4px 4px rgba(0,0,0,0.3)}
 .modal-open{overflow:hidden}
 .modal{display:none;overflow:hidden;position:fixed;top:0;right:0;bottom:0;left:0;z-index:1050;-webkit-overflow-scrolling:touch;outline:0}.modal.fade .modal-dialog{-webkit-transform:translate(0, -25%);-ms-transform:translate(0, -25%);-o-transform:translate(0, -25%);transform:translate(0, -25%);-webkit-transition:-webkit-transform 0.3s ease-out;-moz-transition:-moz-transform 0.3s ease-out;-o-transition:-o-transform 0.3s ease-out;transition:transform 0.3s ease-out}
 .modal.in .modal-dialog{-webkit-transform:translate(0, 0);-ms-transform:translate(0, 0);-o-transform:translate(0, 0);transform:translate(0, 0)}
