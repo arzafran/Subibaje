@@ -4,8 +4,9 @@
   "dependencies": {
     "modernizr": "~2.6.2",
     "jquery": "latest",
+    "jquery-ui": "latest",
     "bootstrap": "latest",
     "slidereveal": "latest",
-  },
-  "devDependencies": {}
+    "sweetalert": "~1.1.0"
+  }
 }

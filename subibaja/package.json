@@ -1,10 +1,12 @@
 {
   "name": "Subibaje",
   "version": "0.0.0",
-  "dependencies": {
-    "grunt-contrib-less": "~0.6.4"
+  "description": "SUBE-like proyect for local institutions",
+  "repository": {
+    "type": "git",
+    "url": "http://github.com/arzafran/Subibaje"
   },
-  "devDependencies": {
+  "dependencies": {
     "grunt": "~0.4.1",
     "grunt-cli": "latest",
     "grunt-contrib-less": "~0.6.4",
