@@ -2,9 +2,9 @@
 <%@ Register TagPrefix="mc" Namespace="subibaja.Controles" Assembly="subibaja" %>
 
 <asp:Content ID="muestraEstablecimientos" ContentPlaceHolderID="contenido" Runat="Server">
-    <h2 class="cabecera-titulo">Establecimientos</h2>
-    <hr class="separa-titulo" />
-    <button type="button" class="btn btn-info btn-agregar" data-toggle="modal" data-target="#carga">
+    <h2>Establecimientos</h2>
+    <hr/>
+    <button type="button" class="btn btn-info btn-add" data-toggle="modal" data-target="#carga">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
     <asp:GridView EmptyDataText="No hay establecimientos cargados" 

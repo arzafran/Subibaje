@@ -20,3 +20,15 @@ C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\S
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\subibaja\bin\Controladoras.pdb
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\subibaja\bin\Modelos.pdb
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\subibaja\obj\Debug\subibaja.pdb
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\subibaja.dll.config
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\subibaja.dll
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\subibaja.pdb
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\accesoDatos.dll
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\Controladoras.dll
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\Modelos.dll
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\accesoDatos.pdb
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\Controladoras.pdb
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\Modelos.pdb
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\subibaja.dll
+C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\subibaja.pdb

@@ -13,6 +13,13 @@
   min-height: @navbar-height; // Ensure a navbar always shows (e.g., without a .navbar-brand in collapsed mode)
   margin-bottom: @navbar-margin-bottom;
   border: 1px solid transparent;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.3);
+  
+  &.navbar-deaca{
+    border: none;
+    background-color: @deaca-primary;
+    color: @white;
+  }
 
   // Prevent floats from breaking the navbar
   &:extend(.clearfix all);
@@ -29,7 +36,7 @@
 // styling of responsive aspects.
 
 .navbar-header {
-  &:extend(.clearfix all);
+  // &:extend(.clearfix all);
 
   @media (min-width: @grid-float-breakpoint) {
     float: left;
@@ -343,12 +350,20 @@
 
 .navbar-btn {
   .navbar-vertical-align(@input-height-base);
-
+  
   &.btn-sm {
     .navbar-vertical-align(@input-height-small);
   }
   &.btn-xs {
     .navbar-vertical-align(22);
+  }
+
+  //deaca Colors
+  background-color: @deaca-primary;
+  color: @white;
+  &:hover,
+  &:focus{
+    color: @gray-lighter;
   }
 }
 
@@ -399,7 +414,7 @@
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
   .navbar-brand {
-    color: @navbar-default-brand-color;
+    color: @white;
     &:hover,
     &:focus {
       color: @navbar-default-brand-hover-color;
