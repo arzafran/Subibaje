@@ -3,8 +3,9 @@ module.exports = function(grunt) {
     pkg: grunt.file.readJSON('package.json'),
     less: {
       task: {
-        src: ['src/less/bootstrap.less',
-         'bower_components/sweetalert/dist/sweetalert.css'],
+        src: ['bower_components/bootstrap/dist/css/bootstrap.css',
+        'bower_components/bootstrap-material-design/dist/css/material.css',
+        'src/css/styles.less'],
         dest: 'app/css/style.css'
       },
       options: {
@@ -39,8 +40,8 @@ module.exports = function(grunt) {
           'bower_components/jquery/dist/jquery.min.js',
           'bower_components/jquery-ui/jquery-ui.min.js',
           'bower_components/bootstrap/dist/js/bootstrap.min.js',
+          'bower_components/bootstrap-material-design/dist/js/material.min.js',
           'bower_components/slidereveal/dist/jquery.slidereveal.min.js',
-          'bower_components/sweetalert/dist/sweetalert.min.js',
           'src/js/*.js'
         ],
         dest: 'app/js/app.js'

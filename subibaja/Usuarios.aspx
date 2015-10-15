@@ -4,7 +4,7 @@
 <asp:Content ID="muestraUsuarios" ContentPlaceHolderID="contenido" Runat="Server">
     <h2>Usuarios</h2>
     <hr/>
-    <button type="button" class="btn btn-info btn-add" data-toggle="modal" data-target="#carga">
+    <button type="button" class="btn btn-fab btn-material-pink" data-toggle="modal" data-target="#carga">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
     <asp:GridView EmptyDataText="No hay usuarios cargados" 

@@ -32,3 +32,15 @@ C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\bin\Modelos.pdb
 C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\Vistas.csprojResolveAssemblyReference.cache
 C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\subibaja.dll
 C:\Users\franco.arza\Desktop\Fran\Subibaje\subibaja\obj\Debug\subibaja.pdb
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\subibaja.dll.config
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\subibaja.dll
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\subibaja.pdb
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\accesoDatos.dll
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\Controladoras.dll
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\Modelos.dll
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\accesoDatos.pdb
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\Controladoras.pdb
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\bin\Modelos.pdb
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\obj\Debug\Vistas.csprojResolveAssemblyReference.cache
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\obj\Debug\subibaja.dll
+C:\Users\Franco\Documents\Facultad\Subibaje\subibaja\obj\Debug\subibaja.pdb

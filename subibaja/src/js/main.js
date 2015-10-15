@@ -53,4 +53,5 @@ $(function() {
       "dni": 92759592
     }]
   };
+  $.material.init();
 });

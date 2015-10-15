@@ -11,7 +11,7 @@
     "jquery": "~2.1.4",
     "jquery-ui": "~1.11.4",
     "bootstrap": "~3.3.5",
-    "slidereveal": "~1.0.0",
-    "sweetalert": "~1.1.0"
+    "bootstrap-material-design": "~0.3.0",
+    "slidereveal": "~1.0.0"
   }
 }

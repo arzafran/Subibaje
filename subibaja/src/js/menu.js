@@ -1,7 +1,7 @@
 $(function() {
   slider = $("#slider").slideReveal({
     push: false,
-    position: "left",
+    position: "right",
     speed: 600,
     trigger: $("#trigger"),
     show: function(obj) {
