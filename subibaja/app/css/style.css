@@ -3309,7 +3309,7 @@ hr.on-light{color:#ffffff}
 .shadow-z-4{box-shadow:0 16px 28px 0 rgba(0,0,0,0.22),0 25px 55px 0 rgba(0,0,0,0.21)}
 .shadow-z-5{box-shadow:0 27px 24px 0 rgba(0,0,0,0.2),0 40px 77px 0 rgba(0,0,0,0.22)}
 
-.btn.btn-fab{position:fixed;padding:6px 0px 0px 3px;right:222px;bottom:30px}
+.btn.btn-fab{position:fixed;padding:6px 0px 0px 3px;right:20px;bottom:30px}
 .sidebar-nav{position:relative;width:250px;height:100%;margin:0;padding:60px 0 0 0;list-style:none;background-color:#404040;box-shadow:0 10px 20px rgba(0,0,0,0.19),0 6px 6px rgba(0,0,0,0.23);z-index:1000}
 .sidebar-nav li{text-indent:20px;line-height:40px}
 .sidebar-nav li a{display:block;text-decoration:none;color:#EDEDED}
