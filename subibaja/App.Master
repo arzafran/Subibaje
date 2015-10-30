@@ -9,7 +9,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
         <title>Subibaje</title>
         <link href="app/css/style.css" rel="stylesheet" type="text/css" />
-        <link href="css/app.css" rel="stylesheet" type="text/css" />
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
     </head>
