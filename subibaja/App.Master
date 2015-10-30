@@ -50,7 +50,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.aspx">
-                        <img alt="Subibaje" src="">
+                        <span>Subibaje</span> 
                     </a>
                 </div>
                 <a href="#" class="btn navbar-btn pull-right" id="trigger">&#9776;</a>
@@ -62,6 +62,7 @@
             <asp:ContentPlaceHolder ID="contenido" runat="server">
         
             </asp:ContentPlaceHolder>
+            <div class="overlay"></div>
         </div>
         <asp:ContentPlaceHolder ID="modalCarga" runat="server">
         

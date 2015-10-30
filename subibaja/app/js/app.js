@@ -10529,9 +10529,13 @@ if (window.Modernizr = function(window, document, undefined) {
         position: "right",
         speed: 600,
         trigger: $("#trigger"),
-        show: function(obj) {},
+        show: function(obj) {
+            $("#main-container").addClass("disabled");
+        },
         shown: function(obj) {},
-        hide: function(obj) {},
+        hide: function(obj) {
+            $("#main-container").removeClass("disabled");
+        },
         hidden: function(obj) {}
     });
 });

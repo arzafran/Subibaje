@@ -5,12 +5,12 @@ $(function() {
     speed: 600,
     trigger: $("#trigger"),
     show: function(obj) {
+      $("#main-container").addClass("disabled");
     },
-    shown: function(obj) {
-    },
+    shown: function(obj) {},
     hide: function(obj) {
+      $("#main-container").removeClass("disabled");
     },
-    hidden: function(obj) {
-    }
+    hidden: function(obj) {}
   });
 });
