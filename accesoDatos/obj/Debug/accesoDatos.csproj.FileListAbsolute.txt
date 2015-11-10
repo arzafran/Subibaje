@@ -12,3 +12,17 @@ C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\S
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\accesoDatos.dll
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\accesoDatos\obj\Debug\accesoDatos.pdb
+C:\Subibaje\accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Subibaje\accesoDatos\obj\Debug\accesoDatos.dll
+C:\Subibaje\accesoDatos\obj\Debug\accesoDatos.pdb
+C:\Subibaje\accesoDatos\bin\Debug\accesoDatos.dll
+C:\Subibaje\accesoDatos\bin\Debug\accesoDatos.pdb
+C:\Subibaje\accesoDatos\bin\Debug\Modelos.dll
+C:\Subibaje\accesoDatos\bin\Debug\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\accesoDatos\bin\Debug\accesoDatos.dll
+C:\Users\colo\Desktop\Subibaje\accesoDatos\bin\Debug\accesoDatos.pdb
+C:\Users\colo\Desktop\Subibaje\accesoDatos\bin\Debug\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\accesoDatos\bin\Debug\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Debug\accesoDatos.dll
+C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Debug\accesoDatos.pdb

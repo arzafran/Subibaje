@@ -8,3 +8,13 @@ C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\S
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Modelos\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Modelos\obj\Debug\Modelos.dll
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Modelos\obj\Debug\Modelos.pdb
+C:\Subibaje\Modelos\bin\Debug\Modelos.dll
+C:\Subibaje\Modelos\bin\Debug\Modelos.pdb
+C:\Subibaje\Modelos\obj\Debug\ResolveAssemblyReference.cache
+C:\Subibaje\Modelos\obj\Debug\Modelos.dll
+C:\Subibaje\Modelos\obj\Debug\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\Modelos\bin\Debug\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Modelos\bin\Debug\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Debug\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Debug\Modelos.pdb

@@ -12,7 +12,7 @@
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
     </head>
-    <body>
+    <body style="display:none;">
     <form class="form-horizontal" id="form1" runat="server">
         <!-- Slide Menu -->
         <div id="slider" class="sidebar-wrapper">
@@ -58,6 +58,11 @@
         <!-- /Header -->
         <!-- Main Content -->
         <div id="main-container" class="container">
+            <asp:Panel CssClass="alert alert-warning alert-dismissible hidden" role="alert" ID="wrapperExcepcion" runat="server">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <asp:Label ID="lblExcepcion" runat="server" Text=""></asp:Label>
+            </asp:Panel>
+
             <asp:ContentPlaceHolder ID="contenido" runat="server">
         
             </asp:ContentPlaceHolder>
@@ -69,6 +74,14 @@
         <!-- /Main Content-->
         <!-- Scripts -->
         <script src="app/js/app.js" type="text/javascript"></script>
+        <script type"text/javascript">
+            $(document).ready(function () {
+                $('body').show();
+            });
+        </script>
+        <asp:ContentPlaceHolder ID="scripts" runat="server">
+        
+        </asp:ContentPlaceHolder>
     </form>
     </body>
 </html>

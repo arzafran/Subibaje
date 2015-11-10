@@ -9,6 +9,7 @@ namespace Modelos
     {
         public int Id { get; set; }
         public string Nombre { get; set; }
+        public DateTime Borrado { get; set; }
 
         public override string ToString()
         {
@@ -18,6 +19,19 @@ namespace Modelos
         public Provincia(string nombre)
         {
             Nombre = nombre;
+        }
+
+        public Provincia(int id, string nombre)
+        {
+            Nombre = nombre;
+            Id = id;
+        }
+
+        public Provincia(int id, string nombre, DateTime borrado)
+        {
+            Nombre = nombre;
+            Id = id;
+            Borrado = borrado;
         }
     }
 }

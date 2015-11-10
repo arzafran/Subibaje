@@ -1,0 +1,5 @@
+C:\Users\colo\Desktop\Subibaje\Modelos\bin\Release\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Modelos\bin\Release\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\ResolveAssemblyReference.cache
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\Modelos.pdb

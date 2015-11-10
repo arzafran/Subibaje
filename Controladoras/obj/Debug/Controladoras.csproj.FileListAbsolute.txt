@@ -16,3 +16,21 @@ C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\S
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Controladoras\obj\Debug\ResolveAssemblyReference.cache
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Controladoras\obj\Debug\Controladoras.dll
 C:\Documents and Settings\operacion\Mis documentos\Visual Studio 2010\Projects\Subibaje\Controladoras\obj\Debug\Controladoras.pdb
+C:\Subibaje\Controladoras\bin\Debug\Controladoras.dll
+C:\Subibaje\Controladoras\bin\Debug\Controladoras.pdb
+C:\Subibaje\Controladoras\bin\Debug\accesoDatos.dll
+C:\Subibaje\Controladoras\bin\Debug\Modelos.dll
+C:\Subibaje\Controladoras\bin\Debug\accesoDatos.pdb
+C:\Subibaje\Controladoras\bin\Debug\Modelos.pdb
+C:\Subibaje\Controladoras\obj\Debug\ResolveAssemblyReference.cache
+C:\Subibaje\Controladoras\obj\Debug\Controladoras.dll
+C:\Subibaje\Controladoras\obj\Debug\Controladoras.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\Controladoras.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\Controladoras.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\accesoDatos.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\accesoDatos.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Debug\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\Controladoras.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\Controladoras.pdb

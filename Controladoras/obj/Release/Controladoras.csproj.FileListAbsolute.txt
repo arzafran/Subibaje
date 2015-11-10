@@ -1,0 +1,9 @@
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\Controladoras.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\Controladoras.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\accesoDatos.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\Modelos.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\accesoDatos.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\bin\Release\Modelos.pdb
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Release\ResolveAssemblyReference.cache
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Release\Controladoras.dll
+C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Release\Controladoras.pdb
