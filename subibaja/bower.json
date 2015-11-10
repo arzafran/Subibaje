@@ -13,6 +13,7 @@
     "bootstrap": "~3.3.5",
     "bootstrap-material-design": "~0.3.0",
     "slidereveal": "~1.0.0",
+    "sweetalert": "~1.1.3",
     "dropdown": "~0.3.0"
   }
 }
