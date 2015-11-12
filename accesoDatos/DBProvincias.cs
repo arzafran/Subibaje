@@ -15,12 +15,8 @@ namespace accesoDatos
 
         public void Agregar(Provincia oProvincia)
         {
-            if (this.BuscarPorNombre(oProvincia.Nombre) != null)
-                throw new Exception("La provincia ya está registrada");
-
             string query = "INSERT INTO provincias (nombre) VALUES ('" + oProvincia.Nombre + "')";
             _conexion.EjecutarNonSql(query);
-
         }
 
         public void Borrar(int id)
@@ -35,16 +31,12 @@ namespace accesoDatos
 
         public void Restituir(int id)
         {
-            //string query = "DELETE FROM provincias WHERE id=" + id.ToString();
             string query = "UPDATE provincias SET borrado = NULL WHERE id=" + id.ToString();
             _conexion.EjecutarNonSql(query);
         }
 
         public void Editar(Provincia oProvincia)
         {
-            if (this.BuscarPorNombre(oProvincia.Nombre) != null)
-                throw new Exception("Ese nombre ya está tomado");
-
             string query = "UPDATE provincias SET nombre = '" + oProvincia.Nombre + "' WHERE id=" + oProvincia.Id.ToString();
             _conexion.EjecutarNonSql(query);
         }
@@ -86,10 +78,10 @@ namespace accesoDatos
 
             DateTime.TryParse(dr["borrado"].ToString(), out dt);
 
-            return new Provincia((int)dr["id"], (string) dr["nombre"], dt);
+            return new Provincia((int) dr["id"], (string) dr["nombre"], dt);
         }
 
-        private Provincia BuscarPorNombre(string nombre)
+        public Provincia BuscarPorNombre(string nombre)
         {
             Provincia devolver = null;
             string query = "SELECT TOP 1 * FROM provincias WHERE nombre = '" + nombre + "'";

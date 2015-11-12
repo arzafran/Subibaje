@@ -13,12 +13,18 @@ namespace Controladoras
 
         public void Nuevo(string nombre)
         {
+            if (DatosProvincia.BuscarPorNombre(nombre) != null)
+                throw new Exception("Ya existe una provincia con ese nombre");
+
             Provincia oProvincia = new Provincia(nombre);
             DatosProvincia.Agregar(oProvincia);
         }
 
         public void Editar(string nombre, int id)
         {
+            if (DatosProvincia.BuscarPorNombre(nombre) != null)
+                throw new Exception("Otra provincia ya uso ese nombre");
+
             Provincia aux = DatosProvincia.BuscarPorId(id);
             if (aux != null)
             {

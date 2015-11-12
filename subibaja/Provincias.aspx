@@ -8,7 +8,7 @@
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
     <asp:GridView EmptyDataText="No hay provincias cargadas" OnRowDeleting="grdProvincias_RowDeleting"
-        CssClass="table table-condensed table-hover" ID="grdProvincias" runat="server" 
+        CssClass="table table-condensed table-hover sortable" ID="grdProvincias" runat="server" 
         GridLines="None" AutoGenerateColumns="false" DataKeyNames="id" 
         onrowcommand="grdProvincias_RowCommand" OnRowDataBound="grdProvincias_RowDataBound">
         <Columns>
@@ -24,7 +24,7 @@
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
-                    <asp:LinkButton ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>" OnClientClick="return confirm('daaaa');"></asp:LinkButton>
+                    <asp:LinkButton OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -73,7 +73,7 @@
         $(document).ready(function () {
             var btnEditar = $('#modalCarga_btnEditar'),
                 btnAgregar = $('#modalCarga_btnAgregar');
-            
+
             btnAgregar.hide();
 
             $('#btnMas').click(function () {
