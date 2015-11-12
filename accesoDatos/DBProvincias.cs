@@ -27,7 +27,9 @@ namespace accesoDatos
         }
 
         public void Borrar(Provincia oProvincia)
-        { }
+        {
+            this.Borrar(oProvincia.Id);
+        }
 
         public void Restituir(int id)
         {
@@ -78,7 +80,7 @@ namespace accesoDatos
 
             DateTime.TryParse(dr["borrado"].ToString(), out dt);
 
-            return new Provincia((int) dr["id"], (string) dr["nombre"], dt);
+            return new Provincia((string) dr["nombre"], (int) dr["id"], dt);
         }
 
         public Provincia BuscarPorNombre(string nombre)

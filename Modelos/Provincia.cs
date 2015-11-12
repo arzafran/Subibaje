@@ -21,13 +21,13 @@ namespace Modelos
             Nombre = nombre;
         }
 
-        public Provincia(int id, string nombre)
+        public Provincia(string nombre, int id)
         {
             Nombre = nombre;
             Id = id;
         }
 
-        public Provincia(int id, string nombre, DateTime borrado)
+        public Provincia(string nombre, int id, DateTime borrado)
         {
             Nombre = nombre;
             Id = id;

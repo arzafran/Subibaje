@@ -23,7 +23,7 @@ namespace accesoDatos
 
         public void Agregar(NivelEducativo oNivel)
         {
-            if (BuscarPorDescripcion(oNivel.Descripcion) is NivelEducativo)
+            if (BuscarPorDescripcion(oNivel.Nombre) is NivelEducativo)
             {
                 throw new Exception("El nivel educativo ya se encuentra registrado.");
             }
@@ -57,7 +57,7 @@ namespace accesoDatos
 
         public NivelEducativo BuscarPorDescripcion(string descripcion)
         {
-            return (NivelEducativo)lista.Find(u => u.Descripcion == descripcion);
+            return (NivelEducativo)lista.Find(u => u.Nombre == descripcion);
         }
     }
 }

@@ -42,7 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaDatosAbstractaSingleton.cs" />
+    <Compile Include="DBCiudades.cs" />
     <Compile Include="DBConnector.cs" />
+    <Compile Include="DBEstablecimientos.cs" />
+    <Compile Include="DBNivelesEducativos.cs" />
     <Compile Include="DBProvincias.cs" />
     <Compile Include="ICapaDatos.cs" />
     <Compile Include="ListaCiudades.cs" />

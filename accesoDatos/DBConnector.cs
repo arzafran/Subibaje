@@ -9,8 +9,9 @@ using System.Data.SqlClient;
 namespace accesoDatos
 {
     public class DBConnector
-    {   
-        private SqlConnection _connection = new SqlConnection("Data Source=COLOVM\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
+    {
+        //private SqlConnection _connection = new SqlConnection("Data Source=COLOVM\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
+        private SqlConnection _connection = new SqlConnection("Data Source=TE205804\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
 
         public void Abrir()
         {
@@ -50,11 +51,15 @@ namespace accesoDatos
             this.Cerrar();
         }
 
-        public object EjecutarEscalar(string query)
+        //public object EjecutarEscalar(string query)
+        public int EjecutarEscalar(string query)
         {
+            query = query + "SELECT CAST(scope_identity() AS int)";
+
             SqlCommand command = new SqlCommand(query, this._connection);
             this.Abrir();
-            Object resultado = command.ExecuteScalar();
+            //Object resultado = command.ExecuteScalar();
+            int resultado = (int) command.ExecuteScalar();
             this.Cerrar();
             return resultado;
         }

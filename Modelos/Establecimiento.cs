@@ -10,6 +10,7 @@ namespace Modelos
         public int Id { get; set; }
         public string Nombre { get; set; }
         public Ciudad Ciudad { get; set; }
+        public DateTime Borrado { get; set; }
         public string Niveles 
         {
             get 
@@ -17,7 +18,7 @@ namespace Modelos
                 string devolver = "";
                 foreach (NivelEducativo oNivel in ListaNiveles)
                 {
-                    devolver += oNivel.Descripcion + " ";
+                    devolver += oNivel.Nombre + " ";
                 }
                 return devolver;
             }
@@ -30,5 +31,23 @@ namespace Modelos
             ListaNiveles = niveles;
             Ciudad = ciudad;
         }
+
+        public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles, int id)
+        {
+            Nombre = nombre;
+            Id = id;
+            ListaNiveles = niveles;
+            Ciudad = ciudad;
+        }
+
+        public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles, int id, DateTime borrado)
+        {
+            Nombre = nombre;
+            Id = id;
+            ListaNiveles = niveles;
+            Ciudad = ciudad;
+            Borrado = borrado;
+        }
+
     }
 }

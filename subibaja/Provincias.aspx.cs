@@ -35,12 +35,12 @@ namespace subibaja
 
             if (!IsPostBack)
                 this.Bind();
-
         }
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
             wrapperError.Style.Add("display", "none");
+
             try
             {
                 controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value));
