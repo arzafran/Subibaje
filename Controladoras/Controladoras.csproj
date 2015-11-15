@@ -41,13 +41,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlAltaCiudades.cs" />
-    <Compile Include="ControlAltaEmpresas.cs" />
     <Compile Include="ControlAltaEstablecimientos.cs" />
+    <Compile Include="ControlAltaEstudiantes.cs" />
     <Compile Include="ControlAltaNivelesEducativos.cs" />
     <Compile Include="ControlAltaProvincias.cs" />
-    <Compile Include="ControlAltaRutas.cs" />
     <Compile Include="ControlAltaUrbanos.cs" />
-    <Compile Include="ControlAltaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

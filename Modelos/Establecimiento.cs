@@ -24,18 +24,10 @@ namespace Modelos
             }
         }
         public List<NivelEducativo> ListaNiveles { get; set; }
-
+        
         public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles)
         {
             Nombre = nombre;
-            ListaNiveles = niveles;
-            Ciudad = ciudad;
-        }
-
-        public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles, int id)
-        {
-            Nombre = nombre;
-            Id = id;
             ListaNiveles = niveles;
             Ciudad = ciudad;
         }

@@ -15,18 +15,18 @@ namespace Modelos
         {
             return this.Nombre;
         }
-
+        
         public Provincia(string nombre)
         {
             Nombre = nombre;
         }
-
+        /*
         public Provincia(string nombre, int id)
         {
             Nombre = nombre;
             Id = id;
-        }
-
+        }*/
+        
         public Provincia(string nombre, int id, DateTime borrado)
         {
             Nombre = nombre;

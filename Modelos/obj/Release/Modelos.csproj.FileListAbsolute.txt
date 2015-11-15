@@ -3,3 +3,8 @@ C:\Users\colo\Desktop\Subibaje\Modelos\bin\Release\Modelos.pdb
 C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\ResolveAssemblyReference.cache
 C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\Modelos.dll
 C:\Users\colo\Desktop\Subibaje\Modelos\obj\Release\Modelos.pdb
+C:\Subibaje\Modelos\bin\Release\Modelos.dll
+C:\Subibaje\Modelos\bin\Release\Modelos.pdb
+C:\Subibaje\Modelos\obj\Release\ResolveAssemblyReference.cache
+C:\Subibaje\Modelos\obj\Release\Modelos.dll
+C:\Subibaje\Modelos\obj\Release\Modelos.pdb

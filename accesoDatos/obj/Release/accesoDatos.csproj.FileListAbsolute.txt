@@ -5,3 +5,10 @@ C:\Users\colo\Desktop\Subibaje\accesoDatos\bin\Release\Modelos.pdb
 C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Release\ResolveAssemblyReference.cache
 C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Release\accesoDatos.dll
 C:\Users\colo\Desktop\Subibaje\accesoDatos\obj\Release\accesoDatos.pdb
+C:\Subibaje\accesoDatos\bin\Release\accesoDatos.dll
+C:\Subibaje\accesoDatos\bin\Release\accesoDatos.pdb
+C:\Subibaje\accesoDatos\bin\Release\Modelos.dll
+C:\Subibaje\accesoDatos\bin\Release\Modelos.pdb
+C:\Subibaje\accesoDatos\obj\Release\ResolveAssemblyReference.cache
+C:\Subibaje\accesoDatos\obj\Release\accesoDatos.dll
+C:\Subibaje\accesoDatos\obj\Release\accesoDatos.pdb

@@ -10,8 +10,8 @@ namespace accesoDatos
 {
     public class DBConnector
     {
-        //private SqlConnection _connection = new SqlConnection("Data Source=COLOVM\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
-        private SqlConnection _connection = new SqlConnection("Data Source=TE205804\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
+        private SqlConnection _connection = new SqlConnection("Data Source=COLOVM\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
+        //private SqlConnection _connection = new SqlConnection("Data Source=TE205804\\SQLEXPRESS;Initial Catalog=subibaje;Integrated Security=True");
 
         public void Abrir()
         {
@@ -61,7 +61,13 @@ namespace accesoDatos
             //Object resultado = command.ExecuteScalar();
             int resultado = (int) command.ExecuteScalar();
             this.Cerrar();
+
             return resultado;
+        }
+
+        public void EjecutarTransaccion()
+        {
+ 
         }
 
     }

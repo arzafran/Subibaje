@@ -12,26 +12,18 @@ namespace subibaja
 {
     public partial class Provincias : Pagina
     {
-        private ControlAltaProvincias controladora = new ControlAltaProvincias();
-        private Panel wrapperError;
-        private Label error;
+        private ControlAltaProvincias _controladora = new ControlAltaProvincias();
 
         private void Bind()
         {
-            grdProvincias.DataSource = controladora.TraerTodos();
+            grdProvincias.DataSource = _controladora.TraerTodos();
             grdProvincias.DataBind();
-        }
-
-        private void MostrarError(string mensaje)
-        {
-            error.Text = mensaje;
-            wrapperError.Style.Add("display", "block !important");
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            wrapperError = (Panel) Master.FindControl("wrapperExcepcion");
-            error = (Label)Master.FindControl("lblExcepcion");
+            _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");
+            _error = (Label)Master.FindControl("lblExcepcion");
 
             if (!IsPostBack)
                 this.Bind();
@@ -39,11 +31,11 @@ namespace subibaja
 
         protected void btnEditar_Click(object sender, EventArgs e)
         {
-            wrapperError.Style.Add("display", "none");
+            _wrapperError.Style.Add("display", "none");
 
             try
             {
-                controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value));
+                _controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value));
                 this.Bind();
             }
             catch (Exception ex)
@@ -57,11 +49,11 @@ namespace subibaja
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {   
-            wrapperError.Style.Add("display", "none");
+            _wrapperError.Style.Add("display", "none");
 
             try
             {
-                controladora.Nuevo(txtNombre.Text);
+                _controladora.Nuevo(txtNombre.Text);
             }
             catch (Exception ex)
             {
@@ -74,12 +66,12 @@ namespace subibaja
 
         protected void grdProvincias_RowDeleting(object sender, GridViewDeleteEventArgs e)
         {
-            wrapperError.Style.Add("display", "none");
+            _wrapperError.Style.Add("display", "none");
             
             try
             {
                 int id = Convert.ToInt32(grdProvincias.DataKeys[e.RowIndex].Value.ToString());
-                controladora.Borrar(id);
+                _controladora.Desactivar(id);
                 this.Bind();
             }
             catch(Exception ex)
@@ -90,7 +82,7 @@ namespace subibaja
 
         protected void grdProvincias_RowCommand(object sender, GridViewCommandEventArgs e)
         {
-            wrapperError.Style.Add("display", "none");
+            _wrapperError.Style.Add("display", "none");
 
             try
             {
@@ -99,20 +91,18 @@ namespace subibaja
                 switch (e.CommandName.ToString())
                 {
                     case "comandoEdicion":
-                        txtNombre.Text = controladora.BuscarPorId(id);
+                        txtNombre.Text = _controladora.BuscarPorId(id).Nombre;
                         idEdicion.Value = id.ToString();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "<script>$('#carga').modal('show');</script>", false);
                         break;
 
                     case "comandoBorrado":
-                        //id = Convert.ToInt32(grdProvincias.DataKeys[e.RowIndex].Value.ToString());
-                        controladora.Borrar(id);
+                        _controladora.Desactivar(id);
                         this.Bind();
                         break;
 
                     case "comandoRestitucion":
-                        //id = Convert.ToInt32(grdProvincias.DataKeys[e.RowIndex].Value.ToString());
-                        controladora.Restituir(id);
+                        _controladora.Reactivar(id);
                         this.Bind();
                         break;
                 }
@@ -128,11 +118,11 @@ namespace subibaja
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
-                string fechaBorrado = e.Row.Cells[2].Text;
                 DateTime dt;
-                DateTime.TryParse(fechaBorrado, out dt);
 
+                DateTime.TryParse(e.Row.Cells[2].Text, out dt);
                 LinkButton lb = (LinkButton)e.Row.FindControl("linkBorrado");
+                
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
                 {
                     e.Row.CssClass = "danger";

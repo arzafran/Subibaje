@@ -10,6 +10,15 @@ namespace subibaja.ClasesBase
 {
     public class Pagina : System.Web.UI.Page
     {
+        protected Panel _wrapperError;
+        protected Label _error;
+
+        protected void MostrarError(string mensaje)
+        {
+            _error.Text = mensaje;
+            _wrapperError.Style.Add("display", "block !important");
+        }
+
         /**
          * Por si quiero iterar solo sobre el panel
          * ContentPlaceHolder cp = (ContentPlaceHolder)this.Master.FindControl("modalCarga");

@@ -16,20 +16,27 @@ namespace Modelos
         {
             return this.Nombre;
         }
-
+        
         public Ciudad(string nombre, Provincia provincia)
         {
             Nombre = nombre;
             Provincia = provincia;
         }
 
+        public Ciudad(string nombre, int id, DateTime borrado)
+        {
+            Id = id;
+            Nombre = nombre;
+            Borrado = borrado;
+        }
+        /*
         public Ciudad(string nombre, Provincia provincia, int id)
         {
             Id = id;
             Nombre = nombre;
             Provincia = provincia;
         }
-
+        */
         public Ciudad(string nombre, Provincia provincia, int id, DateTime borrado)
         {
             Id = id;
@@ -37,5 +44,6 @@ namespace Modelos
             Provincia = provincia;
             Borrado = borrado;
         }
+        
     }
 }

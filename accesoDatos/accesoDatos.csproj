@@ -45,17 +45,11 @@
     <Compile Include="DBCiudades.cs" />
     <Compile Include="DBConnector.cs" />
     <Compile Include="DBEstablecimientos.cs" />
+    <Compile Include="DBEstudiantes.cs" />
     <Compile Include="DBNivelesEducativos.cs" />
     <Compile Include="DBProvincias.cs" />
+    <Compile Include="DBUrbanos.cs" />
     <Compile Include="ICapaDatos.cs" />
-    <Compile Include="ListaCiudades.cs" />
-    <Compile Include="ListaEmpresas.cs" />
-    <Compile Include="ListaEstablecimientos.cs" />
-    <Compile Include="ListaNivelesEducativos.cs" />
-    <Compile Include="ListaProvincias.cs" />
-    <Compile Include="ListaRutas.cs" />
-    <Compile Include="ListaUrbanos.cs" />
-    <Compile Include="ListaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

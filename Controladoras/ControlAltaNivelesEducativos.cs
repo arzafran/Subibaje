@@ -9,55 +9,107 @@ namespace Controladoras
 {
     public class ControlAltaNivelesEducativos
     {
-        private DBNivelesEducativos DatosNivelEducativo = new DBNivelesEducativos();
+        private DBNivelesEducativos _niveles = new DBNivelesEducativos();
+
+        /// <summary>
+        /// Crea un objeto nivel educativo y lo guarda en la DB
+        /// </summary>
+        /// <param name="nombre">Nombre del nivel educativo</param>
 
         public void Nuevo(string nombre)
         {
-            if (DatosNivelEducativo.BuscarPorNombre(nombre) != null)
+            if (_niveles.BuscarPorNombre(nombre) != null)
                 throw new Exception("Ya existe un nivel educativo con ese nombre");
 
             NivelEducativo oNivel = new NivelEducativo(nombre);
-            DatosNivelEducativo.Agregar(oNivel);
+            _niveles.Agregar(oNivel);
         }
+
+        /// <summary>
+        /// Edita el registro del nivel educativo especificado
+        /// </summary>
+        /// <param name="nombre">Nombre del nivel educativo</param>
+        /// <param name="id">ID del nivel educativo a editar</param>
 
         public void Editar(string nombre, int id)
         {
-            if (DatosNivelEducativo.BuscarPorNombre(nombre) != null)
-                throw new Exception("El nombre ya está usado");
+            NivelEducativo oNivel = _niveles.BuscarPorId(id),
+                           previo = _niveles.BuscarPorNombre(nombre);
 
-            NivelEducativo aux = DatosNivelEducativo.BuscarPorId(id);
-            if (aux != null)
-            {
-                aux.Nombre = nombre;
-                DatosNivelEducativo.Editar(aux);
-            }
+            if (previo != null)
+                throw new Exception("Ya existe un nivel educativo con ese nombre");
+
+            if (oNivel == null)
+                throw new Exception("No existe nivel educativo con ese ID");
+
+            oNivel.Nombre = nombre;
+            _niveles.Editar(oNivel);
         }
+
+        /// <summary>
+        /// Busca todos los niveles educativos
+        /// </summary>
+        /// <returns>Devuelve un lista de objetos nivel educativo</returns>
 
         public List<NivelEducativo> TraerTodos()
         {
-            //return Lista_Usuarios.Mostrar_Todo();
-            return DatosNivelEducativo.TraerTodos();
+            return _niveles.TraerTodos();
         }
 
-        public void Borrar(int id)
+        /// <summary>
+        /// Busca todos los niveles educativos
+        /// </summary>
+        /// <returns>Devuelve un lista de objetos nivel educativo</returns>
+
+        public List<NivelEducativo> TraerActivos()
         {
-            DatosNivelEducativo.Borrar(id);
+            return _niveles.TraerActivos();
         }
 
-        public void Restituir(int id)
+        /// <summary>
+        /// Marca como borrado el nivel educativo especificado
+        /// </summary>
+        /// <param name="id">ID del nivel educativo a desactivar</param>
+
+        public void Desactivar(int id)
         {
-            DatosNivelEducativo.Restituir(id);
+            NivelEducativo oNivel = _niveles.BuscarPorId(id);
+
+            if (oNivel == null)
+                throw new Exception("No existe nivel educativo con ese ID");
+
+            _niveles.Desactivar(id);
         }
 
-        public string BuscarPorId(int id)
+        /// <summary>
+        /// Marca como activo el nivel educativo especificado
+        /// </summary>
+        /// <param name="id">ID del nivel educativo a activar</param>
+
+        public void Reactivar(int id)
         {
-            NivelEducativo aux = DatosNivelEducativo.BuscarPorId(id);
-            string devolver = "";
+            NivelEducativo oNivel = _niveles.BuscarPorId(id);
 
-            if (aux != null)
-                devolver = aux.Nombre;
+            if (oNivel == null)
+                throw new Exception("No existe nivel educativo con ese ID");
 
-            return devolver;
+            _niveles.Reactivar(id);
+        }
+
+        /// <summary>
+        /// Buscael nivel educativo con el ID especificado
+        /// </summary>
+        /// <param name="id">ID del nivel educativo a buscar</param>
+        /// <returns>Devuelve un objeto nivel educativo</returns>
+
+        public NivelEducativo BuscarPorId(int id)
+        {
+            NivelEducativo oNivel = _niveles.BuscarPorId(id);
+
+            if (oNivel == null)
+                throw new Exception("No existe nivel educativo con ese ID");
+
+            return oNivel;
         }
     }
 }

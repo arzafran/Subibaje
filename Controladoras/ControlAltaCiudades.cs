@@ -9,66 +9,118 @@ namespace Controladoras
 {
     public class ControlAltaCiudades
     {
-        private DBCiudades DatosCiudades = new DBCiudades();
-        //private DBProvincias provincias = new DBProvincias();
+        private DBCiudades _ciudades = new DBCiudades();
+        public DBProvincias provincias = new DBProvincias();
 
-        //private ListaCiudades DatosCiudades = ListaCiudades.Instance();
-        //public ListaProvincias provincias = ListaProvincias.Instance();
-
-        public void Nuevo(string nombre, int idProvincia)
+        /// <summary>
+        /// Crea un nuevo objeto ciudad y lo guarda en la DB.
+        /// </summary>
+        /// <param name="nombre">Nombre de la ciudad</param>
+        /// <param name="provincia_id">ID de la provincia asociada</param>
+        
+        public void Nuevo(string nombre, int provincia_id)
         {
-            Provincia oProvincia = DatosCiudades.provincias.BuscarPorId(idProvincia);
-            Ciudad oCiudad = new Ciudad(nombre, oProvincia);
-            DatosCiudades.Agregar(oCiudad);
+            Provincia oProvincia = provincias.BuscarPorId(provincia_id);
+            Ciudad oCiudad,
+                   previa = _ciudades.BuscarPorNombre(nombre).Find(p => p.Provincia.Id == provincia_id);
+
+            if (previa != null)
+                throw new Exception("Otra ciudad en esa provincia ya uso ese nombre");
+
+            if (oProvincia == null)
+                throw new Exception("No existe provincia con ese ID");
+
+            if (DateTime.Compare(oProvincia.Borrado, DateTime.Now) < 0)
+                throw new Exception("La provincia está desactivada");
+
+            oCiudad = new Ciudad(nombre, oProvincia);
+            _ciudades.Agregar(oCiudad);
         }
+
+        /// <summary>
+        /// Edita el registro de la ciudad especificada
+        /// </summary>
+        /// <param name="nombre">Nombre de la ciudad</param>
+        /// <param name="id">ID de la ciudad a editar</param>
+        /// <param name="provincia_id">ID de la provincia asociada</param>
 
         public void Editar(string nombre, int id, int provincia_id)
         {
-            Ciudad oCiudad = DatosCiudades.BuscarPorId(id);
-            Ciudad previa = DatosCiudades.BuscarPorNombre(nombre);
+            Provincia oProvincia = provincias.BuscarPorId(provincia_id);
+            Ciudad oCiudad = _ciudades.BuscarPorId(id),
+                    previa = _ciudades.BuscarPorNombre(nombre).Find(p => p.Provincia.Id == provincia_id);
 
             if (previa != null)
-                if (previa.Provincia.Id == provincia_id)
-                    throw new Exception("Otra ciudad en esa provincia ya uso ese nombre");
+                throw new Exception("Otra ciudad en esa provincia ya uso ese nombre");
 
-            if (oCiudad != null)
-            {
-                oCiudad.Nombre = nombre;
-                oCiudad.Provincia = DatosCiudades.provincias.BuscarPorId(provincia_id);
-                DatosCiudades.Editar(oCiudad);
-            }
+            if (oCiudad == null)
+                throw new Exception("No existe ciudad con ese ID");
+
+            if (oProvincia == null)
+                throw new Exception("No existe provincia con ese ID");
+
+            oCiudad.Nombre = nombre;
+            oCiudad.Provincia = oProvincia;
+            _ciudades.Editar(oCiudad);
         }
+
+        /// <summary>
+        /// Busca todas las ciudades
+        /// </summary>
+        /// <returns>Devuelve un lista de objetos ciudad</returns>
 
         public List<Ciudad> TraerTodos()
         {
-            //return Lista_Usuarios.Mostrar_Todo();
-            return DatosCiudades.TraerTodos();
+            return _ciudades.TraerTodos();
         }
 
-        public void Borrar(int id)
+        /// <summary>
+        /// Marca como borrada la ciudad especificada
+        /// </summary>
+        /// <param name="id">ID de la ciudad a desactivar</param>
+
+        public void Desactivar(int id)
         {
-            DatosCiudades.Borrar(id);
+            Ciudad oCiudad = _ciudades.BuscarPorId(id);
+
+            if (oCiudad == null)
+                throw new Exception("No existe ciudad con ese ID");
+
+            _ciudades.Desactivar(id);
         }
 
-        public void Restituir(int id)
+        /// <summary>
+        /// Marca como activa la ciudad especificada
+        /// </summary>
+        /// <param name="id">ID de la ciudad a activar</param>
+
+        public void Reactivar(int id)
         {
-            DatosCiudades.Restituir(id);
+            Ciudad oCiudad = _ciudades.BuscarPorId(id);
+            
+            if (oCiudad == null)
+                throw new Exception("No existe ciudad con ese ID");
+
+            if (DateTime.Compare(oCiudad.Provincia.Borrado, DateTime.Now) < 0)
+                throw new Exception("No se puede activar una ciudad cuya provincia está desactivada");
+
+            _ciudades.Reactivar(id);
         }
 
-        public Dictionary<string, string> BuscarPorId(int id)
+        /// <summary>
+        /// Busca la ciudad con el ID especificado
+        /// </summary>
+        /// <param name="id">ID de la ciudad a buscar</param>
+        /// <returns>Devuelve un objeto ciudad</returns>
+
+        public Ciudad BuscarPorId(int id)
         {
-            Ciudad aux = DatosCiudades.BuscarPorId(id);
-            Dictionary<string, string> devolver = new Dictionary<string,string>();
+            Ciudad oCiudad = _ciudades.BuscarPorId(id);
 
-            if (aux != null)
-            {
-                devolver.Add("id", aux.Id.ToString());
-                devolver.Add("nombre", aux.Nombre);
-                devolver.Add("provincia_id", aux.Provincia.Id.ToString());
-            }
-                
-
-            return devolver;
+            if (oCiudad == null)
+                throw new Exception("No existe ciudad con ese ID");
+            
+            return oCiudad;
         }
     }
 }

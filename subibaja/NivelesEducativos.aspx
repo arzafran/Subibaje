@@ -67,19 +67,3 @@
         </div>
     </div>
 </asp:Content>
-
-<asp:Content ID="scriptsNiveles" ContentPlaceHolderID="scripts" Runat="Server">
-    <script type="text/javascript">
-        $(document).ready(function () {
-            var btnEditar = $('#modalCarga_btnEditar'),
-                btnAgregar = $('#modalCarga_btnAgregar');
-
-            btnAgregar.hide();
-
-            $('#btnMas').click(function () {
-                btnEditar.remove();
-                btnAgregar.show();
-            });
-        });
-    </script>
-</asp:Content>

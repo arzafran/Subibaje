@@ -61,17 +61,15 @@
     <Content Include="app\js\app.js" />
     <Content Include="Ciudades.aspx" />
     <Content Include="css\app.css" />
-    <Content Include="Empresas.aspx" />
     <Content Include="Establecimientos.aspx" />
+    <Content Include="Estudiantes.aspx" />
     <Content Include="Gruntfile.js" />
     <Content Include="index.aspx" />
     <Content Include="NivelesEducativos.aspx" />
     <Content Include="Provincias.aspx" />
-    <Content Include="Rutas.aspx" />
     <Content Include="src\js\main.js" />
     <Content Include="src\js\menu.js" />
     <Content Include="Urbanos.aspx" />
-    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -101,19 +99,19 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Controles\ModernButton.cs" />
-    <Compile Include="Empresas.aspx.cs">
-      <DependentUpon>Empresas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Empresas.aspx.designer.cs">
-      <DependentUpon>Empresas.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Establecimientos.aspx.cs">
       <DependentUpon>Establecimientos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Establecimientos.aspx.designer.cs">
       <DependentUpon>Establecimientos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Estudiantes.aspx.cs">
+      <DependentUpon>Estudiantes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Estudiantes.aspx.designer.cs">
+      <DependentUpon>Estudiantes.aspx</DependentUpon>
     </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
@@ -137,26 +135,12 @@
     <Compile Include="Provincias.aspx.designer.cs">
       <DependentUpon>Provincias.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Rutas.aspx.cs">
-      <DependentUpon>Rutas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Rutas.aspx.designer.cs">
-      <DependentUpon>Rutas.aspx</DependentUpon>
-    </Compile>
     <Compile Include="Urbanos.aspx.cs">
       <DependentUpon>Urbanos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Urbanos.aspx.designer.cs">
       <DependentUpon>Urbanos.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Usuarios.aspx.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Usuarios.aspx.designer.cs">
-      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

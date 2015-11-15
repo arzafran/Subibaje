@@ -9,3 +9,14 @@ C:\Users\colo\Desktop\Subibaje\subibaja\bin\Modelos.pdb
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Release\ResolveAssemblyReference.cache
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Release\subibaja.dll
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Release\subibaja.pdb
+C:\Subibaje\subibaja\bin\accesoDatos.dll
+C:\Subibaje\subibaja\bin\Controladoras.dll
+C:\Subibaje\subibaja\bin\Modelos.dll
+C:\Subibaje\subibaja\bin\accesoDatos.pdb
+C:\Subibaje\subibaja\bin\Controladoras.pdb
+C:\Subibaje\subibaja\bin\Modelos.pdb
+C:\Subibaje\subibaja\obj\Release\ResolveAssemblyReference.cache
+C:\Subibaje\subibaja\obj\Release\subibaja.dll
+C:\Subibaje\subibaja\obj\Release\subibaja.pdb
+C:\Subibaje\subibaja\bin\subibaja.dll
+C:\Subibaje\subibaja\bin\subibaja.pdb

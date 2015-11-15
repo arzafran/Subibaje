@@ -15,18 +15,18 @@ namespace Modelos
         {
             return this.Nombre;
         }
-
+        
         public NivelEducativo(string nombre)
         {
             Nombre = nombre;
         }
-
+        /*
         public NivelEducativo(string nombre, int id)
         {
             Nombre = nombre;
             Id = id;
         }
-
+        */
         public NivelEducativo(string nombre, int id, DateTime borrado)
         {
             Nombre = nombre;
