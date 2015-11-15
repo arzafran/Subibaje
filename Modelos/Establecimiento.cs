@@ -23,6 +23,21 @@ namespace Modelos
                 return devolver;
             }
         }
+
+        public string NombreCompleto
+        {
+            get
+            {
+                return this.ToString();
+            }
+            
+        }
+
+        public override string ToString()
+        {
+            return this.Nombre + " (" + this.Ciudad.Nombre + ")";
+        }
+        
         public List<NivelEducativo> ListaNiveles { get; set; }
         
         public Establecimiento(string nombre, Ciudad ciudad, List<NivelEducativo> niveles)

@@ -67,9 +67,12 @@
     <Content Include="index.aspx" />
     <Content Include="NivelesEducativos.aspx" />
     <Content Include="Provincias.aspx" />
+    <Content Include="Roles.aspx" />
+    <Content Include="TipoRoles.aspx" />
     <Content Include="src\js\main.js" />
     <Content Include="src\js\menu.js" />
     <Content Include="Urbanos.aspx" />
+    <Content Include="Usuarios.aspx" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -135,12 +138,33 @@
     <Compile Include="Provincias.aspx.designer.cs">
       <DependentUpon>Provincias.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Roles.aspx.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Roles.aspx.designer.cs">
+      <DependentUpon>Roles.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="TipoRoles.aspx.cs">
+      <DependentUpon>TipoRoles.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="TipoRoles.aspx.designer.cs">
+      <DependentUpon>TipoRoles.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Urbanos.aspx.cs">
       <DependentUpon>Urbanos.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Urbanos.aspx.designer.cs">
       <DependentUpon>Urbanos.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios.aspx.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios.aspx.designer.cs">
+      <DependentUpon>Usuarios.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

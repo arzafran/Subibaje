@@ -13,7 +13,7 @@ namespace accesoDatos
     {
         private DBConnector _conexion = new DBConnector();
         private DBCiudades _ciudades = new DBCiudades();
-        private DBNivelesEducativos niveles = new DBNivelesEducativos();
+        private DBNivelesEducativos _niveles = new DBNivelesEducativos();
 
         /// <summary>
         /// Guarda un establecimiento en la DB
@@ -182,14 +182,14 @@ namespace accesoDatos
         /// <param name="id">ID del establecimiento</param>
         /// <returns>Devuelve una lista de niveles educativos</returns>
 
-        private List<NivelEducativo> NivelesAsociados(int id)
+        public List<NivelEducativo> NivelesAsociados(int id)
         {
             List<NivelEducativo> devolver = new List<NivelEducativo>();
             string query = "SELECT * FROM establecimiento_nivel WHERE borrado IS NULL AND establecimiento_id = " + id.ToString();
             DataTable dt = _conexion.TraerDatos(query);
             foreach (DataRow dr in dt.Rows)
             {
-                devolver.Add(niveles.BuscarPorId((int)dr["nivel_id"]));
+                devolver.Add(_niveles.BuscarPorId((int)dr["nivel_id"]));
             }
 
             return devolver;

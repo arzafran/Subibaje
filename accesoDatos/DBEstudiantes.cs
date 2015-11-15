@@ -9,7 +9,7 @@ using System.Data;
 
 namespace accesoDatos
 {
-    class DBEstudiantes : IcapaDato<Ciudad>
+    public class DBEstudiantes : IcapaDato<Estudiante>
     {
         private DBConnector _conexion = new DBConnector();
         private DBEstablecimientos _establecimientos = new DBEstablecimientos();

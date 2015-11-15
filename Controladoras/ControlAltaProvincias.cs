@@ -10,7 +10,7 @@ namespace Controladoras
     public class ControlAltaProvincias
     {
         private DBProvincias _provincias = new DBProvincias();
-
+        
         /// <summary>
         /// Crea un objeto provincia y lo guarda en la DB
         /// </summary>

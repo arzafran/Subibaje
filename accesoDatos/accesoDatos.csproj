@@ -44,11 +44,15 @@
     <Compile Include="CapaDatosAbstractaSingleton.cs" />
     <Compile Include="DBCiudades.cs" />
     <Compile Include="DBConnector.cs" />
+    <Compile Include="DBEstablecimientoNivel.cs" />
     <Compile Include="DBEstablecimientos.cs" />
     <Compile Include="DBEstudiantes.cs" />
     <Compile Include="DBNivelesEducativos.cs" />
     <Compile Include="DBProvincias.cs" />
+    <Compile Include="DBRoles.cs" />
+    <Compile Include="DBTipoRoles.cs" />
     <Compile Include="DBUrbanos.cs" />
+    <Compile Include="DBUsuarios.cs" />
     <Compile Include="ICapaDatos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

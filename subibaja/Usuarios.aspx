@@ -1,22 +1,34 @@
-﻿<%@ Page Title="Subibaje :: Estudiantes" Language="C#" AutoEventWireup="true" MasterPageFile="~/App.Master" CodeBehind="Estudiantes.aspx.cs" Inherits="subibaja.Estudiantes" %>
+﻿<%@ Page Title="Subibaje :: Usuarios" Language="C#" AutoEventWireup="true" MasterPageFile="~/App.Master" CodeBehind="Usuarios.aspx.cs" Inherits="subibaja.Usuarios" %>
 <%@ Register TagPrefix="mc" Namespace="subibaja.Controles" Assembly="subibaja" %>
 
-<asp:Content ID="muestraEstudiantes" ContentPlaceHolderID="contenido" Runat="Server">
-    <h2>Estudiantes</h2>
+<asp:Content ID="muestraUsuarios" ContentPlaceHolderID="contenido" Runat="Server">
+    <h2>Usuarios</h2>
     <hr/>
     <button id="btnMas" type="button" class="btn btn-fab btn-material-pink" data-toggle="modal" data-target="#carga">
         <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
     </button>
-    <asp:GridView EmptyDataText="No hay estudiantes cargados"
-        CssClass="table table-condensed table-hover sortable" ID="grdEstudiantes" runat="server" 
+    <asp:GridView EmptyDataText="No hay usuarios cargados"
+        CssClass="table table-condensed table-hover sortable" ID="grdUsuarios" runat="server" 
         GridLines="None" AutoGenerateColumns="false" DataKeyNames="id" 
-        onrowcommand="grdEstudiantes_RowCommand" OnRowDataBound="grdEstudiantes_RowDataBound">
+        onrowcommand="grdUsuarios_RowCommand" OnRowDataBound="grdUsuarios_RowDataBound">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Id" />
             <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-            <asp:BoundField DataField="Establecimiento" HeaderText="Establecimiento" />
-            <asp:BoundField DataField="Nivel" HeaderText="Nivel educativo" />
+            <asp:BoundField DataField="Dni" HeaderText="DNI" />
+            <asp:BoundField DataField="Email" HeaderText="Email" />
             <asp:BoundField DataField="borrado" HeaderText="Borrado" />
+
+            <asp:TemplateField ItemStyle-Width="40px">
+                
+                <ItemTemplate>
+                    <asp:LinkButton 
+                        PostBackUrl='<%# string.Format("~/Roles.aspx?id={0}", Eval("id")) %>'
+                        ID="agregarRol" 
+                        runat="server" 
+                        Text="<span class='glyphicon glyphicon-list'></span>">
+                    </asp:LinkButton>
+                </ItemTemplate>
+            </asp:TemplateField>
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
@@ -33,14 +45,14 @@
     </asp:GridView>
 </asp:Content>
 
-<asp:Content ID="cargaEstudiantes" ContentPlaceHolderID="modalCarga" Runat="Server">
+<asp:Content ID="cargaUsuarios" ContentPlaceHolderID="modalCarga" Runat="Server">
     <asp:HiddenField ID="idEdicion" runat="server" />
     <div class="modal fade" id="carga" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-label="Cerrar"><span aria-hidden="true">&times;</span></button>
-                    <h4 class="modal-title" id="myModalLabel">Agregar Estudiante</h4>
+                    <h4 class="modal-title" id="myModalLabel">Agregar Usuario</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
@@ -59,19 +71,6 @@
                         <label class="col-sm-2 control-label" for="txtEmail">Email:</label>
                         <div class="col-sm-10">
                             <asp:TextBox autocomplete="off" CssClass="form-control" ID="txtEmail" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="txtEstablecimiento">Establecimiento:</label>
-                        <div class="col-sm-10">
-                            <asp:TextBox CssClass="form-control disabled" ID="txtEstablecimiento" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label" for="ddlNivel">Nivel Educativo:</label>
-                        <div class="col-sm-10">
-                            <asp:DropDownList ID="ddlNivel" runat="server" CssClass="form-control">
-                            </asp:DropDownList>
                         </div>
                     </div>
                     <div class="form-group">

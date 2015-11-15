@@ -10,15 +10,20 @@ using Modelos;
 
 namespace subibaja
 {
-    public partial class Estudiantes : Pagina
+    public partial class Usuarios : Pagina
     {
+        private ControlAltaUsuarios _controladora = new ControlAltaUsuarios();
+
         private void Bind()
         {
-            try 
-            { 
-            }
-            catch (Exception ex) 
+            try
             {
+                grdUsuarios.DataSource = _controladora.TraerTodos();
+                grdUsuarios.DataBind();
+            }
+            catch (Exception ex)
+            {
+                this.MostrarError(ex.Message);
             }
         }
 
@@ -37,7 +42,7 @@ namespace subibaja
 
             try
             {
-                //_controladora.Nuevo(txtNombre.Text, Convert.ToInt32(ddlProvincia.SelectedValue));
+                _controladora.Nuevo(txtNombre.Text, Convert.ToInt32(txtDni.Text), txtEmail.Text);
             }
             catch (Exception ex)
             {
@@ -54,7 +59,7 @@ namespace subibaja
 
             try
             {
-                //_controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value), Convert.ToInt32(ddlProvincia.SelectedValue));
+                _controladora.Editar(txtNombre.Text, Convert.ToInt32(txtDni.Text), txtEmail.Text, Convert.ToInt32(idEdicion.Value));
                 this.Bind();
             }
             catch (Exception ex)
@@ -65,31 +70,32 @@ namespace subibaja
             this.LimpiarControles(Page.Controls);
         }
 
-        protected void grdEstudiantes_RowCommand(object sender, GridViewCommandEventArgs e)
+        protected void grdUsuarios_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             _wrapperError.Style.Add("display", "none");
 
             try
             {
-                int id = Convert.ToInt32(grdEstudiantes.DataKeys[Convert.ToInt32(e.CommandArgument.ToString())].Value.ToString());
+                int id = Convert.ToInt32(grdUsuarios.DataKeys[Convert.ToInt32(e.CommandArgument.ToString())].Value.ToString());
 
                 switch (e.CommandName.ToString())
                 {
                     case "comandoEdicion":
-                        /*Ciudad oCiudad = _controladora.BuscarPorId(id);
-                        txtNombre.Text = oCiudad.Nombre;
-                        ddlProvincia.SelectedValue = oCiudad.Provincia.Id.ToString();
+                        Usuario oUsuario = _controladora.BuscarPorId(id);
+                        txtNombre.Text = oUsuario.Nombre;
+                        txtDni.Text = oUsuario.Dni.ToString();
+                        txtEmail.Text = oUsuario.Email;
                         idEdicion.Value = id.ToString();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "<script>$('#carga').modal('show');</script>", false);
-                       */ break;
+                        break;
 
                     case "comandoBorrado":
-                        //_controladora.Desactivar(id);
+                        _controladora.Desactivar(id);
                         this.Bind();
                         break;
 
                     case "comandoRestitucion":
-                        //_controladora.Reactivar(id);
+                        _controladora.Reactivar(id);
                         this.Bind();
                         break;
                 }
@@ -101,12 +107,12 @@ namespace subibaja
             }
         }
 
-        protected void grdEstudiantes_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void grdUsuarios_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 DateTime dt;
-                DateTime.TryParse(e.Row.Cells[3].Text, out dt);
+                DateTime.TryParse(e.Row.Cells[4].Text, out dt);
 
                 LinkButton lb = (LinkButton)e.Row.FindControl("linkBorrado");
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
@@ -118,7 +124,7 @@ namespace subibaja
                 else
                 {
                     e.Row.CssClass = "success";
-                    e.Row.Cells[3].Text = "-";
+                    e.Row.Cells[4].Text = "-";
                 }
             }
         }

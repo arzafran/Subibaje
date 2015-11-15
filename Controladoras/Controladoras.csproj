@@ -45,7 +45,10 @@
     <Compile Include="ControlAltaEstudiantes.cs" />
     <Compile Include="ControlAltaNivelesEducativos.cs" />
     <Compile Include="ControlAltaProvincias.cs" />
+    <Compile Include="ControlAltaRoles.cs" />
+    <Compile Include="ControlAltaTipoRoles.cs" />
     <Compile Include="ControlAltaUrbanos.cs" />
+    <Compile Include="ControlAltaUsuarios.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

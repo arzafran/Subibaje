@@ -6,20 +6,18 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using Controladoras;
 using subibaja.ClasesBase;
-using Modelos;
+using System.Collections;
 
 namespace subibaja
 {
-    public partial class Estudiantes : Pagina
+    public partial class TipoRoles : Pagina
     {
+        private ControlAltaTipoRoles _controladora = new ControlAltaTipoRoles();
+
         private void Bind()
         {
-            try 
-            { 
-            }
-            catch (Exception ex) 
-            {
-            }
+            grdRoles.DataSource = _controladora.TraerTodos();
+            grdRoles.DataBind();
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -31,13 +29,31 @@ namespace subibaja
                 this.Bind();
         }
 
+        protected void btnEditar_Click(object sender, EventArgs e)
+        {
+            _wrapperError.Style.Add("display", "none");
+
+            try
+            {
+                _controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value));
+                this.Bind();
+            }
+            catch (Exception ex)
+            {
+                this.MostrarError(ex.Message);
+            }
+
+            this.LimpiarControles(Page.Controls);
+
+        }
+
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
             _wrapperError.Style.Add("display", "none");
 
             try
             {
-                //_controladora.Nuevo(txtNombre.Text, Convert.ToInt32(ddlProvincia.SelectedValue));
+                _controladora.Nuevo(txtNombre.Text);
             }
             catch (Exception ex)
             {
@@ -48,48 +64,29 @@ namespace subibaja
             this.LimpiarControles(Page.Controls);
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
+        protected void grdRoles_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             _wrapperError.Style.Add("display", "none");
 
             try
             {
-                //_controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value), Convert.ToInt32(ddlProvincia.SelectedValue));
-                this.Bind();
-            }
-            catch (Exception ex)
-            {
-                this.MostrarError(ex.Message);
-            }
-
-            this.LimpiarControles(Page.Controls);
-        }
-
-        protected void grdEstudiantes_RowCommand(object sender, GridViewCommandEventArgs e)
-        {
-            _wrapperError.Style.Add("display", "none");
-
-            try
-            {
-                int id = Convert.ToInt32(grdEstudiantes.DataKeys[Convert.ToInt32(e.CommandArgument.ToString())].Value.ToString());
+                int id = Convert.ToInt32(grdRoles.DataKeys[Convert.ToInt32(e.CommandArgument.ToString())].Value.ToString());
 
                 switch (e.CommandName.ToString())
                 {
                     case "comandoEdicion":
-                        /*Ciudad oCiudad = _controladora.BuscarPorId(id);
-                        txtNombre.Text = oCiudad.Nombre;
-                        ddlProvincia.SelectedValue = oCiudad.Provincia.Id.ToString();
+                        txtNombre.Text = _controladora.BuscarPorId(id).Nombre;
                         idEdicion.Value = id.ToString();
                         ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "<script>$('#carga').modal('show');</script>", false);
-                       */ break;
+                        break;
 
                     case "comandoBorrado":
-                        //_controladora.Desactivar(id);
+                        _controladora.Desactivar(id);
                         this.Bind();
                         break;
 
                     case "comandoRestitucion":
-                        //_controladora.Reactivar(id);
+                        _controladora.Reactivar(id);
                         this.Bind();
                         break;
                 }
@@ -101,14 +98,15 @@ namespace subibaja
             }
         }
 
-        protected void grdEstudiantes_RowDataBound(object sender, GridViewRowEventArgs e)
+        protected void grdRoles_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 DateTime dt;
-                DateTime.TryParse(e.Row.Cells[3].Text, out dt);
 
+                DateTime.TryParse(e.Row.Cells[2].Text, out dt);
                 LinkButton lb = (LinkButton)e.Row.FindControl("linkBorrado");
+
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
                 {
                     e.Row.CssClass = "danger";
@@ -118,7 +116,7 @@ namespace subibaja
                 else
                 {
                     e.Row.CssClass = "success";
-                    e.Row.Cells[3].Text = "-";
+                    e.Row.Cells[2].Text = "-";
                 }
             }
         }
