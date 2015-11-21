@@ -20,7 +20,7 @@ namespace accesoDatos
 
         public void Agregar(TipoRol oRol)
         {
-            string query = "INSERT INTO tipoRoles (nombre) VALUES ('" + oRol.Nombre + "')";
+            string query = "INSERT INTO tipos (nombre) VALUES ('" + oRol.Nombre + "')";
             _conexion.EjecutarNonSql(query);
         }
 
@@ -31,7 +31,7 @@ namespace accesoDatos
 
         public void Desactivar(int id)
         {
-            string query = "UPDATE tipoRoles SET borrado = getdate() WHERE id=" + id.ToString();
+            string query = "UPDATE tipos SET borrado = getdate() WHERE id=" + id.ToString();
             _conexion.EjecutarNonSql(query);
         }
 
@@ -52,7 +52,7 @@ namespace accesoDatos
 
         public void Reactivar(int id)
         {
-            string query = "UPDATE tipoRoles SET borrado = NULL WHERE id=" + id.ToString();
+            string query = "UPDATE tipos SET borrado = NULL WHERE id=" + id.ToString();
             _conexion.EjecutarNonSql(query);
         }
 
@@ -63,7 +63,7 @@ namespace accesoDatos
 
         public void Editar(TipoRol oRol)
         {
-            string query = "UPDATE tipoRoles SET nombre = '" + oRol.Nombre + "' WHERE id=" + oRol.Id.ToString();
+            string query = "UPDATE tipos SET nombre = '" + oRol.Nombre + "' WHERE id=" + oRol.Id.ToString();
             _conexion.EjecutarNonSql(query);
         }
 
@@ -76,7 +76,7 @@ namespace accesoDatos
         public TipoRol BuscarPorId(int id)
         {
             TipoRol devolver = null;
-            string query = "SELECT TOP 1 * FROM tipoRoles WHERE id = " + id.ToString();
+            string query = "SELECT TOP 1 * FROM tipos WHERE id = " + id.ToString();
 
             DataTable dt = _conexion.TraerDatos(query);
             if (dt.Rows.Count > 0)
@@ -95,7 +95,7 @@ namespace accesoDatos
         public List<TipoRol> TraerTodos()
         {
             List<TipoRol> devolver = new List<TipoRol>();
-            string query = "SELECT * FROM tipoRoles ORDER BY borrado ASC, nombre ASC";
+            string query = "SELECT * FROM tipos ORDER BY borrado ASC, nombre ASC";
             DataTable dt = _conexion.TraerDatos(query);
 
             foreach (DataRow dr in dt.Rows)
@@ -114,7 +114,7 @@ namespace accesoDatos
         public List<TipoRol> TraerActivos()
         {
             List<TipoRol> devolver = new List<TipoRol>();
-            string query = "SELECT * FROM tipoRoles WHERE borrado IS NULL ORDER BY nombre ASC";
+            string query = "SELECT * FROM tipos WHERE borrado IS NULL ORDER BY nombre ASC";
             DataTable dt = _conexion.TraerDatos(query);
 
             foreach (DataRow dr in dt.Rows)
@@ -126,15 +126,15 @@ namespace accesoDatos
         }
 
         /// <summary>
-        /// Busca todos los roles con el nombre especificado
+        /// Busca un rol con el nombre especificado
         /// </summary>
         /// <param name="nombre">Nombre a buscar en la DB</param>
-        /// <returns>Devuelve una lista de objetos rol.</returns>
+        /// <returns>Devuelve un objeto rol.</returns>
 
         public TipoRol BuscarPorNombre(string nombre)
         {
             TipoRol devolver = null;
-            string query = "SELECT TOP 1 * FROM tipoRoles WHERE nombre = '" + nombre + "'";
+            string query = "SELECT TOP 1 * FROM tipos WHERE nombre = '" + nombre + "'";
 
             DataTable dt = _conexion.TraerDatos(query);
             if (dt.Rows.Count > 0)

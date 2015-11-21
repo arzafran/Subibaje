@@ -62,12 +62,6 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="txtEstablecimiento">Establecimiento:</label>
-                        <div class="col-sm-10">
-                            <asp:TextBox CssClass="form-control disabled" ID="txtEstablecimiento" runat="server"></asp:TextBox>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlNivel">Nivel Educativo:</label>
                         <div class="col-sm-10">
                             <asp:DropDownList ID="ddlNivel" runat="server" CssClass="form-control">

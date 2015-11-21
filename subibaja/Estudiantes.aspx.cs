@@ -12,6 +12,9 @@ namespace subibaja
 {
     public partial class Estudiantes : Pagina
     {
+        private Usuario _usuario;
+        private ControlAltaEstudiantes _controladora = new ControlAltaEstudiantes();
+
         private void Bind()
         {
             try 
@@ -24,6 +27,10 @@ namespace subibaja
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            _usuario = (Usuario)Session["usuario"];
+            if (_usuario == null)
+                Response.Redirect("Login.aspx");
+
             _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");
             _error = (Label)Master.FindControl("lblExcepcion");
 
@@ -37,7 +44,7 @@ namespace subibaja
 
             try
             {
-                //_controladora.Nuevo(txtNombre.Text, Convert.ToInt32(ddlProvincia.SelectedValue));
+                _controladora.Nuevo(Convert.ToInt32(txtDni.Text), txtNombre.Text, txtEmail.Text, _usuario.Id);
             }
             catch (Exception ex)
             {

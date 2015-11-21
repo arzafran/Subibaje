@@ -20,18 +20,25 @@ namespace subibaja
             try
             {
                 grdRoles.DataSource = _controladora.TraerTodos(usuario_id);
+                grdRoles.DataBind();
+                   
                 ddlEstablecimiento.DataSource = _controladora.establecimientos.TraerActivos();
                 ddlEstablecimiento.DataValueField = "Id";
                 ddlEstablecimiento.DataTextField = "NombreCompleto";
+                ddlEstablecimiento.DataBind();
+                ddlEstablecimiento.Items.Insert(0, new ListItem(String.Empty, "0"));
+                ddlEstablecimiento.SelectedIndex = 0;
+                
                 ddlNivel.DataSource = _controladora.niveles.TraerActivos();
                 ddlNivel.DataValueField = "Id";
                 ddlNivel.DataTextField = "Nombre";
+                ddlNivel.DataBind();
+                ddlNivel.Items.Insert(0, new ListItem(String.Empty, "0"));
+                ddlNivel.SelectedIndex = 0;
+                
                 ddlTipo.DataSource = _controladora.tipo_roles.TraerActivos();
                 ddlTipo.DataValueField = "Id";
                 ddlTipo.DataTextField = "Nombre";
-                grdRoles.DataBind();
-                ddlEstablecimiento.DataBind();
-                ddlNivel.DataBind();
                 ddlTipo.DataBind();
             }
             catch (Exception ex)
@@ -136,7 +143,7 @@ namespace subibaja
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 DateTime dt;
-                DateTime.TryParse(e.Row.Cells[4].Text, out dt);
+                DateTime.TryParse(e.Row.Cells[5].Text, out dt);
 
                 LinkButton lb = (LinkButton)e.Row.FindControl("linkBorrado");
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
@@ -148,7 +155,7 @@ namespace subibaja
                 else
                 {
                     e.Row.CssClass = "success";
-                    e.Row.Cells[4].Text = "-";
+                    e.Row.Cells[5].Text = "-";
                 }
             }
         }

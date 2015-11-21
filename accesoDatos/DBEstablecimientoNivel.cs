@@ -21,8 +21,8 @@ namespace accesoDatos
 
             if (dt.Rows.Count > 0)
             {
-                devolver.Add((int)dt.Rows[0]["establecimiento"]);
-                devolver.Add((int)dt.Rows[0]["nivel"]);
+                devolver.Add((int)dt.Rows[0]["establecimiento_id"]);
+                devolver.Add((int)dt.Rows[0]["nivel_id"]);
             }
 
             return devolver;

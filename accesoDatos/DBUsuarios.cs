@@ -17,11 +17,24 @@ namespace accesoDatos
         /// Guarda un usuario en la DB
         /// </summary>
         /// <param name="oUsuario">Objeto usuario a guardar</param>
+        /// <returns>ID de la fila ingresada</returns>
+
+        public int Nuevo(Usuario oUsuario)
+        {
+            string query = "INSERT INTO usuarios (nombre, dni, email, password)" +
+                           "VALUES ('" + oUsuario.Nombre + "', '" + oUsuario.Dni + "', '" + oUsuario.Email + "', '" + oUsuario.Password + "')";
+            return _conexion.EjecutarEscalar(query);
+        }
+
+        /// <summary>
+        /// Guarda un usuario en la DB
+        /// </summary>
+        /// <param name="oUsuario">Objeto usuario a guardar</param>
 
         public void Agregar(Usuario oUsuario)
         {
             string query = "INSERT INTO usuarios (nombre, dni, email, password)" +
-                           "VALUES ('" + oUsuario.Nombre + "', '" + oUsuario.Dni + "', '" + oUsuario.Email + "', '" + oUsuario.Password +"')";
+                           "VALUES ('" + oUsuario.Nombre + "', '" + oUsuario.Dni + "', '" + oUsuario.Email + "', '" + oUsuario.Password + "')";
             _conexion.EjecutarNonSql(query);
         }
 
@@ -119,6 +132,27 @@ namespace accesoDatos
             Usuario devolver = null;
             string query = "SELECT TOP 1 * FROM usuarios WHERE email = '" + email + "'";
 
+            DataTable dt = _conexion.TraerDatos(query);
+            if (dt.Rows.Count > 0)
+            {
+                devolver = ArmarObjeto(dt.Rows[0]);
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
+        /// Verifica que exista el usuario segun email/password para el login
+        /// </summary>
+        /// <param name="email">Email del usuario</param>
+        /// <param name="password">Password del usuario</param>
+        /// <returns>Devuelve un objeto usuario o null en caso de no haber registro.</returns>
+
+        public Usuario Validar(string email, string password)
+        {
+            Usuario devolver = null;
+            string query = "SELECT TOP 1 * FROM usuarios WHERE email = '" + email + "' AND password = '" + password + "'";
+            
             DataTable dt = _conexion.TraerDatos(query);
             if (dt.Rows.Count > 0)
             {

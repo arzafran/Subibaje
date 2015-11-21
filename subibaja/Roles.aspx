@@ -14,6 +14,7 @@
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Id" />
             <asp:BoundField DataField="Usuario" HeaderText="Usuario" />
+            <asp:BoundField DataField="Tipo" HeaderText="Tipo" />
             <asp:BoundField DataField="Establecimiento" HeaderText="Establecimiento" />
             <asp:BoundField DataField="Nivel" HeaderText="Nivel educativo" />
             <asp:BoundField DataField="borrado" HeaderText="Borrado" />

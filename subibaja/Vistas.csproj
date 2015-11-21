@@ -61,10 +61,13 @@
     <Content Include="app\js\app.js" />
     <Content Include="Ciudades.aspx" />
     <Content Include="css\app.css" />
+    <Content Include="css\login.css" />
     <Content Include="Establecimientos.aspx" />
     <Content Include="Estudiantes.aspx" />
+    <Content Include="Global.asax" />
     <Content Include="Gruntfile.js" />
     <Content Include="index.aspx" />
+    <Content Include="Login.aspx" />
     <Content Include="NivelesEducativos.aspx" />
     <Content Include="Provincias.aspx" />
     <Content Include="Roles.aspx" />
@@ -116,12 +119,22 @@
     <Compile Include="Estudiantes.aspx.designer.cs">
       <DependentUpon>Estudiantes.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="NivelesEducativos.aspx.cs">
       <DependentUpon>NivelesEducativos.aspx</DependentUpon>

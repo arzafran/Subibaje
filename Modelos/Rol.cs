@@ -13,6 +13,13 @@ namespace Modelos
         public Establecimiento Establecimiento { get; set; }
         public NivelEducativo Nivel { get; set; }
         public DateTime Borrado { get; set; }
+        public string Mostrar
+        {
+            get
+            { 
+                return this.Tipo.Nombre + (Establecimiento == null ? "" : " (" + this.Establecimiento.Nombre + " " + this.Nivel.Nombre + ")");
+            }
+        }
 
         public Rol(TipoRol tipo, Usuario usuario, Establecimiento establecimiento, NivelEducativo nivel)
         {

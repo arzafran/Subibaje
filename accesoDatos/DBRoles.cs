@@ -36,7 +36,7 @@ namespace accesoDatos
                     throw new Exception("El Establecimiento que eligió no tiene el nivel asociado");
             }
 
-            string query = "INSERT INTO roles (tipoRol_id, usuario_id, establecimiento_nivel_id) VALUES (" + oRol.Tipo.Id.ToString() + ", " + oRol.Usuario.Id.ToString() + ", ";
+            string query = "INSERT INTO roles (tipo_id, usuario_id, establecimiento_nivel_id) VALUES (" + oRol.Tipo.Id.ToString() + ", " + oRol.Usuario.Id.ToString() + ", ";
 
             if (idCombinado == 0)
                 query += "NULL)";
@@ -90,8 +90,8 @@ namespace accesoDatos
             int idCombinado = _establecimientos_niveles.BuscarPorParametros(oRol.Establecimiento.Id, oRol.Nivel.Id);
             if (idCombinado == 0)
                 throw new Exception("El Establecimiento que eligió no tiene el nivel asociado");
-            
-            string query = "UPDATE roles SET tipoRol_id = " + oRol.Tipo.Id.ToString() + ", establecimiento_id = " + idCombinado.ToString();
+
+            string query = "UPDATE roles SET tipo_id = " + oRol.Tipo.Id.ToString() + ", establecimiento_id = " + idCombinado.ToString();
             _conexion.EjecutarNonSql(query);
 
             /*
@@ -151,7 +151,7 @@ namespace accesoDatos
         public List<Rol> TraerActivos(int id)
         {
             List<Rol> devolver = new List<Rol>();
-            string query = "SELECT * FROM roles WHERE borrado AND usuario_id = " + id.ToString() + " IS NULL";
+            string query = "SELECT * FROM roles WHERE borrado IS NULL AND usuario_id = " + id.ToString();
             DataTable dt = _conexion.TraerDatos(query);
 
             foreach (DataRow dr in dt.Rows)
@@ -181,15 +181,14 @@ namespace accesoDatos
                 oEstablecimiento = _establecimientos.BuscarPorId(ids[0]);
                 oNivel = _niveles.BuscarPorId(ids[1]);
             }
-                
-            
+
             Usuario oUsuario = _usuarios.BuscarPorId((int)dr["usuario_id"]);
-            TipoRol oRol = _tipo_roles.BuscarPorId((int)dr["tipoRol_id"]);
-
-            DateTime.TryParse(dr["borrado"].ToString(), out dt);
-
+            TipoRol oRol = _tipo_roles.BuscarPorId((int)dr["tipo_id"]);
+            
             if (dr["borrado"] is DBNull)
                 dr["borrado"] = "9/9/9999";
+
+            DateTime.TryParse(dr["borrado"].ToString(), out dt);
 
             return new Rol(id, oRol, oUsuario, oEstablecimiento, oNivel, dt);
         }

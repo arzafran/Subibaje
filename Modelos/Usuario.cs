@@ -14,16 +14,16 @@ namespace Modelos
         public int Dni { get; set; }
         public string Password { get; set; }
         public DateTime Borrado { get; set; }
-        public List<TipoRol> ListaRolesCompletos { get; set; }
+        public List<Rol> ListaRoles { get; set; }
         public string Roles
         {
             get 
             {
                 List<string> devolver = new List<string>();
 
-                foreach (TipoRol oRol in ListaRolesCompletos)
+                foreach (Rol oRol in ListaRoles)
                 {
-                    devolver.Add(oRol.Nombre);
+                    devolver.Add(oRol.Mostrar);
                 }
 
                 return string.Join(", ", devolver);

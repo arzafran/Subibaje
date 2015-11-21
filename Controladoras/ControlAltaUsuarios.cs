@@ -83,6 +83,18 @@ namespace Controladoras
         }
 
         /// <summary>
+        /// Busca un usuario con email/password ingresados para validar login.
+        /// </summary>
+        /// <param name="email">Email del usuario</param>
+        /// <param name="password">Password del usuario</param>
+        /// <returns>Devuelve un objeto usuario o null en caso de no encontrar registros.</returns>
+
+        public Usuario Validar(string email, string password)
+        {
+            return _usuarios.Validar(email, password);
+        }
+
+        /// <summary>
         /// Marca como borrado el usuario especificado
         /// </summary>
         /// <param name="id">ID del usuario a desactivar</param>

@@ -14,6 +14,7 @@ namespace Controladoras
         public DBUsuarios usuarios = new DBUsuarios();
         public DBNivelesEducativos niveles = new DBNivelesEducativos();
         public DBTipoRoles tipo_roles = new DBTipoRoles();
+        public DBEstablecimientoNivel establecimientos_niveles = new DBEstablecimientoNivel();
 
         /// <summary>
         /// Crea un nuevo objeto rol y lo guarda en la DB.
@@ -23,28 +24,34 @@ namespace Controladoras
         /// <param name="establecimiento_id">ID del establecimiento asociado</param>
         /// <param name="nivel_id">ID del nivel educativo asociado</param>
 
-        public void Nuevo(int usuario_id, int tipoRol_id, int establecimiento_id, int nivel_id)
+        public void Nuevo(int usuario_id, int tipo_id, int establecimiento_id, int nivel_id)
         {
             Rol oRol;
             NivelEducativo oNivel = null;
             Establecimiento oEstablecimiento = null;
             Usuario oUsuario = usuarios.BuscarPorId(usuario_id);
-            TipoRol oTipo = tipo_roles.BuscarPorId(tipoRol_id);
+            TipoRol oTipo = tipo_roles.BuscarPorId(tipo_id);
 
             if (oUsuario == null)
                 throw new Exception("No existe usuario con ese ID");
 
             if (oTipo == null)
                 throw new Exception("No existe un tipo de rol con ese ID");
-            /*
-            if (oEstablecimiento == null)
-                throw new Exception("No existe establecimiento con ese id");
 
-            NivelEducativo oNivel = oEstablecimiento.ListaNiveles.Find(n => n.Id == nivel_id);
+            if (establecimiento_id != 0 && nivel_id != 0)
+            {
+                oNivel = niveles.BuscarPorId(nivel_id);
+                if(oNivel == null)
+                    throw new Exception("El establecimiento no tiene asociado ese nivel educativo");
 
-            if (oNivel == null)
-                throw new Exception("El establecimiento no tiene asociado ese nivel educativo");
-            */
+                oEstablecimiento = establecimientos.BuscarPorId(establecimiento_id);
+                if (oEstablecimiento == null)
+                    throw new Exception("No existe establecimiento con ese id");
+            }
+
+            if (establecimientos_niveles.BuscarPorParametros(oEstablecimiento == null ? 0 : oEstablecimiento.Id, oNivel == null ? 0 : oNivel.Id) == 0)
+                throw new Exception("No existe dupla Establecimiento/Nivel como la que elegiste");
+
             oRol = new Rol(oTipo, oUsuario, oEstablecimiento, oNivel);
             _roles.Agregar(oRol);
         }
