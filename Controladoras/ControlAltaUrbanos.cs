@@ -10,7 +10,7 @@ namespace Controladoras
     public class ControlAltaUrbanos
     {
         private DBUrbanos _urbanos = new DBUrbanos();
-        public DBCiudades ciudades = new DBCiudades();
+        public ControlAltaCiudades ciudades = new ControlAltaCiudades();
 
         /// <summary>
         /// Crea un nuevo objeto urbano y lo persiste

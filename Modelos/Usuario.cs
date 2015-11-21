@@ -52,5 +52,16 @@ namespace Modelos
             Borrado = borrado;
             Password = Dni.ToString();
         }
+
+        public Usuario(string nombre, int dni, string email, int id, DateTime borrado, List<Rol> roles)
+        {
+            Nombre = nombre;
+            Dni = dni;
+            Email = email;
+            Id = id;
+            Borrado = borrado;
+            Password = Dni.ToString();
+            ListaRoles = roles;
+        }
     }
 }

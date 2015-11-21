@@ -67,6 +67,17 @@ namespace Controladoras
         }
 
         /// <summary>
+        /// Busca los niveles educativos con id incluido en la lista especificada
+        /// </summary>
+        /// <param name="ids">Lista de ids a buscar</param>
+        /// <returns>Devuelve un listado de objetos nivel educativo</returns>
+
+        public List<NivelEducativo> Traer(List<int> ids)
+        {
+            return _niveles.Traer(ids);
+        }
+
+        /// <summary>
         /// Marca como borrado el nivel educativo especificado
         /// </summary>
         /// <param name="id">ID del nivel educativo a desactivar</param>

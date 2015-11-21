@@ -123,6 +123,26 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Busca todos los roles estudiante de un establecimiento/nivel
+        /// </summary>
+        /// <param name="id">ID establecimiento_nivel</param>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerDirigidos(int establecimiento_nivel_id)
+        {
+            List<Rol> devolver = new List<Rol>();
+            string query = "SELECT * FROM roles WHERE tipo_id = 1 AND establecimiento_nivel_id = " + establecimiento_nivel_id.ToString() + " ORDER BY borrado ASC";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                devolver.Add(ArmarObjeto(dr));
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
         /// Busca todos los roles de un usuario de la DB
         /// </summary>
         /// <param name="id">ID del usuario</param>

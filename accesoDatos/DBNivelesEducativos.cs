@@ -88,7 +88,7 @@ namespace accesoDatos
         }
 
         /// <summary>
-        /// Busca los niveles educativos dentro de la lista especificada
+        /// Busca los niveles educativos con id incluido en la lista especificada
         /// </summary>
         /// <param name="ids">Lista de ids a buscar</param>
         /// <returns>Devuelve un listado de objetos nivel educativo</returns>

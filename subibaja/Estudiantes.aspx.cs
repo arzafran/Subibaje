@@ -12,24 +12,24 @@ namespace subibaja
 {
     public partial class Estudiantes : Pagina
     {
-        private Usuario _usuario;
         private ControlAltaEstudiantes _controladora = new ControlAltaEstudiantes();
 
         private void Bind()
         {
             try 
-            { 
+            {
+                grdEstudiantes.DataSource = _controladora.TraerDirigidos(_usuario.Id);
+                grdEstudiantes.DataBind();
             }
             catch (Exception ex) 
             {
+                this.MostrarError(ex.Message);
             }
         }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            _usuario = (Usuario)Session["usuario"];
-            if (_usuario == null)
-                Response.Redirect("Login.aspx");
+            this.VerificarLogin();
 
             _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");
             _error = (Label)Master.FindControl("lblExcepcion");
@@ -119,8 +119,10 @@ namespace subibaja
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
                 {
                     e.Row.CssClass = "danger";
-                    lb.CommandName = "comandoRestitucion";
-                    lb.Text = "<span class='glyphicon glyphicon-repeat'></span>";
+                    //lb.CommandName = "comandoRestitucion";
+                    //lb.Text = "<span class='glyphicon glyphicon-repeat'></span>";
+                    lb.Text = "";
+                    lb.Enabled = false;
                 }
                 else
                 {

@@ -30,7 +30,7 @@ namespace subibaja
                 Response.Redirect("Index.aspx");
             }
 
-            lblError.Text = "INCORRECTO GATO";    
+            lblError.Text = ":: LOGIN INCORRECTO ::";    
         }
     }
 }

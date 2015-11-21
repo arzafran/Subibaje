@@ -42,7 +42,6 @@
   <ItemGroup>
     <Compile Include="Ciudad.cs" />
     <Compile Include="Establecimiento.cs" />
-    <Compile Include="Estudiante.cs" />
     <Compile Include="NivelEducativo.cs" />
     <Compile Include="Provincia.cs" />
     <Compile Include="Rol.cs" />

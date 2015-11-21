@@ -9,8 +9,8 @@ namespace Controladoras
 {
     public class ControlAltaCiudades
     {
+        public ControlAltaProvincias provincias = new ControlAltaProvincias();
         private DBCiudades _ciudades = new DBCiudades();
-        public DBProvincias provincias = new DBProvincias();
 
         /// <summary>
         /// Crea un nuevo objeto ciudad y lo guarda en la DB.
@@ -72,6 +72,16 @@ namespace Controladoras
         public List<Ciudad> TraerTodos()
         {
             return _ciudades.TraerTodos();
+        }
+
+        /// <summary>
+        /// Busca todas las ciudades activas
+        /// </summary>
+        /// <returns>Devuelve un lista de objetos ciudad</returns>
+
+        public List<Ciudad> TraerActivos()
+        {
+            return _ciudades.TraerActivos();
         }
 
         /// <summary>

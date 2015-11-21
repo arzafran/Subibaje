@@ -20,12 +20,6 @@ namespace Modelos
         {
             Nombre = nombre;
         }
-        /*
-        public Provincia(string nombre, int id)
-        {
-            Nombre = nombre;
-            Id = id;
-        }*/
         
         public Provincia(string nombre, int id, DateTime borrado)
         {

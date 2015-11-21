@@ -46,7 +46,6 @@
     <Compile Include="DBConnector.cs" />
     <Compile Include="DBEstablecimientoNivel.cs" />
     <Compile Include="DBEstablecimientos.cs" />
-    <Compile Include="DBEstudiantes.cs" />
     <Compile Include="DBNivelesEducativos.cs" />
     <Compile Include="DBProvincias.cs" />
     <Compile Include="DBRoles.cs" />

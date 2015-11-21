@@ -22,6 +22,8 @@ namespace subibaja
 
         protected void Page_Load(object sender, EventArgs e)
         {
+            this.VerificarLogin();
+
             _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");
             _error = (Label)Master.FindControl("lblExcepcion");
 

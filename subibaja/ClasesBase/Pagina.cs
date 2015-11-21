@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using System.Reflection;
+using Modelos;
 
 namespace subibaja.ClasesBase
 {
@@ -12,6 +13,14 @@ namespace subibaja.ClasesBase
     {
         protected Panel _wrapperError;
         protected Label _error;
+        protected Usuario _usuario;
+
+        protected void VerificarLogin()
+        {
+            _usuario = (Usuario)Session["usuario"];
+            if (_usuario == null)
+                Response.Redirect("Login.aspx");
+        }
 
         protected void MostrarError(string mensaje)
         {

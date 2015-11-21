@@ -11,7 +11,6 @@ namespace accesoDatos
 {
     public class DBCiudades : IcapaDato<Ciudad>
     {
-
         private DBProvincias _provincias = new DBProvincias();
         private DBConnector _conexion = new DBConnector();
 

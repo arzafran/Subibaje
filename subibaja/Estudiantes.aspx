@@ -13,16 +13,19 @@
         onrowcommand="grdEstudiantes_RowCommand" OnRowDataBound="grdEstudiantes_RowDataBound">
         <Columns>
             <asp:BoundField DataField="id" HeaderText="Id" />
-            <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-            <asp:BoundField DataField="Establecimiento" HeaderText="Establecimiento" />
-            <asp:BoundField DataField="Nivel" HeaderText="Nivel educativo" />
-            <asp:BoundField DataField="borrado" HeaderText="Borrado" />
-
-            <asp:TemplateField ItemStyle-Width="40px">
-                <ItemTemplate>
-                    <asp:LinkButton ID="linkEdicion" runat="server" CssClass="edicion" Text="<span class='glyphicon glyphicon-pencil'></span>" CommandName="comandoEdicion" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
-                </ItemTemplate>
+            <asp:BoundField DataField="Usuario" HeaderText="Estudiante" />
+            <asp:TemplateField HeaderText="DNI">
+                <itemtemplate>
+                    <%#DataBinder.Eval(Container.DataItem, "Usuario.Dni")%>
+                </itemtemplate>
             </asp:TemplateField>
+            <asp:TemplateField HeaderText="EMAIL">
+                <itemtemplate>
+                    <%#DataBinder.Eval(Container.DataItem, "Usuario.Email")%>
+                </itemtemplate>
+            </asp:TemplateField>
+
+            <asp:BoundField DataField="borrado" HeaderText="Ingresado" />
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>

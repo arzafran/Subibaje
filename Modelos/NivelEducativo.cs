@@ -20,13 +20,7 @@ namespace Modelos
         {
             Nombre = nombre;
         }
-        /*
-        public NivelEducativo(string nombre, int id)
-        {
-            Nombre = nombre;
-            Id = id;
-        }
-        */
+
         public NivelEducativo(string nombre, int id, DateTime borrado)
         {
             Nombre = nombre;

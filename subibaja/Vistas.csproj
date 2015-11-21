@@ -66,8 +66,10 @@
     <Content Include="Estudiantes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Gruntfile.js" />
+    <Content Include="img\updown.png" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Logout.aspx" />
     <Content Include="NivelesEducativos.aspx" />
     <Content Include="Provincias.aspx" />
     <Content Include="Roles.aspx" />
@@ -135,6 +137,13 @@
     </Compile>
     <Compile Include="Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Logout.aspx.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Logout.aspx.designer.cs">
+      <DependentUpon>Logout.aspx</DependentUpon>
     </Compile>
     <Compile Include="NivelesEducativos.aspx.cs">
       <DependentUpon>NivelesEducativos.aspx</DependentUpon>

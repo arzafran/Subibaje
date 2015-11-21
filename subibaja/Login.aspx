@@ -9,6 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <link href="app/css/style.css" rel="stylesheet" type="text/css" />
     <link href="css/login.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="/img/updown.png" type="image/png" />
     <style type="text/css">
         body 
         {
@@ -18,16 +19,15 @@
 </head>
 <body>
     <form id="form1" runat="server">
-        <asp:Label ID="lblError" runat="server" Text="Label"></asp:Label>
         <div id="app" class="container-fluid">
         	<div class="row">
 				<div class="login-box">
 					<div class="login-body">
 						<div class="login-hora">
-							
+                            <asp:Label ID="lblError" runat="server" Text=":: Login ::"></asp:Label>
 						</div>
 						<div class="circulo">
-							<!--<img src="/images/balcarce.jpg">-->
+							<img src="/img/updown.png">
 						</div>
 					</div>
 					<div class="login-form">
