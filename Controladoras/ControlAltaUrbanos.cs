@@ -11,6 +11,7 @@ namespace Controladoras
     {
         private DBUrbanos _urbanos = new DBUrbanos();
         public ControlAltaCiudades ciudades = new ControlAltaCiudades();
+        public ControlPermisos permisos = new ControlPermisos();
 
         /// <summary>
         /// Crea un nuevo objeto urbano y lo persiste

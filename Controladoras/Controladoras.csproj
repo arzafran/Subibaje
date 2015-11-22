@@ -49,6 +49,7 @@
     <Compile Include="ControlAltaTipoRoles.cs" />
     <Compile Include="ControlAltaUrbanos.cs" />
     <Compile Include="ControlAltaUsuarios.cs" />
+    <Compile Include="ControlPermisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

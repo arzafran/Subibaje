@@ -10,6 +10,7 @@ namespace Controladoras
     public class ControlAltaTipoRoles
     {
         private DBTipoRoles _roles = new DBTipoRoles();
+        public ControlPermisos permisos = new ControlPermisos();
 
         /// <summary>
         /// Crea un objeto rol y lo guarda en la DB

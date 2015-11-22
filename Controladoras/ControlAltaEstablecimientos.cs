@@ -12,6 +12,7 @@ namespace Controladoras
         private DBEstablecimientos _establecimientos = new DBEstablecimientos();
         public ControlAltaCiudades ciudades = new ControlAltaCiudades();
         public ControlAltaNivelesEducativos niveles = new ControlAltaNivelesEducativos();
+        public ControlPermisos permisos = new ControlPermisos();
 
         /// <summary>
         /// Crea un nuevo objeto establecimiento y lo guarda en la DB.

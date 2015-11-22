@@ -10,10 +10,10 @@ namespace Controladoras
     public class ControlAltaRoles
     {
         private DBRoles _roles = new DBRoles();
-        public DBEstablecimientos establecimientos = new DBEstablecimientos();
-        public DBUsuarios usuarios = new DBUsuarios();
-        public DBNivelesEducativos niveles = new DBNivelesEducativos();
-        public DBTipoRoles tipo_roles = new DBTipoRoles();
+        public ControlAltaEstablecimientos establecimientos = new ControlAltaEstablecimientos();
+        public ControlAltaNivelesEducativos niveles = new ControlAltaNivelesEducativos();
+        public ControlAltaUsuarios usuarios = new ControlAltaUsuarios();
+        public ControlAltaTipoRoles tipo_roles = new ControlAltaTipoRoles();
         public DBEstablecimientoNivel establecimientos_niveles = new DBEstablecimientoNivel();
 
         /// <summary>
@@ -152,6 +152,18 @@ namespace Controladoras
                 throw new Exception("No existe rol con ese ID");
 
             return oRol;
+        }
+
+        /// <summary>
+        /// Verifica si el usuario loggueado tiene los permisos para acceder a la pagina solicitada
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a verificar</param>
+        /// <param name="tipo_id">ID del rol que deberia tener</param>
+        /// <returns>True si tiene los permisos o false en caso contrario.</returns>
+
+        public bool TieneRol(int usuario_id, int tipo_id)
+        {
+            return _roles.TieneRol(usuario_id, tipo_id);
         }
     }
 }

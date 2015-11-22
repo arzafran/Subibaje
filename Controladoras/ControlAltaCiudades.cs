@@ -9,8 +9,9 @@ namespace Controladoras
 {
     public class ControlAltaCiudades
     {
-        public ControlAltaProvincias provincias = new ControlAltaProvincias();
         private DBCiudades _ciudades = new DBCiudades();
+        public ControlAltaProvincias provincias = new ControlAltaProvincias();
+        public ControlPermisos permisos = new ControlPermisos();
 
         /// <summary>
         /// Crea un nuevo objeto ciudad y lo guarda en la DB.

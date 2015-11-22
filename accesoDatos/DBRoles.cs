@@ -162,6 +162,18 @@ namespace accesoDatos
             return devolver;
         }
 
+        public bool TieneRol(int usuario_id, int tipo_id)
+        {
+            bool devolver = false;
+            string query = "SELECT * FROM roles WHERE tipo_id = " + tipo_id.ToString() + " AND usuario_id = " + usuario_id.ToString() + " AND borrado IS NULL";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            if (dt.Rows.Count > 0)
+                devolver = true;
+
+            return devolver;
+        }
+
         /// <summary>
         /// Busca todos los roles activos de un usuario de la DB
         /// </summary>

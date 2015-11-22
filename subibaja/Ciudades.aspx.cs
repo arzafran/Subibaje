@@ -35,6 +35,10 @@ namespace subibaja
         protected void Page_Load(object sender, EventArgs e)
         {
             this.VerificarLogin();
+            this._permiso_id = 2;
+
+            if (!_controladora.permisos.TieneRol(_usuario.Id, _permiso_id))
+                Response.Redirect("Permisos.aspx");
 
             _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");
             _error = (Label)Master.FindControl("lblExcepcion");

@@ -10,6 +10,7 @@ namespace Controladoras
     public class ControlAltaUsuarios
     {
         private DBUsuarios _usuarios = new DBUsuarios();
+        public ControlPermisos roles = new ControlPermisos();
 
         /// <summary>
         /// Crea un objeto usuario y lo guarda en la DB

@@ -10,6 +10,7 @@ namespace Controladoras
     public class ControlAltaNivelesEducativos
     {
         private DBNivelesEducativos _niveles = new DBNivelesEducativos();
+        public ControlPermisos permisos = new ControlPermisos();
 
         /// <summary>
         /// Crea un objeto nivel educativo y lo guarda en la DB

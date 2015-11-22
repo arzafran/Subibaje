@@ -10,7 +10,7 @@ namespace Controladoras
     public class ControlAltaEstudiantes
     {
         private DBUsuarios _usuarios = new DBUsuarios();
-        private DBRoles _roles = new DBRoles();
+        public DBRoles roles = new DBRoles();
         private DBTipoRoles _tipos = new DBTipoRoles();
         private DBEstablecimientos _establecimientos = new DBEstablecimientos();
         private DBNivelesEducativos _niveles = new DBNivelesEducativos();
@@ -22,7 +22,7 @@ namespace Controladoras
             Usuario director = _usuarios.BuscarPorId(director_id),
                     oUser = _usuarios.BuscarPorDni(dni);
 
-            director.ListaRoles = _roles.TraerActivos(director_id);
+            director.ListaRoles = roles.TraerActivos(director_id);
 
             Establecimiento oEstablecimiento = director.ListaRoles.First(p => p.Tipo.Nombre == "Director").Establecimiento;
             NivelEducativo oNivel = director.ListaRoles.First(p => p.Tipo.Nombre == "Director").Nivel;
@@ -34,18 +34,18 @@ namespace Controladoras
             }
 
             Rol oRol = new Rol(oTipo, oUser, oEstablecimiento, oNivel);
-            _roles.Agregar(oRol);
+            roles.Agregar(oRol);
         }
 
         public List<Rol> TraerDirigidos(int director_id)
         {
             Usuario director = _usuarios.BuscarPorId(director_id);
-            director.ListaRoles = _roles.TraerActivos(director_id);
+            director.ListaRoles = roles.TraerActivos(director_id);
             Establecimiento oEstablecimiento = director.ListaRoles.First(p => p.Tipo.Nombre == "Director").Establecimiento;
             NivelEducativo oNivel = director.ListaRoles.First(p => p.Tipo.Nombre == "Director").Nivel;
             int establecimiento_nivel_id = _establecimientos_niveles.BuscarPorParametros(oEstablecimiento.Id, oNivel.Id);
             
-            return _roles.TraerDirigidos(establecimiento_nivel_id);
+            return roles.TraerDirigidos(establecimiento_nivel_id);
         }
         
     }

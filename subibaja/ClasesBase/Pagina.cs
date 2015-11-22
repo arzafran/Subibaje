@@ -14,6 +14,7 @@ namespace subibaja.ClasesBase
         protected Panel _wrapperError;
         protected Label _error;
         protected Usuario _usuario;
+        protected int _permiso_id;
 
         protected void VerificarLogin()
         {
