@@ -30,7 +30,6 @@ namespace subibaja
         protected void Page_Load(object sender, EventArgs e)
         {
             this.VerificarLogin();
-
             this._permiso_id = 3;
 
             if (!_controladora.roles.TieneRol(_usuario.Id, _permiso_id))
@@ -60,23 +59,6 @@ namespace subibaja
             this.LimpiarControles(Page.Controls);
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            _wrapperError.Style.Add("display", "none");
-
-            try
-            {
-                //_controladora.Editar(txtNombre.Text, Convert.ToInt32(idEdicion.Value), Convert.ToInt32(ddlProvincia.SelectedValue));
-                this.Bind();
-            }
-            catch (Exception ex)
-            {
-                this.MostrarError(ex.Message);
-            }
-
-            this.LimpiarControles(Page.Controls);
-        }
-
         protected void grdEstudiantes_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             _wrapperError.Style.Add("display", "none");
@@ -87,21 +69,8 @@ namespace subibaja
 
                 switch (e.CommandName.ToString())
                 {
-                    case "comandoEdicion":
-                        /*Ciudad oCiudad = _controladora.BuscarPorId(id);
-                        txtNombre.Text = oCiudad.Nombre;
-                        ddlProvincia.SelectedValue = oCiudad.Provincia.Id.ToString();
-                        idEdicion.Value = id.ToString();
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "<script>$('#carga').modal('show');</script>", false);
-                       */ break;
-
                     case "comandoBorrado":
-                        //_controladora.Desactivar(id);
-                        this.Bind();
-                        break;
-
-                    case "comandoRestitucion":
-                        //_controladora.Reactivar(id);
+                        _controladora.Desactivar(id);
                         this.Bind();
                         break;
                 }
@@ -118,21 +87,19 @@ namespace subibaja
             if (e.Row.RowType == DataControlRowType.DataRow)
             {
                 DateTime dt;
-                DateTime.TryParse(e.Row.Cells[3].Text, out dt);
+                DateTime.TryParse(e.Row.Cells[4].Text, out dt);
 
                 LinkButton lb = (LinkButton)e.Row.FindControl("linkBorrado");
                 if (lb != null && dt.CompareTo(DateTime.Now) < 0)
                 {
                     e.Row.CssClass = "danger";
-                    //lb.CommandName = "comandoRestitucion";
-                    //lb.Text = "<span class='glyphicon glyphicon-repeat'></span>";
                     lb.Text = "";
                     lb.Enabled = false;
                 }
                 else
                 {
                     e.Row.CssClass = "success";
-                    e.Row.Cells[3].Text = "-";
+                    e.Row.Cells[4].Text = "-";
                 }
             }
         }

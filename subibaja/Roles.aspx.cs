@@ -50,7 +50,6 @@ namespace subibaja
         protected void Page_Load(object sender, EventArgs e)
         {
             this.VerificarLogin();
-
             this._permiso_id = 2;
 
             if (!_controladora.TieneRol(_usuario.Id, _permiso_id))
@@ -91,23 +90,6 @@ namespace subibaja
             this.LimpiarControles(Page.Controls);
         }
 
-        protected void btnEditar_Click(object sender, EventArgs e)
-        {
-            _wrapperError.Style.Add("display", "none");
-
-            try
-            {
-                //_controladora.Editar(txtNombre.Text, Convert.ToInt32(txtDni.Text), txtEmail.Text, Convert.ToInt32(idEdicion.Value));
-                this.Bind();
-            }
-            catch (Exception ex)
-            {
-                this.MostrarError(ex.Message);
-            }
-
-            this.LimpiarControles(Page.Controls);
-        }
-
         protected void grdRoles_RowCommand(object sender, GridViewCommandEventArgs e)
         {
             _wrapperError.Style.Add("display", "none");
@@ -118,15 +100,6 @@ namespace subibaja
 
                 switch (e.CommandName.ToString())
                 {
-                    case "comandoEdicion":
-                        /*Usuario oUsuario = _controladora.BuscarPorId(id);
-                        txtNombre.Text = oUsuario.Nombre;
-                        txtDni.Text = oUsuario.Dni.ToString();
-                        txtEmail.Text = oUsuario.Email;
-                        idEdicion.Value = id.ToString();
-                        ScriptManager.RegisterStartupScript(this, this.GetType(), "none", "<script>$('#carga').modal('show');</script>", false);
-                       */ break;
-
                     case "comandoBorrado":
                         _controladora.Desactivar(id);
                         this.Bind();

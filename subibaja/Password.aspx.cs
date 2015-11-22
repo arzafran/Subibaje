@@ -8,11 +8,16 @@ using subibaja.ClasesBase;
 
 namespace subibaja
 {
-    public partial class Permisos : Pagina
+    public partial class Password : Pagina
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            this.VerificarLogin();
+
+        }
+
+        protected void btnCambiar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -10,60 +10,42 @@
 namespace subibaja {
     
     
-    public partial class Roles {
+    public partial class Password {
         
         /// <summary>
-        /// Control grdRoles.
+        /// Control txtPassViejo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView grdRoles;
+        protected global::System.Web.UI.WebControls.TextBox txtPassViejo;
         
         /// <summary>
-        /// Control idEdicion.
+        /// Control txtPassNuevo.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField idEdicion;
+        protected global::System.Web.UI.WebControls.TextBox txtPassNuevo;
         
         /// <summary>
-        /// Control ddlTipo.
+        /// Control txtPassNuevo2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlTipo;
+        protected global::System.Web.UI.WebControls.TextBox txtPassNuevo2;
         
         /// <summary>
-        /// Control ddlEstablecimiento.
+        /// Control btnCambiar.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlEstablecimiento;
-        
-        /// <summary>
-        /// Control ddlNivel.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList ddlNivel;
-        
-        /// <summary>
-        /// Control btnAgregar.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::subibaja.Controles.ModernButton btnAgregar;
+        protected global::subibaja.Controles.ModernButton btnCambiar;
     }
 }

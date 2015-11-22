@@ -65,22 +65,9 @@
                         </div>
                     </div>
                     <div class="form-group">
-                        <label class="col-sm-2 control-label" for="ddlNivel">Nivel Educativo:</label>
-                        <div class="col-sm-10">
-                            <asp:DropDownList ID="ddlNivel" runat="server" CssClass="form-control">
-                            </asp:DropDownList>
-                        </div>
-                    </div>
-                    <div class="form-group">
                         <div class="col-sm-12 text-right">
-                            <mc:ModernButton runat="server" ID="btnEditar" CssClass="btn btn-warning" 
-                                onclick="btnEditar_Click" >
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </mc:ModernButton>
                             <mc:ModernButton runat="server" ID="btnAgregar" CssClass="btn btn-success" 
-                                onclick="btnAgregar_Click" >
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            </mc:ModernButton>
+                                onclick="btnAgregar_Click" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></mc:ModernButton>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>

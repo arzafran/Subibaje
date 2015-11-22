@@ -21,12 +21,6 @@
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
-                    <asp:LinkButton ID="linkEdicion" runat="server" CssClass="edicion" Text="<span class='glyphicon glyphicon-pencil'></span>" CommandName="comandoEdicion" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
-                </ItemTemplate>
-            </asp:TemplateField>
-
-            <asp:TemplateField ItemStyle-Width="40px">
-                <ItemTemplate>
                     <asp:LinkButton OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
@@ -68,10 +62,6 @@
                     
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
-                            <mc:ModernButton runat="server" ID="btnEditar" CssClass="btn btn-warning" 
-                                onclick="btnEditar_Click" >
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </mc:ModernButton>
                             <mc:ModernButton runat="server" ID="btnAgregar" CssClass="btn btn-success" 
                                 onclick="btnAgregar_Click" >
                                 <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>

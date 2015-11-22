@@ -162,7 +162,52 @@ namespace accesoDatos
             return devolver;
         }
 
+        /// <summary>
+        /// Verifica si el usuario especificado ya tiene un rol asignado
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a verificar</param>
+        /// <param name="tipo_id">ID del tipo de rol a verificar.</param>
+        /// <returns>True si tiene el rol asignado, false si no lo tiene.</returns>
+
         public bool TieneRol(int usuario_id, int tipo_id)
+        {
+            bool devolver = false;
+            string query = "SELECT * FROM roles WHERE tipo_id = " + tipo_id.ToString() + " AND usuario_id = " + usuario_id.ToString() + " AND borrado IS NULL";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            if (dt.Rows.Count > 0)
+                devolver = true;
+
+            return devolver;
+        }
+
+        /// <summary>
+        /// Verifica si el usuario especificado ya es estudiante en el establecimiento especificado.
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a verificar</param>
+        /// <param name="establecimiento_nivel_id"></param>
+        /// <returns>True si tiene el rol asignado, false si no lo tiene.</returns>
+
+        public bool EsEstudiante(int usuario_id, int establecimiento_nivel_id)
+        {
+            bool devolver = false;
+            string query = "SELECT * FROM roles WHERE establecimiento_nivel_id = " + establecimiento_nivel_id + " AND tipo_id = 2 AND usuario_id = " + usuario_id.ToString();
+            DataTable dt = _conexion.TraerDatos(query);
+
+            if (dt.Rows.Count > 0)
+                devolver = true;
+
+            return devolver;
+        }
+
+        /// <summary>
+        /// Verifica si el usuario especificado ya tiene un rol asignado
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a verificar</param>
+        /// <param name="tipo_id">ID del tipo de rol a verificar.</param>
+        /// <returns>True si tiene el rol asignado, false si no lo tiene.</returns>
+        
+        public bool TieneRolActivo(int usuario_id, int tipo_id)
         {
             bool devolver = false;
             string query = "SELECT * FROM roles WHERE tipo_id = " + tipo_id.ToString() + " AND usuario_id = " + usuario_id.ToString() + " AND borrado IS NULL";

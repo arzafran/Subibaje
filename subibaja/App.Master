@@ -10,6 +10,7 @@
         <title>Subibaje</title>
         <link rel="shortcut icon" href="/img/updown.png" type="image/png" />
         <link href="app/css/style.css" rel="stylesheet" type="text/css" />
+        <link href="css/login.css" rel="stylesheet" type="text/css" />
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
     </head>
@@ -17,38 +18,11 @@
     <form class="form-horizontal" id="form1" runat="server">
         <!-- Slide Menu -->
         <div id="slider" class="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li>
-                    <a href="Ciudades.aspx">Ciudades</a>
-                </li>
-                <li>
-                    <a href="Establecimientos.aspx">Establecimientos</a>
-                </li>
-                <li>
-                    <a href="Estudiantes.aspx">Establecimientos</a>
-                </li>
-                <li>
-                    <a href="Urbanos.aspx">Lineas urbanas</a>
-                </li>
-                <li>
-                    <a href="NivelesEducativos.aspx">Niveles</a>
-                </li>
-                <li>
-                    <a href="Provincias.aspx">Provincias</a>
-                </li>
-                <li>
-                    <a href="Roles.aspx">Roles</a>
-                </li>
-                <li>
-                    <a href="TipoRoles.aspx">Tipos de Roles</a>
-                </li>
-                <li>
-                    <a href="Usuarios.aspx">Usuarios</a>
-                </li>
-                <li>
-                    <a href="Logout.aspx">Logout</a>
-                </li>
-            </ul>
+            <asp:BulletedList CssClass="sidebar-nav"
+                DisplayMode="HyperLink"
+                ID="listaLinks"
+                runat="server">
+            </asp:BulletedList>
         </div>
         <!-- /Slide Menu -->
         <!-- Header -->
@@ -56,6 +30,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.aspx">
+                        <img class="imglogo" src="img/updown.png" />
                         <span>Subibaje</span> 
                     </a>
                 </div>

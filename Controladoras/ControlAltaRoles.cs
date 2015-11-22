@@ -134,6 +134,9 @@ namespace Controladoras
             if (oRol.Nivel != null)
                 if (DateTime.Compare(oRol.Nivel.Borrado, DateTime.Now) < 0)
                     throw new Exception("No se puede activar un rol cuyo nivel está desactivado");
+
+            if (_roles.TieneRolActivo(oRol.Usuario.Id, oRol.Tipo.Id))
+                throw new Exception("El usuario ya tiene ese rol activo");
             
             _roles.Reactivar(id);
         }
