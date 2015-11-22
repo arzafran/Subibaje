@@ -240,6 +240,25 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Busca todos los roles "estudiante" inactivos de la DB
+        /// </summary>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerInactivos()
+        {
+            List<Rol> devolver = new List<Rol>();
+            string query = "SELECT * FROM roles WHERE borrado IS NOT NULL AND tipo_id = 1";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                devolver.Add(ArmarObjeto(dr));
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
         /// Genera un objeto rol en base a un registro de la DB
         /// </summary>
         /// <param name="dr">Datarow de un datatable</param>

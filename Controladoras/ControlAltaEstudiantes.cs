@@ -68,6 +68,11 @@ namespace Controladoras
             return roles.TraerDirigidos(establecimiento_nivel_id);
         }
 
+        public List<Rol> TraerInactivos()
+        {
+            return roles.TraerInactivos();
+        }
+
         /// <summary>
         /// Marca como desactivado al estudiante especificado
         /// </summary>
@@ -81,6 +86,21 @@ namespace Controladoras
                 throw new Exception("No existe usuario con el rol con ese ID");
 
             roles.Desactivar(id);
+        }
+
+        /// <summary>
+        /// Marca como activado al estudiante especificado
+        /// </summary>
+        /// <param name="id">ID del estudiante a activar</param>
+
+        public void Reactivar(int id)
+        {
+            Rol oRol = roles.BuscarPorId(id);
+
+            if (oRol == null)
+                throw new Exception("No existe usuario con el rol con ese ID");
+
+            roles.Reactivar(id);
         }
     }
 }

@@ -142,7 +142,7 @@ namespace accesoDatos
         }
 
         /// <summary>
-        /// Verifica que exista el usuario segun email/password para el login
+        /// Verifica que exista el usuario segun email/password para el login y que este activo
         /// </summary>
         /// <param name="email">Email del usuario</param>
         /// <param name="password">Password del usuario</param>
@@ -151,7 +151,7 @@ namespace accesoDatos
         public Usuario Validar(string email, string password)
         {
             Usuario devolver = null;
-            string query = "SELECT TOP 1 * FROM usuarios WHERE email = '" + email + "' AND password = '" + password + "'";
+            string query = "SELECT TOP 1 * FROM usuarios WHERE borrado IS NULL AND email = '" + email + "' AND password = '" + password + "'";
             
             DataTable dt = _conexion.TraerDatos(query);
             if (dt.Rows.Count > 0)

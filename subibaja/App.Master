@@ -30,7 +30,7 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.aspx">
-                        <img class="imglogo" src="img/updown.png" />
+                        <!--<img class="imglogo" src="img/updown.png" />-->
                         <span>Subibaje</span> 
                     </a>
                 </div>

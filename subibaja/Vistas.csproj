@@ -72,6 +72,7 @@
     <Content Include="Logout.aspx" />
     <Content Include="NivelesEducativos.aspx" />
     <Content Include="Password.aspx" />
+    <Content Include="Pendientes.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Provincias.aspx" />
     <Content Include="Roles.aspx" />
@@ -160,6 +161,13 @@
     </Compile>
     <Compile Include="Password.aspx.designer.cs">
       <DependentUpon>Password.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pendientes.aspx.cs">
+      <DependentUpon>Pendientes.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pendientes.aspx.designer.cs">
+      <DependentUpon>Pendientes.aspx</DependentUpon>
     </Compile>
     <Compile Include="Permisos.aspx.cs">
       <DependentUpon>Permisos.aspx</DependentUpon>

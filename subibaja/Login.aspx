@@ -33,12 +33,12 @@
 					<div class="login-form">
 							<div class="form-group">
 								<label for="email">E-Mail</label>
-                                <asp:TextBox ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
+                                <asp:TextBox autocomplete="off" ID="txtEmail" CssClass="form-control" runat="server"></asp:TextBox>
 								<span class="bar"></span>
 							</div>
 							<div class="form-group">
 								<label for="password">Password</label>
-                                <asp:TextBox ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
+                                <asp:TextBox autocomplete="off" ID="txtPassword" CssClass="form-control" runat="server" TextMode="Password"></asp:TextBox>
 								<span class="bar"></span>
 							</div>
 							<div class="form-group">

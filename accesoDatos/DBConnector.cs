@@ -10,7 +10,8 @@ namespace accesoDatos
 {
     public class DBConnector
     {
-        private SqlConnection _connection = new SqlConnection("Data Source=TE205804\\SQLEXPRESS;Initial Catalog=micros;Integrated Security=True");
+        private SqlConnection _connection = new SqlConnection("Data Source=localhost\\SQLEXPRESS;Initial Catalog=micros;Integrated Security=True");
+        //private SqlConnection _connection = new SqlConnection("Data Source=TE205804\\SQLEXPRESS;Initial Catalog=micros;Integrated Security=True");
         
         /// <summary>
         /// Abre una conexion con la base de datos
