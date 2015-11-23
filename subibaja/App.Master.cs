@@ -21,12 +21,12 @@ namespace subibaja
 
             if (!IsPostBack)
             {
-                if (_controladora.TieneRol(_usuario.Id, 1))
+                if (_controladora.TieneRol(_usuario.Id, 1) != 0)
                 {
 
                 }
 
-                if (_controladora.TieneRol(_usuario.Id, 2))
+                if (_controladora.TieneRol(_usuario.Id, 2) != 0)
                 {
                     li = new ListItem();
                     li.Enabled = true;
@@ -83,7 +83,7 @@ namespace subibaja
                     listaLinks.Items.Add(li);
                 }
 
-                if (_controladora.TieneRol(_usuario.Id, 3))
+                if (_controladora.TieneRol(_usuario.Id, 3) != 0)
                 {
                     li = new ListItem();
                     li.Enabled = true;
@@ -94,8 +94,8 @@ namespace subibaja
 
                 li = new ListItem();
                 li.Enabled = true;
-                li.Value = "Password.aspx";
-                li.Text = "Cambiar Password";
+                li.Value = "Home.aspx";
+                li.Text = "Home";
                 listaLinks.Items.Add(li);
 
                 li = new ListItem();

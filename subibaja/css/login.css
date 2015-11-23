@@ -1,0 +1,97 @@
+﻿.imglogo
+{
+    float: left;
+    height: 30px;
+    margin-right: 10px;
+}
+
+.navbar-inverse.navbar
+{
+    background-color: #41b6ea;
+}
+
+.login-box {
+    margin: 30px auto 0;
+    width: 300px;
+    -webkit-box-shadow: 0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+    -moz-box-shadow:    0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+    box-shadow:         0px 0px 8px 0px rgba(50, 50, 50, 0.54);
+}
+
+.login-hora {
+    padding: 10px 0;
+    font-size: 17px;
+    font-weight: bold;
+    color: #fff;
+    width: 80%;
+    margin: 0 auto;
+    border-bottom: 2px solid #e64a19;
+}
+
+.login-body {
+    background-color: #ff5722;
+    padding-bottom: 30px;
+    text-align: center;
+}
+
+.circulo {
+    height: 150px;
+    width: 150px;
+    margin: 20px auto;
+    /*border: 3px solid #FFF;
+    border-radius: 50%;*/
+    overflow: hidden;
+}
+
+.circulo img {
+    height: 146px;
+    width: 146px;    
+}
+
+.login-form {
+    padding: 15px;
+}
+
+.login-form .form-group .form-control, .input-filtrador .form-control {
+    border: none;
+    border-radius: 0;
+    border-bottom: 1px solid #ccc;
+    box-shadow: none;
+}
+
+.login-box label {
+    color: #ff5252;
+}
+
+.bar {
+    position: relative;
+    display: block;
+    width: 100%;
+}
+
+.bar:before, .bar:after {
+    content: '';
+    height: 2px;
+    width: 0;
+    bottom: 0px;
+    position: absolute;
+    background: #e64a19;
+    transition: all 0.4s ease;
+}
+
+.bar:before {left:50%;}
+.bar:after{right: 50%;}
+
+input:focus ~ .bar:before, input:focus ~ .bar:after {width: 50%;}
+
+.login-box button {
+    width: 100%;
+    background-color: #ff5252;
+    border: 0;
+    height: 40px;
+    font-size: 18px;
+    color: #fff;
+    -webkit-box-shadow: 2px 2px 4px 0px rgba(50, 50, 50, 0.54);
+    -moz-box-shadow:    2px 2px 4px 0px rgba(50, 50, 50, 0.54);
+    box-shadow:         2px 2px 4px 0px rgba(50, 50, 50, 0.54);
+}

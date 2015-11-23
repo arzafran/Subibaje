@@ -71,7 +71,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Logout.aspx" />
     <Content Include="NivelesEducativos.aspx" />
-    <Content Include="Password.aspx" />
+    <Content Include="Home.aspx" />
     <Content Include="Pendientes.aspx" />
     <Content Include="Permisos.aspx" />
     <Content Include="Provincias.aspx" />
@@ -155,12 +155,12 @@
     <Compile Include="NivelesEducativos.aspx.designer.cs">
       <DependentUpon>NivelesEducativos.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Password.aspx.cs">
-      <DependentUpon>Password.aspx</DependentUpon>
+    <Compile Include="Home.aspx.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Password.aspx.designer.cs">
-      <DependentUpon>Password.aspx</DependentUpon>
+    <Compile Include="Home.aspx.designer.cs">
+      <DependentUpon>Home.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pendientes.aspx.cs">
       <DependentUpon>Pendientes.aspx</DependentUpon>
@@ -309,6 +309,9 @@
     <None Include="src\less\utilities.less" />
     <None Include="src\less\variables.less" />
     <None Include="src\less\wells.less" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="img\qr\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

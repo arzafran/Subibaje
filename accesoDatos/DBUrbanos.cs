@@ -89,6 +89,26 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Busca un colectivo urbano activo en la DB con el id especificado
+        /// </summary>
+        /// <param name="id">ID del colectivo urbano a buscar</param>
+        /// <returns>Devuelve un objeto urbano o null cuando no encuentra registro.</returns>
+
+        public Urbano BuscarPorIdActivo(int id)
+        {
+            Urbano oUrbano = null;
+            string query = "SELECT TOP 1 * FROM urbanos WHERE borrado IS NULL AND id = " + id.ToString();
+
+            DataTable dt = _conexion.TraerDatos(query);
+            if (dt.Rows.Count > 0)
+            {
+                oUrbano = ArmarObjeto(dt.Rows[0]);
+            }
+
+            return oUrbano;
+        }
+
+        /// <summary>
         /// Busca todos los colectivos urbanos de la DB
         /// </summary>
         /// <returns>Devuelve una lista de colectivos urbanos</returns>

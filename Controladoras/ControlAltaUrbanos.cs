@@ -117,7 +117,23 @@ namespace Controladoras
             Urbano oUrbano = _urbanos.BuscarPorId(id);
 
             if (oUrbano == null)
-                throw new Exception("No existe ciudad con ese ID");
+                throw new Exception("No existe linea con ese ID");
+
+            return oUrbano;
+        }
+
+        /// <summary>
+        /// Busca el colectivo urbano activo con el ID especificado
+        /// </summary>
+        /// <param name="id">ID del colectivo urbano a buscar</param>
+        /// <returns>Devuelve un objeto urbano</returns>
+
+        public Urbano BuscarPorIdActivo(int id)
+        {
+            Urbano oUrbano = _urbanos.BuscarPorIdActivo(id);
+
+            if (oUrbano == null)
+                throw new Exception("No existe linea activa con ese ID");
 
             return oUrbano;
         }

@@ -5,12 +5,14 @@ using System.Text;
 using accesoDatos;
 using Modelos;
 
+
 namespace Controladoras
 {
     public class ControlAltaEstudiantes
     {
         private DBUsuarios _usuarios = new DBUsuarios();
-        public DBRoles roles = new DBRoles();
+        public ControlAltaRoles roles = new ControlAltaRoles();
+        //public DBRoles roles = new DBRoles();
         private DBTipoRoles _tipos = new DBTipoRoles();
         private DBEstablecimientos _establecimientos = new DBEstablecimientos();
         private DBNivelesEducativos _niveles = new DBNivelesEducativos();
@@ -48,7 +50,6 @@ namespace Controladoras
                 throw new Exception("Este usuario ya tiene el rol estudiante en su institucion.");
 
             Rol oRol = new Rol(oTipo, oUser, oEstablecimiento, oNivel);
-            roles.Agregar(oRol);
         }
 
         /// <summary>

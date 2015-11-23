@@ -30,8 +30,10 @@
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="index.aspx">
-                        <!--<img class="imglogo" src="img/updown.png" />-->
-                        <span>Subibaje</span> 
+                        <div class="circulo-brand">
+                            <img class="imglogo" src="img/updown.png" />
+                        </div>
+                        <!--<span>Subibaje</span> -->
                     </a>
                 </div>
                 <a href="#" class="btn navbar-btn pull-right" id="trigger">&#9776;</a>

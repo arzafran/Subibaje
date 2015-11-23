@@ -17,7 +17,7 @@ namespace Controladoras
         /// <param name="tipo_id">ID del rol que deberia tener</param>
         /// <returns>True si tiene los permisos o false en caso contrario.</returns>
 
-        public bool TieneRol(int usuario_id, int tipo_id)
+        public int TieneRol(int usuario_id, int tipo_id)
         {
             return _roles.TieneRol(usuario_id, tipo_id);
         }

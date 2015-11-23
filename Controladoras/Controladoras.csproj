@@ -33,6 +33,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -40,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ControlAltaBoletos.cs" />
     <Compile Include="ControlAltaCiudades.cs" />
     <Compile Include="ControlAltaEstablecimientos.cs" />
     <Compile Include="ControlAltaEstudiantes.cs" />
@@ -49,10 +51,15 @@
     <Compile Include="ControlAltaTipoRoles.cs" />
     <Compile Include="ControlAltaUrbanos.cs" />
     <Compile Include="ControlAltaUsuarios.cs" />
+    <Compile Include="ControlHome.cs" />
     <Compile Include="ControlPermisos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\QRCodeLib.csproj">
+      <Project>{E98126B2-AF17-4783-96B9-856D6744DCA3}</Project>
+      <Name>QRCodeLib</Name>
+    </ProjectReference>
     <ProjectReference Include="..\accesoDatos\accesoDatos.csproj">
       <Project>{65D0B7DA-C31A-4CBB-85C2-3767E8FCF89A}</Project>
       <Name>accesoDatos</Name>

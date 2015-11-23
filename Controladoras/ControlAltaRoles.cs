@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using accesoDatos;
 using Modelos;
+using ThoughtWorks.QRCode.Codec;
+using ThoughtWorks.QRCode.Codec.Data;
+using System.Drawing;
+using System.Drawing.Imaging;
 
 namespace Controladoras
 {
@@ -15,6 +19,17 @@ namespace Controladoras
         public ControlAltaUsuarios usuarios = new ControlAltaUsuarios();
         public ControlAltaTipoRoles tipo_roles = new ControlAltaTipoRoles();
         public DBEstablecimientoNivel establecimientos_niveles = new DBEstablecimientoNivel();
+
+        /// <summary>
+        /// Guarda un objeto rol en la DB
+        /// </summary>
+        /// <param name="oRol">Objeto a persistir</param>
+
+        public void Nuevo(Rol oRol)
+        {
+            int _id = _roles.Nuevo(oRol);
+            this.GenerarQr(_id);
+        }
 
         /// <summary>
         /// Crea un nuevo objeto rol y lo guarda en la DB.
@@ -53,7 +68,9 @@ namespace Controladoras
                 throw new Exception("No existe dupla Establecimiento/Nivel como la que elegiste");
 
             oRol = new Rol(oTipo, oUsuario, oEstablecimiento, oNivel);
-            _roles.Agregar(oRol);
+            int _id = _roles.Nuevo(oRol);
+            this.GenerarQr(_id);
+            //_roles.Agregar(oRol);
         }
 
         /// <summary>
@@ -158,15 +175,82 @@ namespace Controladoras
         }
 
         /// <summary>
+        /// Busca el rol activo con el ID especificado
+        /// </summary>
+        /// <param name="id">ID de la rol a buscar</param>
+        /// <returns>Devuelve un objeto rol</returns>
+
+        public Rol BuscarPorIdActivo(int id)
+        {
+            Rol oRol = _roles.BuscarPorIdActivo(id);
+
+            if (oRol == null)
+                throw new Exception("No existe rol activo con ese ID");
+
+            return oRol;
+        }
+
+        /// <summary>
         /// Verifica si el usuario loggueado tiene los permisos para acceder a la pagina solicitada
         /// </summary>
         /// <param name="usuario_id">ID del usuario a verificar</param>
         /// <param name="tipo_id">ID del rol que deberia tener</param>
         /// <returns>True si tiene los permisos o false en caso contrario.</returns>
 
-        public bool TieneRol(int usuario_id, int tipo_id)
+        public int TieneRol(int usuario_id, int tipo_id)
         {
             return _roles.TieneRol(usuario_id, tipo_id);
+        }
+
+        /// <summary>
+        /// Verifica si el usuario especificado ya es estudiante en el establecimiento especificado.
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario a verificar</param>
+        /// <param name="establecimiento_nivel_id"></param>
+        /// <returns>True si tiene el rol asignado, false si no lo tiene.</returns>
+
+        public bool EsEstudiante(int usuario_id, int establecimiento_nivel_id)
+        {
+            return _roles.EsEstudiante(usuario_id, establecimiento_nivel_id);
+        }
+
+        /// <summary>
+        /// Busca todos los roles activos de un usuario
+        /// </summary>
+        /// <param name="id">ID del usuario</param>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerActivos(int id)
+        {
+            return _roles.TraerActivos(id);
+        }
+
+        /// <summary>
+        /// Busca todos los roles estudiante de un establecimiento/nivel
+        /// </summary>
+        /// <param name="id">ID establecimiento_nivel</param>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerDirigidos(int establecimiento_nivel_id)
+        {
+            return _roles.TraerDirigidos(establecimiento_nivel_id);
+        }
+
+        /// <summary>
+        /// Busca todos los roles "estudiante" inactivos
+        /// </summary>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerInactivos()
+        {
+            return _roles.TraerInactivos();
+        }
+
+        private void GenerarQr(int rol_id)
+        {
+            QRCodeEncoder encoder = new QRCodeEncoder();
+            Bitmap img = encoder.Encode(rol_id.ToString());
+            img.Save(AppDomain.CurrentDomain.BaseDirectory.ToString() + "img\\qr\\" + rol_id.ToString() + ".jpeg", ImageFormat.Jpeg);
         }
     }
 }

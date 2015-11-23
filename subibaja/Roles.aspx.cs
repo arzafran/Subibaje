@@ -52,7 +52,7 @@ namespace subibaja
             this.VerificarLogin();
             this._permiso_id = 2;
 
-            if (!_controladora.TieneRol(_usuario.Id, _permiso_id))
+            if (_controladora.TieneRol(_usuario.Id, _permiso_id) == 0)
                 Response.Redirect("Permisos.aspx");
 
             _wrapperError = (Panel)Master.FindControl("wrapperExcepcion");

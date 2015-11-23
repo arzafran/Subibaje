@@ -29,7 +29,7 @@ build/Release
 node_modules
 
 # Archivos de prueba
-/subibaja/css/*
+#/subibaja/css/*
 
 ### Bower ###
 bower_components

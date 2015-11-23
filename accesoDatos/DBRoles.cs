@@ -47,6 +47,35 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Guarda un rol en la DB
+        /// </summary>
+        /// <param name="oRol">Objeto rol a guardar</param>
+        /// <returns>Devuelve el ID del objeto ingresado</returns>
+
+        public int Nuevo(Rol oRol)
+        {
+            int establecimiento_id = oRol.Establecimiento == null ? 0 : oRol.Establecimiento.Id;
+            int nivel_id = oRol.Nivel == null ? 0 : oRol.Nivel.Id;
+            int idCombinado = 0;
+
+            if (establecimiento_id != 0 && nivel_id != 0)
+            {
+                idCombinado = _establecimientos_niveles.BuscarPorParametros(oRol.Establecimiento.Id, oRol.Nivel.Id);
+                if (idCombinado == 0)
+                    throw new Exception("El Establecimiento que eligió no tiene el nivel asociado");
+            }
+
+            string query = "INSERT INTO roles (tipo_id, usuario_id, establecimiento_nivel_id) VALUES (" + oRol.Tipo.Id.ToString() + ", " + oRol.Usuario.Id.ToString() + ", ";
+
+            if (idCombinado == 0)
+                query += "NULL)";
+            else
+                query += idCombinado.ToString() + ")";
+
+            return _conexion.EjecutarEscalar(query);
+        }
+
+        /// <summary>
         /// Marca un registro de la DB como borrado aplicando un timestamp
         /// </summary>
         /// <param name="id">ID del registro a desactivar</param>
@@ -123,6 +152,26 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Busca un rol activo en la DB con el id especificado
+        /// </summary>
+        /// <param name="id">ID del rol a buscar</param>
+        /// <returns>Devuelve un objeto rol o null cuando no encuentra registro.</returns>
+
+        public Rol BuscarPorIdActivo(int id)
+        {
+            Rol devolver = null;
+            string query = "SELECT TOP 1 * FROM roles WHERE borrado IS NULL AND id = " + id.ToString();
+
+            DataTable dt = _conexion.TraerDatos(query);
+            if (dt.Rows.Count > 0)
+            {
+                devolver = ArmarObjeto(dt.Rows[0]);
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
         /// Busca todos los roles estudiante de un establecimiento/nivel
         /// </summary>
         /// <param name="id">ID establecimiento_nivel</param>
@@ -167,16 +216,16 @@ namespace accesoDatos
         /// </summary>
         /// <param name="usuario_id">ID del usuario a verificar</param>
         /// <param name="tipo_id">ID del tipo de rol a verificar.</param>
-        /// <returns>True si tiene el rol asignado, false si no lo tiene.</returns>
+        /// <returns>Devuelve el ID del rol si tiene el alguno asignado, 0 si no lo tiene.</returns>
 
-        public bool TieneRol(int usuario_id, int tipo_id)
+        public int TieneRol(int usuario_id, int tipo_id)
         {
-            bool devolver = false;
-            string query = "SELECT * FROM roles WHERE tipo_id = " + tipo_id.ToString() + " AND usuario_id = " + usuario_id.ToString() + " AND borrado IS NULL";
+            int devolver = 0;
+            string query = "SELECT TOP 1 * FROM roles WHERE tipo_id = " + tipo_id.ToString() + " AND usuario_id = " + usuario_id.ToString() + " AND borrado IS NULL";
             DataTable dt = _conexion.TraerDatos(query);
 
             if (dt.Rows.Count > 0)
-                devolver = true;
+                devolver = (int)dt.Rows[0]["id"];
 
             return devolver;
         }

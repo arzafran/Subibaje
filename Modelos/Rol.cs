@@ -12,6 +12,7 @@ namespace Modelos
         public Usuario Usuario { get; set; }
         public Establecimiento Establecimiento { get; set; }
         public NivelEducativo Nivel { get; set; }
+        public string Qr { get; set; }
         public DateTime Borrado { get; set; }
         public string Mostrar
         {

@@ -163,6 +163,18 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Actualiza el password del usuario especificado
+        /// </summary>
+        /// <param name="usuario_id">ID del usuario</param>
+        /// <param name="pass">Password a guardar</param>
+
+        public void ActualizarPassword(int usuario_id, string pass)
+        {
+            string query = "UPDATE usuarios SET password = '" + pass + " WHERE id=" + usuario_id.ToString();
+            _conexion.EjecutarNonSql(query);
+        }
+
+        /// <summary>
         /// Busca todos los usuarios de la DB
         /// </summary>
         /// <returns>Devuelve una lista de usuarios</returns>

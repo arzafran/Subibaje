@@ -20,3 +20,5 @@ C:\Subibaje\subibaja\obj\Release\subibaja.dll
 C:\Subibaje\subibaja\obj\Release\subibaja.pdb
 C:\Subibaje\subibaja\bin\subibaja.dll
 C:\Subibaje\subibaja\bin\subibaja.pdb
+C:\Subibaje\subibaja\bin\ThoughtWorks.QRCode.dll
+C:\Subibaje\subibaja\bin\ThoughtWorks.QRCode.pdb

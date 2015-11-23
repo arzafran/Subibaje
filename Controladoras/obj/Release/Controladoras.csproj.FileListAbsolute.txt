@@ -16,3 +16,5 @@ C:\Subibaje\Controladoras\bin\Release\Modelos.pdb
 C:\Subibaje\Controladoras\obj\Release\ResolveAssemblyReference.cache
 C:\Subibaje\Controladoras\obj\Release\Controladoras.dll
 C:\Subibaje\Controladoras\obj\Release\Controladoras.pdb
+C:\Subibaje\Controladoras\bin\Release\ThoughtWorks.QRCode.dll
+C:\Subibaje\Controladoras\bin\Release\ThoughtWorks.QRCode.pdb
