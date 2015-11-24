@@ -5,6 +5,31 @@
     margin-right: 10px;
 }
 
+.imagenMenu
+{
+    width: 100px;
+    position: absolute;
+    top: 80px;
+    right: 30px;
+}
+
+.imagenInicio
+{
+    width: 100px;
+    position: absolute;
+    top: 80px;
+    left: 30px;
+}
+
+.imagenOpciones
+{
+    width: 100px;
+    position: absolute;
+    top: 80px;
+    right: 300px;
+    display: none;
+}
+
 .navbar-inverse.navbar
 {
     background-color: #41b6ea;

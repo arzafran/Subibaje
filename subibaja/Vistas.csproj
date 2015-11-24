@@ -66,6 +66,11 @@
     <Content Include="Estudiantes.aspx" />
     <Content Include="Global.asax" />
     <Content Include="Gruntfile.js" />
+    <Content Include="img\inicio.PNG" />
+    <Content Include="img\inicio2.PNG" />
+    <Content Include="img\menu.PNG" />
+    <Content Include="img\menu2.PNG" />
+    <Content Include="img\opciones.PNG" />
     <Content Include="img\updown.png" />
     <Content Include="index.aspx" />
     <Content Include="Login.aspx" />

@@ -32,8 +32,8 @@
                     <a class="navbar-brand" href="index.aspx">
                         <div class="circulo-brand">
                             <img class="imglogo" src="img/updown.png" />
+                            <span>Subibaje</span>
                         </div>
-                        <!--<span>Subibaje</span> -->
                     </a>
                 </div>
                 <a href="#" class="btn navbar-btn pull-right" id="trigger">&#9776;</a>
