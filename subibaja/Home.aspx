@@ -33,4 +33,19 @@
             </div>
         </div>
     </div>
+    <asp:Panel ID="panelGrid" CssClass="col-sm-6 col-sm-offset-3" runat="server">
+        <asp:GridView Visible="false" EmptyDataText="No hay boletos para este estudiante"
+            CssClass="table table-condensed table-hover sortable" ID="grdBoletos" runat="server" 
+            GridLines="None" AutoGenerateColumns="false">
+            <Columns>
+                <asp:BoundField DataField="id" HeaderText="Id" />
+                <asp:TemplateField HeaderText="Linea">
+                    <itemtemplate>
+                        <%#DataBinder.Eval(Container.DataItem, "Linea.Linea")%>
+                    </itemtemplate>
+                </asp:TemplateField>
+                <asp:BoundField DataField="fecha" HeaderText="Fecha" />
+            </Columns>
+        </asp:GridView>
+    </asp:Panel>
 </asp:Content>

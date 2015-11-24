@@ -31,7 +31,20 @@ namespace Controladoras
             if (oUrbano == null)
                 throw new Exception("No existe linea urbana activa con el id especificado");
 
-            return _boletos.Agregar(oRol, oUrbano);
+            Boleto oBoleto = new Boleto(oUrbano, oRol);
+
+            return _boletos.Agregar(oBoleto);
+        }
+
+        /// <summary>
+        /// Busca todos los boletos del rol (estudiante) especificado
+        /// </summary>
+        /// <param name="rol_id">ID del rol a buscar</param>
+        /// <returns>Devuelve una lista de objetos rol</returns>
+
+        public List<Boleto> TraerBoletosEstudiante(int rol_id)
+        {
+            return _boletos.TraerBoletosEstudiante(rol_id);
         }
     }
 }

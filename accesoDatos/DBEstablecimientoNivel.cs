@@ -13,6 +13,12 @@ namespace accesoDatos
     {
         private DBConnector _conexion = new DBConnector();
 
+        /// <summary>
+        /// Busca un registro de establecimiento/nivel con el ID especificado
+        /// </summary>
+        /// <param name="id">ID a buscar</param>
+        /// <returns>Devuelve una lista de enteros con los ID de establecimiento y nivel correspondientes</returns>
+
         public List<int> Buscar(int id)
         {
             List<int> devolver = new List<int>();
@@ -27,6 +33,13 @@ namespace accesoDatos
 
             return devolver;
         }
+
+        /// <summary>
+        /// Busca el ID del registro correspondiente a un nivel/establecimiento
+        /// </summary>
+        /// <param name="establecimiento_id">ID del establecimiento</param>
+        /// <param name="nivel_id">ID del nivel</param>
+        /// <returns>Devuelve el ID del registro o 0 si no encuentra valor.</returns>
 
         public int BuscarPorParametros(int establecimiento_id, int nivel_id)
         {

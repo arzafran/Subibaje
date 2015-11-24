@@ -112,5 +112,16 @@ namespace Controladoras
 
             return oRol;
         }
+
+        /// <summary>
+        /// Busca el rol con el nombre especificado
+        /// </summary>
+        /// <param name="nombre">Nombre del rol a buscar</param>
+        /// <returns>Devuelve un objeto rol</returns>
+
+        public TipoRol BuscarPorNombre(string nombre)
+        {
+            return _roles.BuscarPorNombre(nombre);
+        }
     }
 }

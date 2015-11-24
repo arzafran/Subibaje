@@ -12,10 +12,9 @@ namespace Controladoras
     {
         private DBUsuarios _usuarios = new DBUsuarios();
         public ControlAltaRoles roles = new ControlAltaRoles();
-        //public DBRoles roles = new DBRoles();
-        private DBTipoRoles _tipos = new DBTipoRoles();
-        private DBEstablecimientos _establecimientos = new DBEstablecimientos();
-        private DBNivelesEducativos _niveles = new DBNivelesEducativos();
+        private ControlAltaTipoRoles _tipos = new ControlAltaTipoRoles();
+        private ControlAltaEstablecimientos _establecimientos = new ControlAltaEstablecimientos();
+        private ControlAltaNivelesEducativos _niveles = new ControlAltaNivelesEducativos();
         private DBEstablecimientoNivel _establecimientos_niveles = new DBEstablecimientoNivel();
 
         /// <summary>
@@ -68,6 +67,11 @@ namespace Controladoras
             
             return roles.TraerDirigidos(establecimiento_nivel_id);
         }
+
+        /// <summary>
+        /// Busca los roles inactivos
+        /// </summary>
+        /// <returns>Devuelve una lista de roles inactivos</returns>
 
         public List<Rol> TraerInactivos()
         {

@@ -66,12 +66,6 @@ namespace subibaja
 
                     li = new ListItem();
                     li.Enabled = true;
-                    li.Value = "Roles.aspx";
-                    li.Text = "Roles";
-                    listaLinks.Items.Add(li);
-
-                    li = new ListItem();
-                    li.Enabled = true;
                     li.Value = "TipoRoles.aspx";
                     li.Text = "Tipos de roles";
                     listaLinks.Items.Add(li);

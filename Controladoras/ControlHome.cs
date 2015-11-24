@@ -11,6 +11,7 @@ namespace Controladoras
     {
         private DBUsuarios _usuarios = new DBUsuarios();
         public ControlAltaRoles roles = new ControlAltaRoles();
+        public ControlAltaBoletos boletos = new ControlAltaBoletos();
 
         public void CambiarPassword(int usuario_id, string passVieja, string passNueva1, string passNueva2)
         {

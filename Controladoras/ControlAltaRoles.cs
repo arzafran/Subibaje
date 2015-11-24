@@ -14,11 +14,11 @@ namespace Controladoras
     public class ControlAltaRoles
     {
         private DBRoles _roles = new DBRoles();
+        public DBEstablecimientoNivel establecimientos_niveles = new DBEstablecimientoNivel();
         public ControlAltaEstablecimientos establecimientos = new ControlAltaEstablecimientos();
         public ControlAltaNivelesEducativos niveles = new ControlAltaNivelesEducativos();
         public ControlAltaUsuarios usuarios = new ControlAltaUsuarios();
         public ControlAltaTipoRoles tipo_roles = new ControlAltaTipoRoles();
-        public DBEstablecimientoNivel establecimientos_niveles = new DBEstablecimientoNivel();
 
         /// <summary>
         /// Guarda un objeto rol en la DB
@@ -70,7 +70,6 @@ namespace Controladoras
             oRol = new Rol(oTipo, oUsuario, oEstablecimiento, oNivel);
             int _id = _roles.Nuevo(oRol);
             this.GenerarQr(_id);
-            //_roles.Agregar(oRol);
         }
 
         /// <summary>

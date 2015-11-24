@@ -24,6 +24,12 @@ namespace subibaja
             {
                 imagenQr.Visible = true;
                 imagenQr.ImageUrl = "img/qr/" + rol_id.ToString() + ".jpeg";
+                grdBoletos.Visible = true;
+                if (!IsPostBack)
+                {
+                    grdBoletos.DataSource = _controladora.boletos.TraerBoletosEstudiante(rol_id);
+                    grdBoletos.DataBind();
+                }
             }
                 
         }
