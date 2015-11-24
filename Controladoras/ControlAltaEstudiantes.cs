@@ -49,6 +49,7 @@ namespace Controladoras
                 throw new Exception("Este usuario ya tiene el rol estudiante en su institucion.");
 
             Rol oRol = new Rol(oTipo, oUser, oEstablecimiento, oNivel);
+            roles.Nuevo(oRol);
         }
 
         /// <summary>

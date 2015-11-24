@@ -9480,11 +9480,11 @@ if (window.Modernizr = function(window, document, undefined) {
     });
 }), "undefined" == typeof jQuery) throw new Error("Bootstrap's JavaScript requires jQuery");
 
-+function(a) {
++function (a) {
     "use strict";
     var b = a.fn.jquery.split(" ")[0].split(".");
     if (b[0] < 2 && b[1] < 9 || 1 == b[0] && 9 == b[1] && b[2] < 1) throw new Error("Bootstrap's JavaScript requires jQuery version 1.9.1 or higher");
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b() {
         var a = document.createElement("bootstrap"), b = {
@@ -9498,99 +9498,99 @@ if (window.Modernizr = function(window, document, undefined) {
         };
         return !1;
     }
-    a.fn.emulateTransitionEnd = function(b) {
+    a.fn.emulateTransitionEnd = function (b) {
         var c = !1, d = this;
-        a(this).one("bsTransitionEnd", function() {
+        a(this).one("bsTransitionEnd", function () {
             c = !0;
         });
-        var e = function() {
+        var e = function () {
             c || a(d).trigger(a.support.transition.end);
         };
         return setTimeout(e, b), this;
-    }, a(function() {
+    }, a(function () {
         a.support.transition = b(), a.support.transition && (a.event.special.bsTransitionEnd = {
             bindType: a.support.transition.end,
             delegateType: a.support.transition.end,
-            handle: function(b) {
+            handle: function (b) {
                 return a(b.target).is(this) ? b.handleObj.handler.apply(this, arguments) : void 0;
             }
         });
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var c = a(this), e = c.data("bs.alert");
             e || c.data("bs.alert", e = new d(this)), "string" == typeof b && e[b].call(c);
         });
     }
-    var c = '[data-dismiss="alert"]', d = function(b) {
+    var c = '[data-dismiss="alert"]', d = function (b) {
         a(b).on("click", c, this.close);
     };
-    d.VERSION = "3.3.5", d.TRANSITION_DURATION = 150, d.prototype.close = function(b) {
+    d.VERSION = "3.3.5", d.TRANSITION_DURATION = 150, d.prototype.close = function (b) {
         function c() {
             g.detach().trigger("closed.bs.alert").remove();
         }
         var e = a(this), f = e.attr("data-target");
         f || (f = e.attr("href"), f = f && f.replace(/.*(?=#[^\s]*$)/, ""));
         var g = a(f);
-        b && b.preventDefault(), g.length || (g = e.closest(".alert")), g.trigger(b = a.Event("close.bs.alert")), 
+        b && b.preventDefault(), g.length || (g = e.closest(".alert")), g.trigger(b = a.Event("close.bs.alert")),
         b.isDefaultPrevented() || (g.removeClass("in"), a.support.transition && g.hasClass("fade") ? g.one("bsTransitionEnd", c).emulateTransitionEnd(d.TRANSITION_DURATION) : c());
     };
     var e = a.fn.alert;
-    a.fn.alert = b, a.fn.alert.Constructor = d, a.fn.alert.noConflict = function() {
+    a.fn.alert = b, a.fn.alert.Constructor = d, a.fn.alert.noConflict = function () {
         return a.fn.alert = e, this;
     }, a(document).on("click.bs.alert.data-api", c, d.prototype.close);
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.button"), f = "object" == typeof b && b;
             e || d.data("bs.button", e = new c(this, f)), "toggle" == b ? e.toggle() : b && e.setState(b);
         });
     }
-    var c = function(b, d) {
+    var c = function (b, d) {
         this.$element = a(b), this.options = a.extend({}, c.DEFAULTS, d), this.isLoading = !1;
     };
     c.VERSION = "3.3.5", c.DEFAULTS = {
         loadingText: "loading..."
-    }, c.prototype.setState = function(b) {
+    }, c.prototype.setState = function (b) {
         var c = "disabled", d = this.$element, e = d.is("input") ? "val" : "html", f = d.data();
-        b += "Text", null == f.resetText && d.data("resetText", d[e]()), setTimeout(a.proxy(function() {
-            d[e](null == f[b] ? this.options[b] : f[b]), "loadingText" == b ? (this.isLoading = !0, 
+        b += "Text", null == f.resetText && d.data("resetText", d[e]()), setTimeout(a.proxy(function () {
+            d[e](null == f[b] ? this.options[b] : f[b]), "loadingText" == b ? (this.isLoading = !0,
             d.addClass(c).attr(c, c)) : this.isLoading && (this.isLoading = !1, d.removeClass(c).removeAttr(c));
         }, this), 0);
-    }, c.prototype.toggle = function() {
+    }, c.prototype.toggle = function () {
         var a = !0, b = this.$element.closest('[data-toggle="buttons"]');
         if (b.length) {
             var c = this.$element.find("input");
-            "radio" == c.prop("type") ? (c.prop("checked") && (a = !1), b.find(".active").removeClass("active"), 
-            this.$element.addClass("active")) : "checkbox" == c.prop("type") && (c.prop("checked") !== this.$element.hasClass("active") && (a = !1), 
-            this.$element.toggleClass("active")), c.prop("checked", this.$element.hasClass("active")), 
+            "radio" == c.prop("type") ? (c.prop("checked") && (a = !1), b.find(".active").removeClass("active"),
+            this.$element.addClass("active")) : "checkbox" == c.prop("type") && (c.prop("checked") !== this.$element.hasClass("active") && (a = !1),
+            this.$element.toggleClass("active")), c.prop("checked", this.$element.hasClass("active")),
             a && c.trigger("change");
         } else this.$element.attr("aria-pressed", !this.$element.hasClass("active")), this.$element.toggleClass("active");
     };
     var d = a.fn.button;
-    a.fn.button = b, a.fn.button.Constructor = c, a.fn.button.noConflict = function() {
+    a.fn.button = b, a.fn.button.Constructor = c, a.fn.button.noConflict = function () {
         return a.fn.button = d, this;
-    }, a(document).on("click.bs.button.data-api", '[data-toggle^="button"]', function(c) {
+    }, a(document).on("click.bs.button.data-api", '[data-toggle^="button"]', function (c) {
         var d = a(c.target);
         d.hasClass("btn") || (d = d.closest(".btn")), b.call(d, "toggle"), a(c.target).is('input[type="radio"]') || a(c.target).is('input[type="checkbox"]') || c.preventDefault();
-    }).on("focus.bs.button.data-api blur.bs.button.data-api", '[data-toggle^="button"]', function(b) {
+    }).on("focus.bs.button.data-api blur.bs.button.data-api", '[data-toggle^="button"]', function (b) {
         a(b.target).closest(".btn").toggleClass("focus", /^focus(in)?$/.test(b.type));
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.carousel"), f = a.extend({}, c.DEFAULTS, d.data(), "object" == typeof b && b), g = "string" == typeof b ? b : f.slide;
             e || d.data("bs.carousel", e = new c(this, f)), "number" == typeof b ? e.to(b) : g ? e[g]() : f.interval && e.pause().cycle();
         });
     }
-    var c = function(b, c) {
-        this.$element = a(b), this.$indicators = this.$element.find(".carousel-indicators"), 
-        this.options = c, this.paused = null, this.sliding = null, this.interval = null, 
-        this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", a.proxy(this.keydown, this)), 
+    var c = function (b, c) {
+        this.$element = a(b), this.$indicators = this.$element.find(".carousel-indicators"),
+        this.options = c, this.paused = null, this.sliding = null, this.interval = null,
+        this.$active = null, this.$items = null, this.options.keyboard && this.$element.on("keydown.bs.carousel", a.proxy(this.keydown, this)),
         "hover" == this.options.pause && !("ontouchstart" in document.documentElement) && this.$element.on("mouseenter.bs.carousel", a.proxy(this.pause, this)).on("mouseleave.bs.carousel", a.proxy(this.cycle, this));
     };
     c.VERSION = "3.3.5", c.TRANSITION_DURATION = 600, c.DEFAULTS = {
@@ -9598,45 +9598,45 @@ if (window.Modernizr = function(window, document, undefined) {
         pause: "hover",
         wrap: !0,
         keyboard: !0
-    }, c.prototype.keydown = function(a) {
+    }, c.prototype.keydown = function (a) {
         if (!/input|textarea/i.test(a.target.tagName)) {
             switch (a.which) {
-              case 37:
-                this.prev();
-                break;
+                case 37:
+                    this.prev();
+                    break;
 
-              case 39:
-                this.next();
-                break;
+                case 39:
+                    this.next();
+                    break;
 
-              default:
-                return;
+                default:
+                    return;
             }
             a.preventDefault();
         }
-    }, c.prototype.cycle = function(b) {
-        return b || (this.paused = !1), this.interval && clearInterval(this.interval), this.options.interval && !this.paused && (this.interval = setInterval(a.proxy(this.next, this), this.options.interval)), 
+    }, c.prototype.cycle = function (b) {
+        return b || (this.paused = !1), this.interval && clearInterval(this.interval), this.options.interval && !this.paused && (this.interval = setInterval(a.proxy(this.next, this), this.options.interval)),
         this;
-    }, c.prototype.getItemIndex = function(a) {
+    }, c.prototype.getItemIndex = function (a) {
         return this.$items = a.parent().children(".item"), this.$items.index(a || this.$active);
-    }, c.prototype.getItemForDirection = function(a, b) {
+    }, c.prototype.getItemForDirection = function (a, b) {
         var c = this.getItemIndex(b), d = "prev" == a && 0 === c || "next" == a && c == this.$items.length - 1;
         if (d && !this.options.wrap) return b;
         var e = "prev" == a ? -1 : 1, f = (c + e) % this.$items.length;
         return this.$items.eq(f);
-    }, c.prototype.to = function(a) {
+    }, c.prototype.to = function (a) {
         var b = this, c = this.getItemIndex(this.$active = this.$element.find(".item.active"));
-        return a > this.$items.length - 1 || 0 > a ? void 0 : this.sliding ? this.$element.one("slid.bs.carousel", function() {
+        return a > this.$items.length - 1 || 0 > a ? void 0 : this.sliding ? this.$element.one("slid.bs.carousel", function () {
             b.to(a);
         }) : c == a ? this.pause().cycle() : this.slide(a > c ? "next" : "prev", this.$items.eq(a));
-    }, c.prototype.pause = function(b) {
-        return b || (this.paused = !0), this.$element.find(".next, .prev").length && a.support.transition && (this.$element.trigger(a.support.transition.end), 
+    }, c.prototype.pause = function (b) {
+        return b || (this.paused = !0), this.$element.find(".next, .prev").length && a.support.transition && (this.$element.trigger(a.support.transition.end),
         this.cycle(!0)), this.interval = clearInterval(this.interval), this;
-    }, c.prototype.next = function() {
+    }, c.prototype.next = function () {
         return this.sliding ? void 0 : this.slide("next");
-    }, c.prototype.prev = function() {
+    }, c.prototype.prev = function () {
         return this.sliding ? void 0 : this.slide("prev");
-    }, c.prototype.slide = function(b, d) {
+    }, c.prototype.slide = function (b, d) {
         var e = this.$element.find(".item.active"), f = d || this.getItemForDirection(b, e), g = this.interval, h = "next" == b ? "left" : "right", i = this;
         if (f.hasClass("active")) return this.sliding = !1;
         var j = f[0], k = a.Event("slide.bs.carousel", {
@@ -9653,58 +9653,58 @@ if (window.Modernizr = function(window, document, undefined) {
                 relatedTarget: j,
                 direction: h
             });
-            return a.support.transition && this.$element.hasClass("slide") ? (f.addClass(b), 
-            f[0].offsetWidth, e.addClass(h), f.addClass(h), e.one("bsTransitionEnd", function() {
-                f.removeClass([ b, h ].join(" ")).addClass("active"), e.removeClass([ "active", h ].join(" ")), 
-                i.sliding = !1, setTimeout(function() {
+            return a.support.transition && this.$element.hasClass("slide") ? (f.addClass(b),
+            f[0].offsetWidth, e.addClass(h), f.addClass(h), e.one("bsTransitionEnd", function () {
+                f.removeClass([b, h].join(" ")).addClass("active"), e.removeClass(["active", h].join(" ")),
+                i.sliding = !1, setTimeout(function () {
                     i.$element.trigger(m);
                 }, 0);
-            }).emulateTransitionEnd(c.TRANSITION_DURATION)) : (e.removeClass("active"), f.addClass("active"), 
+            }).emulateTransitionEnd(c.TRANSITION_DURATION)) : (e.removeClass("active"), f.addClass("active"),
             this.sliding = !1, this.$element.trigger(m)), g && this.cycle(), this;
         }
     };
     var d = a.fn.carousel;
-    a.fn.carousel = b, a.fn.carousel.Constructor = c, a.fn.carousel.noConflict = function() {
+    a.fn.carousel = b, a.fn.carousel.Constructor = c, a.fn.carousel.noConflict = function () {
         return a.fn.carousel = d, this;
     };
-    var e = function(c) {
+    var e = function (c) {
         var d, e = a(this), f = a(e.attr("data-target") || (d = e.attr("href")) && d.replace(/.*(?=#[^\s]+$)/, ""));
         if (f.hasClass("carousel")) {
             var g = a.extend({}, f.data(), e.data()), h = e.attr("data-slide-to");
             h && (g.interval = !1), b.call(f, g), h && f.data("bs.carousel").to(h), c.preventDefault();
         }
     };
-    a(document).on("click.bs.carousel.data-api", "[data-slide]", e).on("click.bs.carousel.data-api", "[data-slide-to]", e), 
-    a(window).on("load", function() {
-        a('[data-ride="carousel"]').each(function() {
+    a(document).on("click.bs.carousel.data-api", "[data-slide]", e).on("click.bs.carousel.data-api", "[data-slide-to]", e),
+    a(window).on("load", function () {
+        a('[data-ride="carousel"]').each(function () {
             var c = a(this);
             b.call(c, c.data());
         });
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
         var c, d = b.attr("data-target") || (c = b.attr("href")) && c.replace(/.*(?=#[^\s]+$)/, "");
         return a(d);
     }
     function c(b) {
-        return this.each(function() {
+        return this.each(function () {
             var c = a(this), e = c.data("bs.collapse"), f = a.extend({}, d.DEFAULTS, c.data(), "object" == typeof b && b);
-            !e && f.toggle && /show|hide/.test(b) && (f.toggle = !1), e || c.data("bs.collapse", e = new d(this, f)), 
+            !e && f.toggle && /show|hide/.test(b) && (f.toggle = !1), e || c.data("bs.collapse", e = new d(this, f)),
             "string" == typeof b && e[b]();
         });
     }
-    var d = function(b, c) {
-        this.$element = a(b), this.options = a.extend({}, d.DEFAULTS, c), this.$trigger = a('[data-toggle="collapse"][href="#' + b.id + '"],[data-toggle="collapse"][data-target="#' + b.id + '"]'), 
-        this.transitioning = null, this.options.parent ? this.$parent = this.getParent() : this.addAriaAndCollapsedClass(this.$element, this.$trigger), 
+    var d = function (b, c) {
+        this.$element = a(b), this.options = a.extend({}, d.DEFAULTS, c), this.$trigger = a('[data-toggle="collapse"][href="#' + b.id + '"],[data-toggle="collapse"][data-target="#' + b.id + '"]'),
+        this.transitioning = null, this.options.parent ? this.$parent = this.getParent() : this.addAriaAndCollapsedClass(this.$element, this.$trigger),
         this.options.toggle && this.toggle();
     };
     d.VERSION = "3.3.5", d.TRANSITION_DURATION = 350, d.DEFAULTS = {
         toggle: !0
-    }, d.prototype.dimension = function() {
+    }, d.prototype.dimension = function () {
         var a = this.$element.hasClass("width");
         return a ? "width" : "height";
-    }, d.prototype.show = function() {
+    }, d.prototype.show = function () {
         if (!this.transitioning && !this.$element.hasClass("in")) {
             var b, e = this.$parent && this.$parent.children(".panel").children(".in, .collapsing");
             if (!(e && e.length && (b = e.data("bs.collapse"), b && b.transitioning))) {
@@ -9712,52 +9712,52 @@ if (window.Modernizr = function(window, document, undefined) {
                 if (this.$element.trigger(f), !f.isDefaultPrevented()) {
                     e && e.length && (c.call(e, "hide"), b || e.data("bs.collapse", null));
                     var g = this.dimension();
-                    this.$element.removeClass("collapse").addClass("collapsing")[g](0).attr("aria-expanded", !0), 
+                    this.$element.removeClass("collapse").addClass("collapsing")[g](0).attr("aria-expanded", !0),
                     this.$trigger.removeClass("collapsed").attr("aria-expanded", !0), this.transitioning = 1;
-                    var h = function() {
-                        this.$element.removeClass("collapsing").addClass("collapse in")[g](""), this.transitioning = 0, 
+                    var h = function () {
+                        this.$element.removeClass("collapsing").addClass("collapse in")[g](""), this.transitioning = 0,
                         this.$element.trigger("shown.bs.collapse");
                     };
                     if (!a.support.transition) return h.call(this);
-                    var i = a.camelCase([ "scroll", g ].join("-"));
+                    var i = a.camelCase(["scroll", g].join("-"));
                     this.$element.one("bsTransitionEnd", a.proxy(h, this)).emulateTransitionEnd(d.TRANSITION_DURATION)[g](this.$element[0][i]);
                 }
             }
         }
-    }, d.prototype.hide = function() {
+    }, d.prototype.hide = function () {
         if (!this.transitioning && this.$element.hasClass("in")) {
             var b = a.Event("hide.bs.collapse");
             if (this.$element.trigger(b), !b.isDefaultPrevented()) {
                 var c = this.dimension();
-                this.$element[c](this.$element[c]())[0].offsetHeight, this.$element.addClass("collapsing").removeClass("collapse in").attr("aria-expanded", !1), 
+                this.$element[c](this.$element[c]())[0].offsetHeight, this.$element.addClass("collapsing").removeClass("collapse in").attr("aria-expanded", !1),
                 this.$trigger.addClass("collapsed").attr("aria-expanded", !1), this.transitioning = 1;
-                var e = function() {
+                var e = function () {
                     this.transitioning = 0, this.$element.removeClass("collapsing").addClass("collapse").trigger("hidden.bs.collapse");
                 };
                 return a.support.transition ? void this.$element[c](0).one("bsTransitionEnd", a.proxy(e, this)).emulateTransitionEnd(d.TRANSITION_DURATION) : e.call(this);
             }
         }
-    }, d.prototype.toggle = function() {
+    }, d.prototype.toggle = function () {
         this[this.$element.hasClass("in") ? "hide" : "show"]();
-    }, d.prototype.getParent = function() {
-        return a(this.options.parent).find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]').each(a.proxy(function(c, d) {
+    }, d.prototype.getParent = function () {
+        return a(this.options.parent).find('[data-toggle="collapse"][data-parent="' + this.options.parent + '"]').each(a.proxy(function (c, d) {
             var e = a(d);
             this.addAriaAndCollapsedClass(b(e), e);
         }, this)).end();
-    }, d.prototype.addAriaAndCollapsedClass = function(a, b) {
+    }, d.prototype.addAriaAndCollapsedClass = function (a, b) {
         var c = a.hasClass("in");
         a.attr("aria-expanded", c), b.toggleClass("collapsed", !c).attr("aria-expanded", c);
     };
     var e = a.fn.collapse;
-    a.fn.collapse = c, a.fn.collapse.Constructor = d, a.fn.collapse.noConflict = function() {
+    a.fn.collapse = c, a.fn.collapse.Constructor = d, a.fn.collapse.noConflict = function () {
         return a.fn.collapse = e, this;
-    }, a(document).on("click.bs.collapse.data-api", '[data-toggle="collapse"]', function(d) {
+    }, a(document).on("click.bs.collapse.data-api", '[data-toggle="collapse"]', function (d) {
         var e = a(this);
         e.attr("data-target") || d.preventDefault();
         var f = b(e), g = f.data("bs.collapse"), h = g ? "toggle" : e.data();
         c.call(f, h);
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
         var c = b.attr("data-target");
@@ -9766,24 +9766,24 @@ if (window.Modernizr = function(window, document, undefined) {
         return d && d.length ? d : b.parent();
     }
     function c(c) {
-        c && 3 === c.which || (a(e).remove(), a(f).each(function() {
+        c && 3 === c.which || (a(e).remove(), a(f).each(function () {
             var d = a(this), e = b(d), f = {
                 relatedTarget: this
             };
-            e.hasClass("open") && (c && "click" == c.type && /input|textarea/i.test(c.target.tagName) && a.contains(e[0], c.target) || (e.trigger(c = a.Event("hide.bs.dropdown", f)), 
+            e.hasClass("open") && (c && "click" == c.type && /input|textarea/i.test(c.target.tagName) && a.contains(e[0], c.target) || (e.trigger(c = a.Event("hide.bs.dropdown", f)),
             c.isDefaultPrevented() || (d.attr("aria-expanded", "false"), e.removeClass("open").trigger("hidden.bs.dropdown", f))));
         }));
     }
     function d(b) {
-        return this.each(function() {
+        return this.each(function () {
             var c = a(this), d = c.data("bs.dropdown");
             d || c.data("bs.dropdown", d = new g(this)), "string" == typeof b && d[b].call(c);
         });
     }
-    var e = ".dropdown-backdrop", f = '[data-toggle="dropdown"]', g = function(b) {
+    var e = ".dropdown-backdrop", f = '[data-toggle="dropdown"]', g = function (b) {
         a(b).on("click.bs.dropdown", this.toggle);
     };
-    g.VERSION = "3.3.5", g.prototype.toggle = function(d) {
+    g.VERSION = "3.3.5", g.prototype.toggle = function (d) {
         var e = a(this);
         if (!e.is(".disabled, :disabled")) {
             var f = b(e), g = f.hasClass("open");
@@ -9797,165 +9797,165 @@ if (window.Modernizr = function(window, document, undefined) {
             }
             return !1;
         }
-    }, g.prototype.keydown = function(c) {
+    }, g.prototype.keydown = function (c) {
         if (/(38|40|27|32)/.test(c.which) && !/input|textarea/i.test(c.target.tagName)) {
             var d = a(this);
             if (c.preventDefault(), c.stopPropagation(), !d.is(".disabled, :disabled")) {
                 var e = b(d), g = e.hasClass("open");
-                if (!g && 27 != c.which || g && 27 == c.which) return 27 == c.which && e.find(f).trigger("focus"), 
+                if (!g && 27 != c.which || g && 27 == c.which) return 27 == c.which && e.find(f).trigger("focus"),
                 d.trigger("click");
                 var h = " li:not(.disabled):visible a", i = e.find(".dropdown-menu" + h);
                 if (i.length) {
                     var j = i.index(c.target);
-                    38 == c.which && j > 0 && j--, 40 == c.which && j < i.length - 1 && j++, ~j || (j = 0), 
+                    38 == c.which && j > 0 && j--, 40 == c.which && j < i.length - 1 && j++, ~j || (j = 0),
                     i.eq(j).trigger("focus");
                 }
             }
         }
     };
     var h = a.fn.dropdown;
-    a.fn.dropdown = d, a.fn.dropdown.Constructor = g, a.fn.dropdown.noConflict = function() {
+    a.fn.dropdown = d, a.fn.dropdown.Constructor = g, a.fn.dropdown.noConflict = function () {
         return a.fn.dropdown = h, this;
-    }, a(document).on("click.bs.dropdown.data-api", c).on("click.bs.dropdown.data-api", ".dropdown form", function(a) {
+    }, a(document).on("click.bs.dropdown.data-api", c).on("click.bs.dropdown.data-api", ".dropdown form", function (a) {
         a.stopPropagation();
     }).on("click.bs.dropdown.data-api", f, g.prototype.toggle).on("keydown.bs.dropdown.data-api", f, g.prototype.keydown).on("keydown.bs.dropdown.data-api", ".dropdown-menu", g.prototype.keydown);
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b, d) {
-        return this.each(function() {
+        return this.each(function () {
             var e = a(this), f = e.data("bs.modal"), g = a.extend({}, c.DEFAULTS, e.data(), "object" == typeof b && b);
             f || e.data("bs.modal", f = new c(this, g)), "string" == typeof b ? f[b](d) : g.show && f.show(d);
         });
     }
-    var c = function(b, c) {
-        this.options = c, this.$body = a(document.body), this.$element = a(b), this.$dialog = this.$element.find(".modal-dialog"), 
-        this.$backdrop = null, this.isShown = null, this.originalBodyPad = null, this.scrollbarWidth = 0, 
-        this.ignoreBackdropClick = !1, this.options.remote && this.$element.find(".modal-content").load(this.options.remote, a.proxy(function() {
+    var c = function (b, c) {
+        this.options = c, this.$body = a(document.body), this.$element = a(b), this.$dialog = this.$element.find(".modal-dialog"),
+        this.$backdrop = null, this.isShown = null, this.originalBodyPad = null, this.scrollbarWidth = 0,
+        this.ignoreBackdropClick = !1, this.options.remote && this.$element.find(".modal-content").load(this.options.remote, a.proxy(function () {
             this.$element.trigger("loaded.bs.modal");
         }, this));
     };
-    c.VERSION = "3.3.5", c.TRANSITION_DURATION = 300, c.BACKDROP_TRANSITION_DURATION = 150, 
+    c.VERSION = "3.3.5", c.TRANSITION_DURATION = 300, c.BACKDROP_TRANSITION_DURATION = 150,
     c.DEFAULTS = {
         backdrop: !0,
         keyboard: !0,
         show: !0
-    }, c.prototype.toggle = function(a) {
+    }, c.prototype.toggle = function (a) {
         return this.isShown ? this.hide() : this.show(a);
-    }, c.prototype.show = function(b) {
+    }, c.prototype.show = function (b) {
         var d = this, e = a.Event("show.bs.modal", {
             relatedTarget: b
         });
-        this.$element.trigger(e), this.isShown || e.isDefaultPrevented() || (this.isShown = !0, 
-        this.checkScrollbar(), this.setScrollbar(), this.$body.addClass("modal-open"), this.escape(), 
-        this.resize(), this.$element.on("click.dismiss.bs.modal", '[data-dismiss="modal"]', a.proxy(this.hide, this)), 
-        this.$dialog.on("mousedown.dismiss.bs.modal", function() {
-            d.$element.one("mouseup.dismiss.bs.modal", function(b) {
+        this.$element.trigger(e), this.isShown || e.isDefaultPrevented() || (this.isShown = !0,
+        this.checkScrollbar(), this.setScrollbar(), this.$body.addClass("modal-open"), this.escape(),
+        this.resize(), this.$element.on("click.dismiss.bs.modal", '[data-dismiss="modal"]', a.proxy(this.hide, this)),
+        this.$dialog.on("mousedown.dismiss.bs.modal", function () {
+            d.$element.one("mouseup.dismiss.bs.modal", function (b) {
                 a(b.target).is(d.$element) && (d.ignoreBackdropClick = !0);
             });
-        }), this.backdrop(function() {
+        }), this.backdrop(function () {
             var e = a.support.transition && d.$element.hasClass("fade");
-            d.$element.parent().length || d.$element.appendTo(d.$body), d.$element.show().scrollTop(0), 
+            d.$element.parent().length || d.$element.appendTo(d.$body), d.$element.show().scrollTop(0),
             d.adjustDialog(), e && d.$element[0].offsetWidth, d.$element.addClass("in"), d.enforceFocus();
             var f = a.Event("shown.bs.modal", {
                 relatedTarget: b
             });
-            e ? d.$dialog.one("bsTransitionEnd", function() {
+            e ? d.$dialog.one("bsTransitionEnd", function () {
                 d.$element.trigger("focus").trigger(f);
             }).emulateTransitionEnd(c.TRANSITION_DURATION) : d.$element.trigger("focus").trigger(f);
         }));
-    }, c.prototype.hide = function(b) {
-        b && b.preventDefault(), b = a.Event("hide.bs.modal"), this.$element.trigger(b), 
-        this.isShown && !b.isDefaultPrevented() && (this.isShown = !1, this.escape(), this.resize(), 
-        a(document).off("focusin.bs.modal"), this.$element.removeClass("in").off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"), 
+    }, c.prototype.hide = function (b) {
+        b && b.preventDefault(), b = a.Event("hide.bs.modal"), this.$element.trigger(b),
+        this.isShown && !b.isDefaultPrevented() && (this.isShown = !1, this.escape(), this.resize(),
+        a(document).off("focusin.bs.modal"), this.$element.removeClass("in").off("click.dismiss.bs.modal").off("mouseup.dismiss.bs.modal"),
         this.$dialog.off("mousedown.dismiss.bs.modal"), a.support.transition && this.$element.hasClass("fade") ? this.$element.one("bsTransitionEnd", a.proxy(this.hideModal, this)).emulateTransitionEnd(c.TRANSITION_DURATION) : this.hideModal());
-    }, c.prototype.enforceFocus = function() {
-        a(document).off("focusin.bs.modal").on("focusin.bs.modal", a.proxy(function(a) {
+    }, c.prototype.enforceFocus = function () {
+        a(document).off("focusin.bs.modal").on("focusin.bs.modal", a.proxy(function (a) {
             this.$element[0] === a.target || this.$element.has(a.target).length || this.$element.trigger("focus");
         }, this));
-    }, c.prototype.escape = function() {
-        this.isShown && this.options.keyboard ? this.$element.on("keydown.dismiss.bs.modal", a.proxy(function(a) {
+    }, c.prototype.escape = function () {
+        this.isShown && this.options.keyboard ? this.$element.on("keydown.dismiss.bs.modal", a.proxy(function (a) {
             27 == a.which && this.hide();
         }, this)) : this.isShown || this.$element.off("keydown.dismiss.bs.modal");
-    }, c.prototype.resize = function() {
+    }, c.prototype.resize = function () {
         this.isShown ? a(window).on("resize.bs.modal", a.proxy(this.handleUpdate, this)) : a(window).off("resize.bs.modal");
-    }, c.prototype.hideModal = function() {
+    }, c.prototype.hideModal = function () {
         var a = this;
-        this.$element.hide(), this.backdrop(function() {
+        this.$element.hide(), this.backdrop(function () {
             a.$body.removeClass("modal-open"), a.resetAdjustments(), a.resetScrollbar(), a.$element.trigger("hidden.bs.modal");
         });
-    }, c.prototype.removeBackdrop = function() {
+    }, c.prototype.removeBackdrop = function () {
         this.$backdrop && this.$backdrop.remove(), this.$backdrop = null;
-    }, c.prototype.backdrop = function(b) {
+    }, c.prototype.backdrop = function (b) {
         var d = this, e = this.$element.hasClass("fade") ? "fade" : "";
         if (this.isShown && this.options.backdrop) {
             var f = a.support.transition && e;
-            if (this.$backdrop = a(document.createElement("div")).addClass("modal-backdrop " + e).appendTo(this.$body), 
-            this.$element.on("click.dismiss.bs.modal", a.proxy(function(a) {
+            if (this.$backdrop = a(document.createElement("div")).addClass("modal-backdrop " + e).appendTo(this.$body),
+            this.$element.on("click.dismiss.bs.modal", a.proxy(function (a) {
                 return this.ignoreBackdropClick ? void (this.ignoreBackdropClick = !1) : void (a.target === a.currentTarget && ("static" == this.options.backdrop ? this.$element[0].focus() : this.hide()));
             }, this)), f && this.$backdrop[0].offsetWidth, this.$backdrop.addClass("in"), !b) return;
             f ? this.$backdrop.one("bsTransitionEnd", b).emulateTransitionEnd(c.BACKDROP_TRANSITION_DURATION) : b();
         } else if (!this.isShown && this.$backdrop) {
             this.$backdrop.removeClass("in");
-            var g = function() {
+            var g = function () {
                 d.removeBackdrop(), b && b();
             };
             a.support.transition && this.$element.hasClass("fade") ? this.$backdrop.one("bsTransitionEnd", g).emulateTransitionEnd(c.BACKDROP_TRANSITION_DURATION) : g();
         } else b && b();
-    }, c.prototype.handleUpdate = function() {
+    }, c.prototype.handleUpdate = function () {
         this.adjustDialog();
-    }, c.prototype.adjustDialog = function() {
+    }, c.prototype.adjustDialog = function () {
         var a = this.$element[0].scrollHeight > document.documentElement.clientHeight;
         this.$element.css({
             paddingLeft: !this.bodyIsOverflowing && a ? this.scrollbarWidth : "",
             paddingRight: this.bodyIsOverflowing && !a ? this.scrollbarWidth : ""
         });
-    }, c.prototype.resetAdjustments = function() {
+    }, c.prototype.resetAdjustments = function () {
         this.$element.css({
             paddingLeft: "",
             paddingRight: ""
         });
-    }, c.prototype.checkScrollbar = function() {
+    }, c.prototype.checkScrollbar = function () {
         var a = window.innerWidth;
         if (!a) {
             var b = document.documentElement.getBoundingClientRect();
             a = b.right - Math.abs(b.left);
         }
         this.bodyIsOverflowing = document.body.clientWidth < a, this.scrollbarWidth = this.measureScrollbar();
-    }, c.prototype.setScrollbar = function() {
+    }, c.prototype.setScrollbar = function () {
         var a = parseInt(this.$body.css("padding-right") || 0, 10);
         this.originalBodyPad = document.body.style.paddingRight || "", this.bodyIsOverflowing && this.$body.css("padding-right", a + this.scrollbarWidth);
-    }, c.prototype.resetScrollbar = function() {
+    }, c.prototype.resetScrollbar = function () {
         this.$body.css("padding-right", this.originalBodyPad);
-    }, c.prototype.measureScrollbar = function() {
+    }, c.prototype.measureScrollbar = function () {
         var a = document.createElement("div");
         a.className = "modal-scrollbar-measure", this.$body.append(a);
         var b = a.offsetWidth - a.clientWidth;
         return this.$body[0].removeChild(a), b;
     };
     var d = a.fn.modal;
-    a.fn.modal = b, a.fn.modal.Constructor = c, a.fn.modal.noConflict = function() {
+    a.fn.modal = b, a.fn.modal.Constructor = c, a.fn.modal.noConflict = function () {
         return a.fn.modal = d, this;
-    }, a(document).on("click.bs.modal.data-api", '[data-toggle="modal"]', function(c) {
+    }, a(document).on("click.bs.modal.data-api", '[data-toggle="modal"]', function (c) {
         var d = a(this), e = d.attr("href"), f = a(d.attr("data-target") || e && e.replace(/.*(?=#[^\s]+$)/, "")), g = f.data("bs.modal") ? "toggle" : a.extend({
             remote: !/#/.test(e) && e
         }, f.data(), d.data());
-        d.is("a") && c.preventDefault(), f.one("show.bs.modal", function(a) {
-            a.isDefaultPrevented() || f.one("hidden.bs.modal", function() {
+        d.is("a") && c.preventDefault(), f.one("show.bs.modal", function (a) {
+            a.isDefaultPrevented() || f.one("hidden.bs.modal", function () {
                 d.is(":visible") && d.trigger("focus");
             });
         }), b.call(f, g, this);
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.tooltip"), f = "object" == typeof b && b;
-            (e || !/destroy|hide/.test(b)) && (e || d.data("bs.tooltip", e = new c(this, f)), 
+            (e || !/destroy|hide/.test(b)) && (e || d.data("bs.tooltip", e = new c(this, f)),
             "string" == typeof b && e[b]());
         });
     }
-    var c = function(a, b) {
-        this.type = null, this.options = null, this.enabled = null, this.timeout = null, 
+    var c = function (a, b) {
+        this.type = null, this.options = null, this.enabled = null, this.timeout = null,
         this.hoverState = null, this.$element = null, this.inState = null, this.init("tooltip", a, b);
     };
     c.VERSION = "3.3.5", c.TRANSITION_DURATION = 150, c.DEFAULTS = {
@@ -9972,9 +9972,9 @@ if (window.Modernizr = function(window, document, undefined) {
             selector: "body",
             padding: 0
         }
-    }, c.prototype.init = function(b, c, d) {
-        if (this.enabled = !0, this.type = b, this.$element = a(c), this.options = this.getOptions(d), 
-        this.$viewport = this.options.viewport && a(a.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : this.options.viewport.selector || this.options.viewport), 
+    }, c.prototype.init = function (b, c, d) {
+        if (this.enabled = !0, this.type = b, this.$element = a(c), this.options = this.getOptions(d),
+        this.$viewport = this.options.viewport && a(a.isFunction(this.options.viewport) ? this.options.viewport.call(this, this.$element) : this.options.viewport.selector || this.options.viewport),
         this.inState = {
             click: !1,
             hover: !1,
@@ -9984,7 +9984,7 @@ if (window.Modernizr = function(window, document, undefined) {
             var g = e[f];
             if ("click" == g) this.$element.on("click." + this.type, this.options.selector, a.proxy(this.toggle, this)); else if ("manual" != g) {
                 var h = "hover" == g ? "mouseenter" : "focusin", i = "hover" == g ? "mouseleave" : "focusout";
-                this.$element.on(h + "." + this.type, this.options.selector, a.proxy(this.enter, this)), 
+                this.$element.on(h + "." + this.type, this.options.selector, a.proxy(this.enter, this)),
                 this.$element.on(i + "." + this.type, this.options.selector, a.proxy(this.leave, this));
             }
         }
@@ -9992,37 +9992,37 @@ if (window.Modernizr = function(window, document, undefined) {
             trigger: "manual",
             selector: ""
         }) : this.fixTitle();
-    }, c.prototype.getDefaults = function() {
+    }, c.prototype.getDefaults = function () {
         return c.DEFAULTS;
-    }, c.prototype.getOptions = function(b) {
+    }, c.prototype.getOptions = function (b) {
         return b = a.extend({}, this.getDefaults(), this.$element.data(), b), b.delay && "number" == typeof b.delay && (b.delay = {
             show: b.delay,
             hide: b.delay
         }), b;
-    }, c.prototype.getDelegateOptions = function() {
+    }, c.prototype.getDelegateOptions = function () {
         var b = {}, c = this.getDefaults();
-        return this._options && a.each(this._options, function(a, d) {
+        return this._options && a.each(this._options, function (a, d) {
             c[a] != d && (b[a] = d);
         }), b;
-    }, c.prototype.enter = function(b) {
+    }, c.prototype.enter = function (b) {
         var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);
-        return c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), 
-        a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusin" == b.type ? "focus" : "hover"] = !0), 
-        c.tip().hasClass("in") || "in" == c.hoverState ? void (c.hoverState = "in") : (clearTimeout(c.timeout), 
-        c.hoverState = "in", c.options.delay && c.options.delay.show ? void (c.timeout = setTimeout(function() {
+        return c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()),
+        a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusin" == b.type ? "focus" : "hover"] = !0),
+        c.tip().hasClass("in") || "in" == c.hoverState ? void (c.hoverState = "in") : (clearTimeout(c.timeout),
+        c.hoverState = "in", c.options.delay && c.options.delay.show ? void (c.timeout = setTimeout(function () {
             "in" == c.hoverState && c.show();
         }, c.options.delay.show)) : c.show());
-    }, c.prototype.isInStateTrue = function() {
+    }, c.prototype.isInStateTrue = function () {
         for (var a in this.inState) if (this.inState[a]) return !0;
         return !1;
-    }, c.prototype.leave = function(b) {
+    }, c.prototype.leave = function (b) {
         var c = b instanceof this.constructor ? b : a(b.currentTarget).data("bs." + this.type);
-        return c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), 
-        a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusout" == b.type ? "focus" : "hover"] = !1), 
-        c.isInStateTrue() ? void 0 : (clearTimeout(c.timeout), c.hoverState = "out", c.options.delay && c.options.delay.hide ? void (c.timeout = setTimeout(function() {
+        return c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()),
+        a(b.currentTarget).data("bs." + this.type, c)), b instanceof a.Event && (c.inState["focusout" == b.type ? "focus" : "hover"] = !1),
+        c.isInStateTrue() ? void 0 : (clearTimeout(c.timeout), c.hoverState = "out", c.options.delay && c.options.delay.hide ? void (c.timeout = setTimeout(function () {
             "out" == c.hoverState && c.hide();
         }, c.options.delay.hide)) : c.hide());
-    }, c.prototype.show = function() {
+    }, c.prototype.show = function () {
         var b = a.Event("show.bs." + this.type);
         if (this.hasContent() && this.enabled) {
             this.$element.trigger(b);
@@ -10035,26 +10035,26 @@ if (window.Modernizr = function(window, document, undefined) {
                 top: 0,
                 left: 0,
                 display: "block"
-            }).addClass(h).data("bs." + this.type, this), this.options.container ? f.appendTo(this.options.container) : f.insertAfter(this.$element), 
+            }).addClass(h).data("bs." + this.type, this), this.options.container ? f.appendTo(this.options.container) : f.insertAfter(this.$element),
             this.$element.trigger("inserted.bs." + this.type);
             var k = this.getPosition(), l = f[0].offsetWidth, m = f[0].offsetHeight;
             if (j) {
                 var n = h, o = this.getPosition(this.$viewport);
-                h = "bottom" == h && k.bottom + m > o.bottom ? "top" : "top" == h && k.top - m < o.top ? "bottom" : "right" == h && k.right + l > o.width ? "left" : "left" == h && k.left - l < o.left ? "right" : h, 
+                h = "bottom" == h && k.bottom + m > o.bottom ? "top" : "top" == h && k.top - m < o.top ? "bottom" : "right" == h && k.right + l > o.width ? "left" : "left" == h && k.left - l < o.left ? "right" : h,
                 f.removeClass(n).addClass(h);
             }
             var p = this.getCalculatedOffset(h, k, l, m);
             this.applyPlacement(p, h);
-            var q = function() {
+            var q = function () {
                 var a = e.hoverState;
                 e.$element.trigger("shown.bs." + e.type), e.hoverState = null, "out" == a && e.leave(e);
             };
             a.support.transition && this.$tip.hasClass("fade") ? f.one("bsTransitionEnd", q).emulateTransitionEnd(c.TRANSITION_DURATION) : q();
         }
-    }, c.prototype.applyPlacement = function(b, c) {
+    }, c.prototype.applyPlacement = function (b, c) {
         var d = this.tip(), e = d[0].offsetWidth, f = d[0].offsetHeight, g = parseInt(d.css("margin-top"), 10), h = parseInt(d.css("margin-left"), 10);
         isNaN(g) && (g = 0), isNaN(h) && (h = 0), b.top += g, b.left += h, a.offset.setOffset(d[0], a.extend({
-            using: function(a) {
+            using: function (a) {
                 d.css({
                     top: Math.round(a.top),
                     left: Math.round(a.left)
@@ -10067,26 +10067,26 @@ if (window.Modernizr = function(window, document, undefined) {
         k.left ? b.left += k.left : b.top += k.top;
         var l = /top|bottom/.test(c), m = l ? 2 * k.left - e + i : 2 * k.top - f + j, n = l ? "offsetWidth" : "offsetHeight";
         d.offset(b), this.replaceArrow(m, d[0][n], l);
-    }, c.prototype.replaceArrow = function(a, b, c) {
+    }, c.prototype.replaceArrow = function (a, b, c) {
         this.arrow().css(c ? "left" : "top", 50 * (1 - a / b) + "%").css(c ? "top" : "left", "");
-    }, c.prototype.setContent = function() {
+    }, c.prototype.setContent = function () {
         var a = this.tip(), b = this.getTitle();
         a.find(".tooltip-inner")[this.options.html ? "html" : "text"](b), a.removeClass("fade in top bottom left right");
-    }, c.prototype.hide = function(b) {
+    }, c.prototype.hide = function (b) {
         function d() {
-            "in" != e.hoverState && f.detach(), e.$element.removeAttr("aria-describedby").trigger("hidden.bs." + e.type), 
+            "in" != e.hoverState && f.detach(), e.$element.removeAttr("aria-describedby").trigger("hidden.bs." + e.type),
             b && b();
         }
         var e = this, f = a(this.$tip), g = a.Event("hide.bs." + this.type);
-        return this.$element.trigger(g), g.isDefaultPrevented() ? void 0 : (f.removeClass("in"), 
-        a.support.transition && f.hasClass("fade") ? f.one("bsTransitionEnd", d).emulateTransitionEnd(c.TRANSITION_DURATION) : d(), 
+        return this.$element.trigger(g), g.isDefaultPrevented() ? void 0 : (f.removeClass("in"),
+        a.support.transition && f.hasClass("fade") ? f.one("bsTransitionEnd", d).emulateTransitionEnd(c.TRANSITION_DURATION) : d(),
         this.hoverState = null, this);
-    }, c.prototype.fixTitle = function() {
+    }, c.prototype.fixTitle = function () {
         var a = this.$element;
         (a.attr("title") || "string" != typeof a.attr("data-original-title")) && a.attr("data-original-title", a.attr("title") || "").attr("title", "");
-    }, c.prototype.hasContent = function() {
+    }, c.prototype.hasContent = function () {
         return this.getTitle();
-    }, c.prototype.getPosition = function(b) {
+    }, c.prototype.getPosition = function (b) {
         b = b || this.$element;
         var c = b[0], d = "BODY" == c.tagName, e = c.getBoundingClientRect();
         null == e.width && (e = a.extend({}, e, {
@@ -10103,7 +10103,7 @@ if (window.Modernizr = function(window, document, undefined) {
             height: a(window).height()
         } : null;
         return a.extend({}, e, g, h, f);
-    }, c.prototype.getCalculatedOffset = function(a, b, c, d) {
+    }, c.prototype.getCalculatedOffset = function (a, b, c, d) {
         return "bottom" == a ? {
             top: b.top + b.height,
             left: b.left + b.width / 2 - c / 2
@@ -10117,7 +10117,7 @@ if (window.Modernizr = function(window, document, undefined) {
             top: b.top + b.height / 2 - d / 2,
             left: b.left + b.width
         };
-    }, c.prototype.getViewportAdjustedDelta = function(a, b, c, d) {
+    }, c.prototype.getViewportAdjustedDelta = function (a, b, c, d) {
         var e = {
             top: 0,
             left: 0
@@ -10132,49 +10132,49 @@ if (window.Modernizr = function(window, document, undefined) {
             j < g.left ? e.left = g.left - j : k > g.right && (e.left = g.left + g.width - k);
         }
         return e;
-    }, c.prototype.getTitle = function() {
+    }, c.prototype.getTitle = function () {
         var a, b = this.$element, c = this.options;
         return a = b.attr("data-original-title") || ("function" == typeof c.title ? c.title.call(b[0]) : c.title);
-    }, c.prototype.getUID = function(a) {
-        do a += ~~(1e6 * Math.random()); while (document.getElementById(a));
+    }, c.prototype.getUID = function (a) {
+        do a += ~ ~(1e6 * Math.random()); while (document.getElementById(a));
         return a;
-    }, c.prototype.tip = function() {
+    }, c.prototype.tip = function () {
         if (!this.$tip && (this.$tip = a(this.options.template), 1 != this.$tip.length)) throw new Error(this.type + " `template` option must consist of exactly 1 top-level element!");
         return this.$tip;
-    }, c.prototype.arrow = function() {
+    }, c.prototype.arrow = function () {
         return this.$arrow = this.$arrow || this.tip().find(".tooltip-arrow");
-    }, c.prototype.enable = function() {
+    }, c.prototype.enable = function () {
         this.enabled = !0;
-    }, c.prototype.disable = function() {
+    }, c.prototype.disable = function () {
         this.enabled = !1;
-    }, c.prototype.toggleEnabled = function() {
+    }, c.prototype.toggleEnabled = function () {
         this.enabled = !this.enabled;
-    }, c.prototype.toggle = function(b) {
+    }, c.prototype.toggle = function (b) {
         var c = this;
-        b && (c = a(b.currentTarget).data("bs." + this.type), c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()), 
-        a(b.currentTarget).data("bs." + this.type, c))), b ? (c.inState.click = !c.inState.click, 
+        b && (c = a(b.currentTarget).data("bs." + this.type), c || (c = new this.constructor(b.currentTarget, this.getDelegateOptions()),
+        a(b.currentTarget).data("bs." + this.type, c))), b ? (c.inState.click = !c.inState.click,
         c.isInStateTrue() ? c.enter(c) : c.leave(c)) : c.tip().hasClass("in") ? c.leave(c) : c.enter(c);
-    }, c.prototype.destroy = function() {
+    }, c.prototype.destroy = function () {
         var a = this;
-        clearTimeout(this.timeout), this.hide(function() {
-            a.$element.off("." + a.type).removeData("bs." + a.type), a.$tip && a.$tip.detach(), 
+        clearTimeout(this.timeout), this.hide(function () {
+            a.$element.off("." + a.type).removeData("bs." + a.type), a.$tip && a.$tip.detach(),
             a.$tip = null, a.$arrow = null, a.$viewport = null;
         });
     };
     var d = a.fn.tooltip;
-    a.fn.tooltip = b, a.fn.tooltip.Constructor = c, a.fn.tooltip.noConflict = function() {
+    a.fn.tooltip = b, a.fn.tooltip.Constructor = c, a.fn.tooltip.noConflict = function () {
         return a.fn.tooltip = d, this;
     };
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.popover"), f = "object" == typeof b && b;
-            (e || !/destroy|hide/.test(b)) && (e || d.data("bs.popover", e = new c(this, f)), 
+            (e || !/destroy|hide/.test(b)) && (e || d.data("bs.popover", e = new c(this, f)),
             "string" == typeof b && e[b]());
         });
     }
-    var c = function(a, b) {
+    var c = function (a, b) {
         this.init("popover", a, b);
     };
     if (!a.fn.tooltip) throw new Error("Popover requires tooltip.js");
@@ -10183,90 +10183,90 @@ if (window.Modernizr = function(window, document, undefined) {
         trigger: "click",
         content: "",
         template: '<div class="popover" role="tooltip"><div class="arrow"></div><h3 class="popover-title"></h3><div class="popover-content"></div></div>'
-    }), c.prototype = a.extend({}, a.fn.tooltip.Constructor.prototype), c.prototype.constructor = c, 
-    c.prototype.getDefaults = function() {
+    }), c.prototype = a.extend({}, a.fn.tooltip.Constructor.prototype), c.prototype.constructor = c,
+    c.prototype.getDefaults = function () {
         return c.DEFAULTS;
-    }, c.prototype.setContent = function() {
+    }, c.prototype.setContent = function () {
         var a = this.tip(), b = this.getTitle(), c = this.getContent();
-        a.find(".popover-title")[this.options.html ? "html" : "text"](b), a.find(".popover-content").children().detach().end()[this.options.html ? "string" == typeof c ? "html" : "append" : "text"](c), 
+        a.find(".popover-title")[this.options.html ? "html" : "text"](b), a.find(".popover-content").children().detach().end()[this.options.html ? "string" == typeof c ? "html" : "append" : "text"](c),
         a.removeClass("fade top bottom left right in"), a.find(".popover-title").html() || a.find(".popover-title").hide();
-    }, c.prototype.hasContent = function() {
+    }, c.prototype.hasContent = function () {
         return this.getTitle() || this.getContent();
-    }, c.prototype.getContent = function() {
+    }, c.prototype.getContent = function () {
         var a = this.$element, b = this.options;
         return a.attr("data-content") || ("function" == typeof b.content ? b.content.call(a[0]) : b.content);
-    }, c.prototype.arrow = function() {
+    }, c.prototype.arrow = function () {
         return this.$arrow = this.$arrow || this.tip().find(".arrow");
     };
     var d = a.fn.popover;
-    a.fn.popover = b, a.fn.popover.Constructor = c, a.fn.popover.noConflict = function() {
+    a.fn.popover = b, a.fn.popover.Constructor = c, a.fn.popover.noConflict = function () {
         return a.fn.popover = d, this;
     };
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(c, d) {
-        this.$body = a(document.body), this.$scrollElement = a(a(c).is(document.body) ? window : c), 
-        this.options = a.extend({}, b.DEFAULTS, d), this.selector = (this.options.target || "") + " .nav li > a", 
-        this.offsets = [], this.targets = [], this.activeTarget = null, this.scrollHeight = 0, 
-        this.$scrollElement.on("scroll.bs.scrollspy", a.proxy(this.process, this)), this.refresh(), 
+        this.$body = a(document.body), this.$scrollElement = a(a(c).is(document.body) ? window : c),
+        this.options = a.extend({}, b.DEFAULTS, d), this.selector = (this.options.target || "") + " .nav li > a",
+        this.offsets = [], this.targets = [], this.activeTarget = null, this.scrollHeight = 0,
+        this.$scrollElement.on("scroll.bs.scrollspy", a.proxy(this.process, this)), this.refresh(),
         this.process();
     }
     function c(c) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.scrollspy"), f = "object" == typeof c && c;
             e || d.data("bs.scrollspy", e = new b(this, f)), "string" == typeof c && e[c]();
         });
     }
     b.VERSION = "3.3.5", b.DEFAULTS = {
         offset: 10
-    }, b.prototype.getScrollHeight = function() {
+    }, b.prototype.getScrollHeight = function () {
         return this.$scrollElement[0].scrollHeight || Math.max(this.$body[0].scrollHeight, document.documentElement.scrollHeight);
-    }, b.prototype.refresh = function() {
+    }, b.prototype.refresh = function () {
         var b = this, c = "offset", d = 0;
-        this.offsets = [], this.targets = [], this.scrollHeight = this.getScrollHeight(), 
-        a.isWindow(this.$scrollElement[0]) || (c = "position", d = this.$scrollElement.scrollTop()), 
-        this.$body.find(this.selector).map(function() {
+        this.offsets = [], this.targets = [], this.scrollHeight = this.getScrollHeight(),
+        a.isWindow(this.$scrollElement[0]) || (c = "position", d = this.$scrollElement.scrollTop()),
+        this.$body.find(this.selector).map(function () {
             var b = a(this), e = b.data("target") || b.attr("href"), f = /^#./.test(e) && a(e);
-            return f && f.length && f.is(":visible") && [ [ f[c]().top + d, e ] ] || null;
-        }).sort(function(a, b) {
+            return f && f.length && f.is(":visible") && [[f[c]().top + d, e]] || null;
+        }).sort(function (a, b) {
             return a[0] - b[0];
-        }).each(function() {
+        }).each(function () {
             b.offsets.push(this[0]), b.targets.push(this[1]);
         });
-    }, b.prototype.process = function() {
+    }, b.prototype.process = function () {
         var a, b = this.$scrollElement.scrollTop() + this.options.offset, c = this.getScrollHeight(), d = this.options.offset + c - this.$scrollElement.height(), e = this.offsets, f = this.targets, g = this.activeTarget;
         if (this.scrollHeight != c && this.refresh(), b >= d) return g != (a = f[f.length - 1]) && this.activate(a);
         if (g && b < e[0]) return this.activeTarget = null, this.clear();
         for (a = e.length; a--; ) g != f[a] && b >= e[a] && (void 0 === e[a + 1] || b < e[a + 1]) && this.activate(f[a]);
-    }, b.prototype.activate = function(b) {
+    }, b.prototype.activate = function (b) {
         this.activeTarget = b, this.clear();
         var c = this.selector + '[data-target="' + b + '"],' + this.selector + '[href="' + b + '"]', d = a(c).parents("li").addClass("active");
-        d.parent(".dropdown-menu").length && (d = d.closest("li.dropdown").addClass("active")), 
+        d.parent(".dropdown-menu").length && (d = d.closest("li.dropdown").addClass("active")),
         d.trigger("activate.bs.scrollspy");
-    }, b.prototype.clear = function() {
+    }, b.prototype.clear = function () {
         a(this.selector).parentsUntil(this.options.target, ".active").removeClass("active");
     };
     var d = a.fn.scrollspy;
-    a.fn.scrollspy = c, a.fn.scrollspy.Constructor = b, a.fn.scrollspy.noConflict = function() {
+    a.fn.scrollspy = c, a.fn.scrollspy.Constructor = b, a.fn.scrollspy.noConflict = function () {
         return a.fn.scrollspy = d, this;
-    }, a(window).on("load.bs.scrollspy.data-api", function() {
-        a('[data-spy="scroll"]').each(function() {
+    }, a(window).on("load.bs.scrollspy.data-api", function () {
+        a('[data-spy="scroll"]').each(function () {
             var b = a(this);
             c.call(b, b.data());
         });
     });
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.tab");
             e || d.data("bs.tab", e = new c(this)), "string" == typeof b && e[b]();
         });
     }
-    var c = function(b) {
+    var c = function (b) {
         this.element = a(b);
     };
-    c.VERSION = "3.3.5", c.TRANSITION_DURATION = 150, c.prototype.show = function() {
+    c.VERSION = "3.3.5", c.TRANSITION_DURATION = 150, c.prototype.show = function () {
         var b = this.element, c = b.closest("ul:not(.dropdown-menu)"), d = b.data("target");
         if (d || (d = b.attr("href"), d = d && d.replace(/.*(?=#[^\s]*$)/, "")), !b.parent("li").hasClass("active")) {
             var e = c.find(".active:last a"), f = a.Event("hide.bs.tab", {
@@ -10276,7 +10276,7 @@ if (window.Modernizr = function(window, document, undefined) {
             });
             if (e.trigger(f), b.trigger(g), !g.isDefaultPrevented() && !f.isDefaultPrevented()) {
                 var h = a(d);
-                this.activate(b.closest("li"), c), this.activate(h, h.parent(), function() {
+                this.activate(b.closest("li"), c), this.activate(h, h.parent(), function () {
                     e.trigger({
                         type: "hidden.bs.tab",
                         relatedTarget: b[0]
@@ -10287,58 +10287,58 @@ if (window.Modernizr = function(window, document, undefined) {
                 });
             }
         }
-    }, c.prototype.activate = function(b, d, e) {
+    }, c.prototype.activate = function (b, d, e) {
         function f() {
-            g.removeClass("active").find("> .dropdown-menu > .active").removeClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !1), 
-            b.addClass("active").find('[data-toggle="tab"]').attr("aria-expanded", !0), h ? (b[0].offsetWidth, 
-            b.addClass("in")) : b.removeClass("fade"), b.parent(".dropdown-menu").length && b.closest("li.dropdown").addClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !0), 
+            g.removeClass("active").find("> .dropdown-menu > .active").removeClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !1),
+            b.addClass("active").find('[data-toggle="tab"]').attr("aria-expanded", !0), h ? (b[0].offsetWidth,
+            b.addClass("in")) : b.removeClass("fade"), b.parent(".dropdown-menu").length && b.closest("li.dropdown").addClass("active").end().find('[data-toggle="tab"]').attr("aria-expanded", !0),
             e && e();
         }
         var g = d.find("> .active"), h = e && a.support.transition && (g.length && g.hasClass("fade") || !!d.find("> .fade").length);
-        g.length && h ? g.one("bsTransitionEnd", f).emulateTransitionEnd(c.TRANSITION_DURATION) : f(), 
+        g.length && h ? g.one("bsTransitionEnd", f).emulateTransitionEnd(c.TRANSITION_DURATION) : f(),
         g.removeClass("in");
     };
     var d = a.fn.tab;
-    a.fn.tab = b, a.fn.tab.Constructor = c, a.fn.tab.noConflict = function() {
+    a.fn.tab = b, a.fn.tab.Constructor = c, a.fn.tab.noConflict = function () {
         return a.fn.tab = d, this;
     };
-    var e = function(c) {
+    var e = function (c) {
         c.preventDefault(), b.call(a(this), "show");
     };
     a(document).on("click.bs.tab.data-api", '[data-toggle="tab"]', e).on("click.bs.tab.data-api", '[data-toggle="pill"]', e);
-}(jQuery), +function(a) {
+} (jQuery), +function (a) {
     "use strict";
     function b(b) {
-        return this.each(function() {
+        return this.each(function () {
             var d = a(this), e = d.data("bs.affix"), f = "object" == typeof b && b;
             e || d.data("bs.affix", e = new c(this, f)), "string" == typeof b && e[b]();
         });
     }
-    var c = function(b, d) {
-        this.options = a.extend({}, c.DEFAULTS, d), this.$target = a(this.options.target).on("scroll.bs.affix.data-api", a.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", a.proxy(this.checkPositionWithEventLoop, this)), 
-        this.$element = a(b), this.affixed = null, this.unpin = null, this.pinnedOffset = null, 
+    var c = function (b, d) {
+        this.options = a.extend({}, c.DEFAULTS, d), this.$target = a(this.options.target).on("scroll.bs.affix.data-api", a.proxy(this.checkPosition, this)).on("click.bs.affix.data-api", a.proxy(this.checkPositionWithEventLoop, this)),
+        this.$element = a(b), this.affixed = null, this.unpin = null, this.pinnedOffset = null,
         this.checkPosition();
     };
     c.VERSION = "3.3.5", c.RESET = "affix affix-top affix-bottom", c.DEFAULTS = {
         offset: 0,
         target: window
-    }, c.prototype.getState = function(a, b, c, d) {
+    }, c.prototype.getState = function (a, b, c, d) {
         var e = this.$target.scrollTop(), f = this.$element.offset(), g = this.$target.height();
         if (null != c && "top" == this.affixed) return c > e ? "top" : !1;
         if ("bottom" == this.affixed) return null != c ? e + this.unpin <= f.top ? !1 : "bottom" : a - d >= e + g ? !1 : "bottom";
         var h = null == this.affixed, i = h ? e : f.top, j = h ? g : b;
         return null != c && c >= e ? "top" : null != d && i + j >= a - d ? "bottom" : !1;
-    }, c.prototype.getPinnedOffset = function() {
+    }, c.prototype.getPinnedOffset = function () {
         if (this.pinnedOffset) return this.pinnedOffset;
         this.$element.removeClass(c.RESET).addClass("affix");
         var a = this.$target.scrollTop(), b = this.$element.offset();
         return this.pinnedOffset = b.top - a;
-    }, c.prototype.checkPositionWithEventLoop = function() {
+    }, c.prototype.checkPositionWithEventLoop = function () {
         setTimeout(a.proxy(this.checkPosition, this), 1);
-    }, c.prototype.checkPosition = function() {
+    }, c.prototype.checkPosition = function () {
         if (this.$element.is(":visible")) {
             var b = this.$element.height(), d = this.options.offset, e = d.top, f = d.bottom, g = Math.max(a(document).height(), a(document.body).height());
-            "object" != typeof d && (f = e = d), "function" == typeof e && (e = d.top(this.$element)), 
+            "object" != typeof d && (f = e = d), "function" == typeof e && (e = d.top(this.$element)),
             "function" == typeof f && (f = d.bottom(this.$element));
             var h = this.getState(g, b, e, f);
             if (this.affixed != h) {
@@ -10353,20 +10353,20 @@ if (window.Modernizr = function(window, document, undefined) {
         }
     };
     var d = a.fn.affix;
-    a.fn.affix = b, a.fn.affix.Constructor = c, a.fn.affix.noConflict = function() {
+    a.fn.affix = b, a.fn.affix.Constructor = c, a.fn.affix.noConflict = function () {
         return a.fn.affix = d, this;
-    }, a(window).on("load", function() {
-        a('[data-spy="affix"]').each(function() {
+    }, a(window).on("load", function () {
+        a('[data-spy="affix"]').each(function () {
             var c = a(this), d = c.data();
-            d.offset = d.offset || {}, null != d.offsetBottom && (d.offset.bottom = d.offsetBottom), 
+            d.offset = d.offset || {}, null != d.offsetBottom && (d.offset.bottom = d.offsetBottom),
             null != d.offsetTop && (d.offset.top = d.offsetTop), b.call(c, d);
         });
     });
-}(jQuery), !function(a) {
+} (jQuery), !function (a) {
     function b(a) {
         return "undefined" == typeof a.which ? !0 : "number" == typeof a.which && a.which > 0 ? !a.ctrlKey && !a.metaKey && !a.altKey && 8 != a.which && 9 != a.which : !1;
     }
-    a.expr[":"].notmdproc = function(b) {
+    a.expr[":"].notmdproc = function (b) {
         return a(b).data("mdproc") ? !1 : !0;
     }, a.material = {
         options: {
@@ -10377,100 +10377,100 @@ if (window.Modernizr = function(window, document, undefined) {
             radio: !0,
             arrive: !0,
             autofill: !1,
-            withRipples: [ ".btn:not(.btn-link)", ".card-image", ".navbar a:not(.withoutripple)", ".dropdown-menu a", ".nav-tabs a:not(.withoutripple)", ".withripple" ].join(","),
+            withRipples: [".btn:not(.btn-link)", ".card-image", ".navbar a:not(.withoutripple)", ".dropdown-menu a", ".nav-tabs a:not(.withoutripple)", ".withripple"].join(","),
             inputElements: "input.form-control, textarea.form-control, select.form-control",
             checkboxElements: ".checkbox > label > input[type=checkbox]",
             togglebuttonElements: ".togglebutton > label > input[type=checkbox]",
             radioElements: ".radio > label > input[type=radio]"
         },
-        checkbox: function(b) {
+        checkbox: function (b) {
             a(b ? b : this.options.checkboxElements).filter(":notmdproc").data("mdproc", !0).after("<span class=checkbox-material><span class=check></span></span>");
         },
-        togglebutton: function(b) {
+        togglebutton: function (b) {
             a(b ? b : this.options.togglebuttonElements).filter(":notmdproc").data("mdproc", !0).after("<span class=toggle></span>");
         },
-        radio: function(b) {
+        radio: function (b) {
             a(b ? b : this.options.radioElements).filter(":notmdproc").data("mdproc", !0).after("<span class=circle></span><span class=check></span>");
         },
-        input: function(c) {
-            a(c ? c : this.options.inputElements).filter(":notmdproc").data("mdproc", !0).each(function() {
+        input: function (c) {
+            a(c ? c : this.options.inputElements).filter(":notmdproc").data("mdproc", !0).each(function () {
                 var b = a(this);
                 if (a(this).attr("data-hint") || b.hasClass("floating-label")) {
-                    if (b.wrap("<div class=form-control-wrapper></div>"), b.after("<span class=material-input></span>"), 
+                    if (b.wrap("<div class=form-control-wrapper></div>"), b.after("<span class=material-input></span>"),
                     b.hasClass("floating-label")) {
                         var c = b.attr("placeholder");
                         b.attr("placeholder", null).removeClass("floating-label"), b.after("<div class=floating-label>" + c + "</div>");
                     }
-                    if (b.attr("data-hint") && b.after("<div class=hint>" + b.attr("data-hint") + "</div>"), 
-                    (null === b.val() || "undefined" == b.val() || "" === b.val()) && b.addClass("empty"), 
+                    if (b.attr("data-hint") && b.after("<div class=hint>" + b.attr("data-hint") + "</div>"),
+                    (null === b.val() || "undefined" == b.val() || "" === b.val()) && b.addClass("empty"),
                     b.parent().next().is("[type=file]")) {
                         b.parent().addClass("fileinput");
                         var d = b.parent().next().detach();
                         b.after(d);
                     }
                 }
-            }), a(document).on("change", ".checkbox input[type=checkbox]", function() {
+            }), a(document).on("change", ".checkbox input[type=checkbox]", function () {
                 a(this).blur();
-            }).on("keydown paste", ".form-control", function(c) {
+            }).on("keydown paste", ".form-control", function (c) {
                 b(c) && a(this).removeClass("empty");
-            }).on("keyup change", ".form-control", function() {
+            }).on("keyup change", ".form-control", function () {
                 var b = a(this);
                 "" === b.val() && "undefined" != typeof b[0].checkValidity && b[0].checkValidity() ? b.addClass("empty") : b.removeClass("empty");
-            }).on("focus", ".form-control-wrapper.fileinput", function() {
+            }).on("focus", ".form-control-wrapper.fileinput", function () {
                 a(this).find("input").addClass("focus");
-            }).on("blur", ".form-control-wrapper.fileinput", function() {
+            }).on("blur", ".form-control-wrapper.fileinput", function () {
                 a(this).find("input").removeClass("focus");
-            }).on("change", ".form-control-wrapper.fileinput [type=file]", function() {
+            }).on("change", ".form-control-wrapper.fileinput [type=file]", function () {
                 var b = "";
-                a.each(a(this)[0].files, function(a, c) {
+                a.each(a(this)[0].files, function (a, c) {
                     b += c.name + ", ";
-                }), b = b.substring(0, b.length - 2), b ? a(this).prev().removeClass("empty") : a(this).prev().addClass("empty"), 
+                }), b = b.substring(0, b.length - 2), b ? a(this).prev().removeClass("empty") : a(this).prev().addClass("empty"),
                 a(this).prev().val(b);
             });
         },
-        ripples: function(b) {
+        ripples: function (b) {
             a(b ? b : this.options.withRipples).ripples();
         },
-        autofill: function() {
-            var b = setInterval(function() {
-                a("input[type!=checkbox]").each(function() {
+        autofill: function () {
+            var b = setInterval(function () {
+                a("input[type!=checkbox]").each(function () {
                     a(this).val() && a(this).val() !== a(this).attr("value") && a(this).trigger("change");
                 });
             }, 100);
-            setTimeout(function() {
+            setTimeout(function () {
                 clearInterval(b);
             }, 1e4);
             var c;
-            a(document).on("focus", "input", function() {
+            a(document).on("focus", "input", function () {
                 var b = a(this).parents("form").find("input").not("[type=file]");
-                c = setInterval(function() {
-                    b.each(function() {
+                c = setInterval(function () {
+                    b.each(function () {
                         a(this).val() !== a(this).attr("value") && a(this).trigger("change");
                     });
                 }, 100);
-            }).on("blur", "input", function() {
+            }).on("blur", "input", function () {
                 clearInterval(c);
             });
         },
-        init: function() {
-            a.fn.ripples && this.options.ripples && this.ripples(), this.options.input && this.input(), 
-            this.options.checkbox && this.checkbox(), this.options.togglebutton && this.togglebutton(), 
-            this.options.radio && this.radio(), this.options.autofill && this.autofill(), document.arrive && this.options.arrive && (a.fn.ripples && this.options.ripples && a(document).arrive(this.options.withRipples, function() {
+        init: function () {
+            a.fn.ripples && this.options.ripples && this.ripples(), this.options.input && this.input(),
+            this.options.checkbox && this.checkbox(), this.options.togglebutton && this.togglebutton(),
+            this.options.radio && this.radio(), this.options.autofill && this.autofill(), document.arrive && this.options.arrive && (a.fn.ripples && this.options.ripples && a(document).arrive(this.options.withRipples, function () {
                 a.material.ripples(a(this));
-            }), this.options.input && a(document).arrive(this.options.inputElements, function() {
+            }), this.options.input && a(document).arrive(this.options.inputElements, function () {
                 a.material.input(a(this));
-            }), this.options.checkbox && a(document).arrive(this.options.checkboxElements, function() {
+            }), this.options.checkbox && a(document).arrive(this.options.checkboxElements, function () {
                 a.material.checkbox(a(this));
-            }), this.options.radio && a(document).arrive(this.options.radioElements, function() {
+            }), this.options.radio && a(document).arrive(this.options.radioElements, function () {
                 a.material.radio(a(this));
-            }), this.options.togglebutton && a(document).arrive(this.options.togglebuttonElements, function() {
+            }), this.options.togglebutton && a(document).arrive(this.options.togglebuttonElements, function () {
                 a.material.togglebutton(a(this));
             }));
         }
     };
-}(jQuery), !function(a) {
+} (jQuery), !function (a) {
     var b, c = [];
-    a.fn.slideReveal = function(d, e) {
+    a.fn.slideReveal = function (d, e) {
         var f = this, g = this.css("padding-left");
         g = +g.substring(0, g.length - 2);
         var h = this.css("padding-left");
@@ -10478,13 +10478,13 @@ if (window.Modernizr = function(window, document, undefined) {
         var i, j;
         if (void 0 !== d && "string" == typeof d) {
             var k = this.data("setting-index");
-            if (i = c[k], j = i.width + g + h + "px", "show" === d) return (void 0 === e || e) && i.show(this, b), 
-            this.css(i.position, "0px"), i.push && ("left" === i.position ? a("body").css("left", j) : a("body").css("left", "-" + j)), 
-            this.data("slide-reveal", !0), (void 0 === e || e) && setTimeout(function() {
+            if (i = c[k], j = i.width + g + h + "px", "show" === d) return (void 0 === e || e) && i.show(this, b),
+            this.css(i.position, "0px"), i.push && ("left" === i.position ? a("body").css("left", j) : a("body").css("left", "-" + j)),
+            this.data("slide-reveal", !0), (void 0 === e || e) && setTimeout(function () {
                 i.shown(f, b);
             }, i.speed), f;
-            if ("hide" === d) return (void 0 === e || e) && i.hide(this, b), i.push && a("body").css("left", "0px"), 
-            this.css(i.position, "-" + j), this.data("slide-reveal", !1), (void 0 === e || e) && setTimeout(function() {
+            if ("hide" === d) return (void 0 === e || e) && i.hide(this, b), i.push && a("body").css("left", "0px"),
+            this.css(i.position, "-" + j), this.data("slide-reveal", !1), (void 0 === e || e) && setTimeout(function () {
                 i.hidden(f, b);
             }, i.speed), f;
         } else {
@@ -10495,10 +10495,10 @@ if (window.Modernizr = function(window, document, undefined) {
                 speed: 300,
                 trigger: void 0,
                 autoEscape: !0,
-                show: function() {},
-                shown: function() {},
-                hidden: function() {},
-                hide: function() {},
+                show: function () { },
+                shown: function () { },
+                hidden: function () { },
+                hide: function () { },
                 top: 0
             }, i = a.extend(i, d), c.push(i), this.data("setting-index", c.length - 1), j = i.width + g + h + "px";
             var l = "all ease " + i.speed + "ms";
@@ -10513,15 +10513,15 @@ if (window.Modernizr = function(window, document, undefined) {
                 "overflow-x": "hidden",
                 transition: l,
                 left: "0px"
-            }), i.trigger && i.trigger.length > 0 && i.trigger.click(function() {
+            }), i.trigger && i.trigger.length > 0 && i.trigger.click(function () {
                 b = a(this), f.slideReveal(f.data("slide-reveal") ? "hide" : "show");
-            }), i.autoEscape && a(document).keydown(function(b) {
+            }), i.autoEscape && a(document).keydown(function (b) {
                 0 === a("input:focus, textarea:focus").length && 27 === b.keyCode && f.data("slide-reveal") && f.slideReveal("hide");
             });
         }
         return this;
     };
-}(jQuery), !function(e, t, n) {
+} (jQuery), !function (e, t, n) {
     "use strict";
     !function o(e, t, n) {
         function a(s, l) {
@@ -10536,7 +10536,7 @@ if (window.Modernizr = function(window, document, undefined) {
                 var c = t[s] = {
                     exports: {}
                 };
-                e[s][0].call(c.exports, function(t) {
+                e[s][0].call(c.exports, function (t) {
                     var n = e[s][1][t];
                     return a(n ? n : t);
                 }, c, c.exports, o, e, t, n);
@@ -10545,9 +10545,9 @@ if (window.Modernizr = function(window, document, undefined) {
         }
         for (var r = "function" == typeof require && require, s = 0; s < n.length; s++) a(n[s]);
         return a;
-    }({
-        1: [ function(o, a, r) {
-            var s = function(e) {
+    } ({
+        1: [function (o, a, r) {
+            var s = function (e) {
                 return e && e.__esModule ? e : {
                     "default": e
                 };
@@ -10556,88 +10556,88 @@ if (window.Modernizr = function(window, document, undefined) {
                 value: !0
             });
             var l, i, u, c, d = o("./modules/handle-dom"), f = o("./modules/utils"), p = o("./modules/handle-swal-dom"), m = o("./modules/handle-click"), v = o("./modules/handle-key"), y = s(v), h = o("./modules/default-params"), b = s(h), g = o("./modules/set-params"), w = s(g);
-            r["default"] = u = c = function() {
+            r["default"] = u = c = function () {
                 function o(e) {
                     var t = a;
                     return t[e] === n ? b["default"][e] : t[e];
                 }
                 var a = arguments[0];
-                if (d.addClass(t.body, "stop-scrolling"), p.resetInput(), a === n) return f.logStr("SweetAlert expects at least 1 attribute!"), 
+                if (d.addClass(t.body, "stop-scrolling"), p.resetInput(), a === n) return f.logStr("SweetAlert expects at least 1 attribute!"),
                 !1;
                 var r = f.extend({}, b["default"]);
                 switch (typeof a) {
-                  case "string":
-                    r.title = a, r.text = arguments[1] || "", r.type = arguments[2] || "";
-                    break;
+                    case "string":
+                        r.title = a, r.text = arguments[1] || "", r.type = arguments[2] || "";
+                        break;
 
-                  case "object":
-                    if (a.title === n) return f.logStr('Missing "title" argument!'), !1;
-                    r.title = a.title;
-                    for (var s in b["default"]) r[s] = o(s);
-                    r.confirmButtonText = r.showCancelButton ? "Confirm" : b["default"].confirmButtonText, 
+                    case "object":
+                        if (a.title === n) return f.logStr('Missing "title" argument!'), !1;
+                        r.title = a.title;
+                        for (var s in b["default"]) r[s] = o(s);
+                        r.confirmButtonText = r.showCancelButton ? "Confirm" : b["default"].confirmButtonText,
                     r.confirmButtonText = o("confirmButtonText"), r.doneFunction = arguments[1] || null;
-                    break;
+                        break;
 
-                  default:
-                    return f.logStr('Unexpected type of argument! Expected "string" or "object", got ' + typeof a), 
+                    default:
+                        return f.logStr('Unexpected type of argument! Expected "string" or "object", got ' + typeof a),
                     !1;
                 }
                 w["default"](r), p.fixVerticalPosition(), p.openModal(arguments[1]);
-                for (var u = p.getModal(), v = u.querySelectorAll("button"), h = [ "onclick", "onmouseover", "onmouseout", "onmousedown", "onmouseup", "onfocus" ], g = function(e) {
+                for (var u = p.getModal(), v = u.querySelectorAll("button"), h = ["onclick", "onmouseover", "onmouseout", "onmousedown", "onmouseup", "onfocus"], g = function (e) {
                     return m.handleButton(e, r, u);
                 }, C = 0; C < v.length; C++) for (var S = 0; S < h.length; S++) {
                     var x = h[S];
                     v[C][x] = g;
                 }
                 p.getOverlay().onclick = g, l = e.onkeydown;
-                var k = function(e) {
+                var k = function (e) {
                     return y["default"](e, r, u);
                 };
-                e.onkeydown = k, e.onfocus = function() {
-                    setTimeout(function() {
+                e.onkeydown = k, e.onfocus = function () {
+                    setTimeout(function () {
                         i !== n && (i.focus(), i = n);
                     }, 0);
                 }, c.enableButtons();
-            }, u.setDefaults = c.setDefaults = function(e) {
+            }, u.setDefaults = c.setDefaults = function (e) {
                 if (!e) throw new Error("userParams is required");
                 if ("object" != typeof e) throw new Error("userParams has to be a object");
                 f.extend(b["default"], e);
-            }, u.close = c.close = function() {
+            }, u.close = c.close = function () {
                 var o = p.getModal();
-                d.fadeOut(p.getOverlay(), 5), d.fadeOut(o, 5), d.removeClass(o, "showSweetAlert"), 
+                d.fadeOut(p.getOverlay(), 5), d.fadeOut(o, 5), d.removeClass(o, "showSweetAlert"),
                 d.addClass(o, "hideSweetAlert"), d.removeClass(o, "visible");
                 var a = o.querySelector(".sa-icon.sa-success");
-                d.removeClass(a, "animate"), d.removeClass(a.querySelector(".sa-tip"), "animateSuccessTip"), 
+                d.removeClass(a, "animate"), d.removeClass(a.querySelector(".sa-tip"), "animateSuccessTip"),
                 d.removeClass(a.querySelector(".sa-long"), "animateSuccessLong");
                 var r = o.querySelector(".sa-icon.sa-error");
                 d.removeClass(r, "animateErrorIcon"), d.removeClass(r.querySelector(".sa-x-mark"), "animateXMark");
                 var s = o.querySelector(".sa-icon.sa-warning");
-                return d.removeClass(s, "pulseWarning"), d.removeClass(s.querySelector(".sa-body"), "pulseWarningIns"), 
-                d.removeClass(s.querySelector(".sa-dot"), "pulseWarningIns"), setTimeout(function() {
+                return d.removeClass(s, "pulseWarning"), d.removeClass(s.querySelector(".sa-body"), "pulseWarningIns"),
+                d.removeClass(s.querySelector(".sa-dot"), "pulseWarningIns"), setTimeout(function () {
                     var e = o.getAttribute("data-custom-class");
                     d.removeClass(o, e);
-                }, 300), d.removeClass(t.body, "stop-scrolling"), e.onkeydown = l, e.previousActiveElement && e.previousActiveElement.focus(), 
+                }, 300), d.removeClass(t.body, "stop-scrolling"), e.onkeydown = l, e.previousActiveElement && e.previousActiveElement.focus(),
                 i = n, clearTimeout(o.timeout), !0;
-            }, u.showInputError = c.showInputError = function(e) {
+            }, u.showInputError = c.showInputError = function (e) {
                 var t = p.getModal(), n = t.querySelector(".sa-input-error");
                 d.addClass(n, "show");
                 var o = t.querySelector(".sa-error-container");
-                d.addClass(o, "show"), o.querySelector("p").innerHTML = e, setTimeout(function() {
+                d.addClass(o, "show"), o.querySelector("p").innerHTML = e, setTimeout(function () {
                     u.enableButtons();
                 }, 1), t.querySelector("input").focus();
-            }, u.resetInputError = c.resetInputError = function(e) {
+            }, u.resetInputError = c.resetInputError = function (e) {
                 if (e && 13 === e.keyCode) return !1;
                 var t = p.getModal(), n = t.querySelector(".sa-input-error");
                 d.removeClass(n, "show");
                 var o = t.querySelector(".sa-error-container");
                 d.removeClass(o, "show");
-            }, u.disableButtons = c.disableButtons = function() {
+            }, u.disableButtons = c.disableButtons = function () {
                 var e = p.getModal(), t = e.querySelector("button.confirm"), n = e.querySelector("button.cancel");
                 t.disabled = !0, n.disabled = !0;
-            }, u.enableButtons = c.enableButtons = function() {
+            }, u.enableButtons = c.enableButtons = function () {
                 var e = p.getModal(), t = e.querySelector("button.confirm"), n = e.querySelector("button.cancel");
                 t.disabled = !1, n.disabled = !1;
-            }, "undefined" != typeof e ? e.sweetAlert = e.swal = u : f.logStr("SweetAlert is a frontend module!"), 
+            }, "undefined" != typeof e ? e.sweetAlert = e.swal = u : f.logStr("SweetAlert is a frontend module!"),
             a.exports = r["default"];
         }, {
             "./modules/default-params": 2,
@@ -10647,8 +10647,8 @@ if (window.Modernizr = function(window, document, undefined) {
             "./modules/handle-swal-dom": 6,
             "./modules/set-params": 8,
             "./modules/utils": 9
-        } ],
-        2: [ function(e, t, n) {
+        }],
+        2: [function (e, t, n) {
             Object.defineProperty(n, "__esModule", {
                 value: !0
             });
@@ -10677,49 +10677,49 @@ if (window.Modernizr = function(window, document, undefined) {
                 showLoaderOnConfirm: !1
             };
             n["default"] = o, t.exports = n["default"];
-        }, {} ],
-        3: [ function(t, n, o) {
+        }, {}],
+        3: [function (t, n, o) {
             Object.defineProperty(o, "__esModule", {
                 value: !0
             });
-            var a = t("./utils"), r = (t("./handle-swal-dom"), t("./handle-dom")), s = function(t, n, o) {
+            var a = t("./utils"), r = (t("./handle-swal-dom"), t("./handle-dom")), s = function (t, n, o) {
                 function s(e) {
                     m && n.confirmButtonColor && (p.style.backgroundColor = e);
                 }
                 var u, c, d, f = t || e.event, p = f.target || f.srcElement, m = -1 !== p.className.indexOf("confirm"), v = -1 !== p.className.indexOf("sweet-overlay"), y = r.hasClass(o, "visible"), h = n.doneFunction && "true" === o.getAttribute("data-has-done-function");
-                switch (m && n.confirmButtonColor && (u = n.confirmButtonColor, c = a.colorLuminance(u, -.04), 
+                switch (m && n.confirmButtonColor && (u = n.confirmButtonColor, c = a.colorLuminance(u, -.04),
                 d = a.colorLuminance(u, -.14)), f.type) {
-                  case "mouseover":
-                    s(c);
-                    break;
+                    case "mouseover":
+                        s(c);
+                        break;
 
-                  case "mouseout":
-                    s(u);
-                    break;
+                    case "mouseout":
+                        s(u);
+                        break;
 
-                  case "mousedown":
-                    s(d);
-                    break;
+                    case "mousedown":
+                        s(d);
+                        break;
 
-                  case "mouseup":
-                    s(c);
-                    break;
+                    case "mouseup":
+                        s(c);
+                        break;
 
-                  case "focus":
-                    var b = o.querySelector("button.confirm"), g = o.querySelector("button.cancel");
-                    m ? g.style.boxShadow = "none" : b.style.boxShadow = "none";
-                    break;
+                    case "focus":
+                        var b = o.querySelector("button.confirm"), g = o.querySelector("button.cancel");
+                        m ? g.style.boxShadow = "none" : b.style.boxShadow = "none";
+                        break;
 
-                  case "click":
-                    var w = o === p, C = r.isDescendant(o, p);
-                    if (!w && !C && y && !n.allowOutsideClick) break;
-                    m && h && y ? l(o, n) : h && y || v ? i(o, n) : r.isDescendant(o, p) && "BUTTON" === p.tagName && sweetAlert.close();
+                    case "click":
+                        var w = o === p, C = r.isDescendant(o, p);
+                        if (!w && !C && y && !n.allowOutsideClick) break;
+                        m && h && y ? l(o, n) : h && y || v ? i(o, n) : r.isDescendant(o, p) && "BUTTON" === p.tagName && sweetAlert.close();
                 }
-            }, l = function(e, t) {
+            }, l = function (e, t) {
                 var n = !0;
-                r.hasClass(e, "show-input") && (n = e.querySelector("input").value, n || (n = "")), 
+                r.hasClass(e, "show-input") && (n = e.querySelector("input").value, n || (n = "")),
                 t.doneFunction(n), t.closeOnConfirm && sweetAlert.close(), t.showLoaderOnConfirm && sweetAlert.disableButtons();
-            }, i = function(e, t) {
+            }, i = function (e, t) {
                 var n = String(t.doneFunction).replace(/\s/g, ""), o = "function(" === n.substring(0, 9) && ")" !== n.substring(9, 10);
                 o && t.doneFunction(!1), t.closeOnCancel && sweetAlert.close();
             };
@@ -10732,75 +10732,75 @@ if (window.Modernizr = function(window, document, undefined) {
             "./handle-dom": 4,
             "./handle-swal-dom": 6,
             "./utils": 9
-        } ],
-        4: [ function(n, o, a) {
+        }],
+        4: [function (n, o, a) {
             Object.defineProperty(a, "__esModule", {
                 value: !0
             });
-            var r = function(e, t) {
+            var r = function (e, t) {
                 return new RegExp(" " + t + " ").test(" " + e.className + " ");
-            }, s = function(e, t) {
+            }, s = function (e, t) {
                 r(e, t) || (e.className += " " + t);
-            }, l = function(e, t) {
+            }, l = function (e, t) {
                 var n = " " + e.className.replace(/[\t\r\n]/g, " ") + " ";
                 if (r(e, t)) {
-                    for (;n.indexOf(" " + t + " ") >= 0; ) n = n.replace(" " + t + " ", " ");
+                    for (; n.indexOf(" " + t + " ") >= 0; ) n = n.replace(" " + t + " ", " ");
                     e.className = n.replace(/^\s+|\s+$/g, "");
                 }
-            }, i = function(e) {
+            }, i = function (e) {
                 var n = t.createElement("div");
                 return n.appendChild(t.createTextNode(e)), n.innerHTML;
-            }, u = function(e) {
+            }, u = function (e) {
                 e.style.opacity = "", e.style.display = "block";
-            }, c = function(e) {
+            }, c = function (e) {
                 if (e && !e.length) return u(e);
                 for (var t = 0; t < e.length; ++t) u(e[t]);
-            }, d = function(e) {
+            }, d = function (e) {
                 e.style.opacity = "", e.style.display = "none";
-            }, f = function(e) {
+            }, f = function (e) {
                 if (e && !e.length) return d(e);
                 for (var t = 0; t < e.length; ++t) d(e[t]);
-            }, p = function(e, t) {
+            }, p = function (e, t) {
                 for (var n = t.parentNode; null !== n; ) {
                     if (n === e) return !0;
                     n = n.parentNode;
                 }
                 return !1;
-            }, m = function(e) {
+            }, m = function (e) {
                 e.style.left = "-9999px", e.style.display = "block";
                 var t, n = e.clientHeight;
-                return t = "undefined" != typeof getComputedStyle ? parseInt(getComputedStyle(e).getPropertyValue("padding-top"), 10) : parseInt(e.currentStyle.padding), 
+                return t = "undefined" != typeof getComputedStyle ? parseInt(getComputedStyle(e).getPropertyValue("padding-top"), 10) : parseInt(e.currentStyle.padding),
                 e.style.left = "", e.style.display = "none", "-" + parseInt((n + t) / 2) + "px";
-            }, v = function(e, t) {
+            }, v = function (e, t) {
                 if (+e.style.opacity < 1) {
                     t = t || 16, e.style.opacity = 0, e.style.display = "block";
-                    var n = +new Date(), o = function(e) {
+                    var n = +new Date(), o = function (e) {
                         function t() {
                             return e.apply(this, arguments);
                         }
-                        return t.toString = function() {
+                        return t.toString = function () {
                             return e.toString();
                         }, t;
-                    }(function() {
+                    } (function () {
                         e.style.opacity = +e.style.opacity + (new Date() - n) / 100, n = +new Date(), +e.style.opacity < 1 && setTimeout(o, t);
                     });
                     o();
                 }
                 e.style.display = "block";
-            }, y = function(e, t) {
+            }, y = function (e, t) {
                 t = t || 16, e.style.opacity = 1;
-                var n = +new Date(), o = function(e) {
+                var n = +new Date(), o = function (e) {
                     function t() {
                         return e.apply(this, arguments);
                     }
-                    return t.toString = function() {
+                    return t.toString = function () {
                         return e.toString();
                     }, t;
-                }(function() {
+                } (function () {
                     e.style.opacity = +e.style.opacity - (new Date() - n) / 100, n = +new Date(), +e.style.opacity > 0 ? setTimeout(o, t) : e.style.display = "none";
                 });
                 o();
-            }, h = function(n) {
+            }, h = function (n) {
                 if ("function" == typeof MouseEvent) {
                     var o = new MouseEvent("click", {
                         view: e,
@@ -10812,27 +10812,27 @@ if (window.Modernizr = function(window, document, undefined) {
                     var a = t.createEvent("MouseEvents");
                     a.initEvent("click", !1, !1), n.dispatchEvent(a);
                 } else t.createEventObject ? n.fireEvent("onclick") : "function" == typeof n.onclick && n.onclick();
-            }, b = function(t) {
+            }, b = function (t) {
                 "function" == typeof t.stopPropagation ? (t.stopPropagation(), t.preventDefault()) : e.event && e.event.hasOwnProperty("cancelBubble") && (e.event.cancelBubble = !0);
             };
-            a.hasClass = r, a.addClass = s, a.removeClass = l, a.escapeHtml = i, a._show = u, 
-            a.show = c, a._hide = d, a.hide = f, a.isDescendant = p, a.getTopMargin = m, a.fadeIn = v, 
+            a.hasClass = r, a.addClass = s, a.removeClass = l, a.escapeHtml = i, a._show = u,
+            a.show = c, a._hide = d, a.hide = f, a.isDescendant = p, a.getTopMargin = m, a.fadeIn = v,
             a.fadeOut = y, a.fireClick = h, a.stopEventPropagation = b;
-        }, {} ],
-        5: [ function(t, o, a) {
+        }, {}],
+        5: [function (t, o, a) {
             Object.defineProperty(a, "__esModule", {
                 value: !0
             });
-            var r = t("./handle-dom"), s = t("./handle-swal-dom"), l = function(t, o, a) {
+            var r = t("./handle-dom"), s = t("./handle-swal-dom"), l = function (t, o, a) {
                 var l = t || e.event, i = l.keyCode || l.which, u = a.querySelector("button.confirm"), c = a.querySelector("button.cancel"), d = a.querySelectorAll("button[tabindex]");
-                if (-1 !== [ 9, 13, 32, 27 ].indexOf(i)) {
+                if (-1 !== [9, 13, 32, 27].indexOf(i)) {
                     for (var f = l.target || l.srcElement, p = -1, m = 0; m < d.length; m++) if (f === d[m]) {
                         p = m;
                         break;
                     }
-                    9 === i ? (f = -1 === p ? u : p === d.length - 1 ? d[0] : d[p + 1], r.stopEventPropagation(l), 
-                    f.focus(), o.confirmButtonColor && s.setFocusStyle(f, o.confirmButtonColor)) : 13 === i ? ("INPUT" === f.tagName && (f = u, 
-                    u.focus()), f = -1 === p ? u : n) : 27 === i && o.allowEscapeKey === !0 ? (f = c, 
+                    9 === i ? (f = -1 === p ? u : p === d.length - 1 ? d[0] : d[p + 1], r.stopEventPropagation(l),
+                    f.focus(), o.confirmButtonColor && s.setFocusStyle(f, o.confirmButtonColor)) : 13 === i ? ("INPUT" === f.tagName && (f = u,
+                    u.focus()), f = -1 === p ? u : n) : 27 === i && o.allowEscapeKey === !0 ? (f = c,
                     r.fireClick(f, l)) : f = n;
                 }
             };
@@ -10840,9 +10840,9 @@ if (window.Modernizr = function(window, document, undefined) {
         }, {
             "./handle-dom": 4,
             "./handle-swal-dom": 6
-        } ],
-        6: [ function(n, o, a) {
-            var r = function(e) {
+        }],
+        6: [function (n, o, a) {
+            var r = function (e) {
                 return e && e.__esModule ? e : {
                     "default": e
                 };
@@ -10850,86 +10850,86 @@ if (window.Modernizr = function(window, document, undefined) {
             Object.defineProperty(a, "__esModule", {
                 value: !0
             });
-            var s = n("./utils"), l = n("./handle-dom"), i = n("./default-params"), u = r(i), c = n("./injected-html"), d = r(c), f = ".sweet-alert", p = ".sweet-overlay", m = function() {
+            var s = n("./utils"), l = n("./handle-dom"), i = n("./default-params"), u = r(i), c = n("./injected-html"), d = r(c), f = ".sweet-alert", p = ".sweet-overlay", m = function () {
                 var e = t.createElement("div");
                 for (e.innerHTML = d["default"]; e.firstChild; ) t.body.appendChild(e.firstChild);
-            }, v = function(e) {
+            }, v = function (e) {
                 function t() {
                     return e.apply(this, arguments);
                 }
-                return t.toString = function() {
+                return t.toString = function () {
                     return e.toString();
                 }, t;
-            }(function() {
+            } (function () {
                 var e = t.querySelector(f);
                 return e || (m(), e = v()), e;
-            }), y = function() {
+            }), y = function () {
                 var e = v();
                 return e ? e.querySelector("input") : void 0;
-            }, h = function() {
+            }, h = function () {
                 return t.querySelector(p);
-            }, b = function(e, t) {
+            }, b = function (e, t) {
                 var n = s.hexToRgb(t);
                 e.style.boxShadow = "0 0 2px rgba(" + n + ", 0.8), inset 0 0 0 1px rgba(0, 0, 0, 0.05)";
-            }, g = function(n) {
+            }, g = function (n) {
                 var o = v();
-                l.fadeIn(h(), 10), l.show(o), l.addClass(o, "showSweetAlert"), l.removeClass(o, "hideSweetAlert"), 
+                l.fadeIn(h(), 10), l.show(o), l.addClass(o, "showSweetAlert"), l.removeClass(o, "hideSweetAlert"),
                 e.previousActiveElement = t.activeElement;
                 var a = o.querySelector("button.confirm");
-                a.focus(), setTimeout(function() {
+                a.focus(), setTimeout(function () {
                     l.addClass(o, "visible");
                 }, 500);
                 var r = o.getAttribute("data-timer");
                 if ("null" !== r && "" !== r) {
                     var s = n;
-                    o.timeout = setTimeout(function() {
+                    o.timeout = setTimeout(function () {
                         var e = (s || null) && "true" === o.getAttribute("data-has-done-function");
                         e ? s(null) : sweetAlert.close();
                     }, r);
                 }
-            }, w = function() {
+            }, w = function () {
                 var e = v(), t = y();
-                l.removeClass(e, "show-input"), t.value = u["default"].inputValue, t.setAttribute("type", u["default"].inputType), 
+                l.removeClass(e, "show-input"), t.value = u["default"].inputValue, t.setAttribute("type", u["default"].inputType),
                 t.setAttribute("placeholder", u["default"].inputPlaceholder), C();
-            }, C = function(e) {
+            }, C = function (e) {
                 if (e && 13 === e.keyCode) return !1;
                 var t = v(), n = t.querySelector(".sa-input-error");
                 l.removeClass(n, "show");
                 var o = t.querySelector(".sa-error-container");
                 l.removeClass(o, "show");
-            }, S = function() {
+            }, S = function () {
                 var e = v();
                 e.style.marginTop = l.getTopMargin(v());
             };
-            a.sweetAlertInitialize = m, a.getModal = v, a.getOverlay = h, a.getInput = y, a.setFocusStyle = b, 
+            a.sweetAlertInitialize = m, a.getModal = v, a.getOverlay = h, a.getInput = y, a.setFocusStyle = b,
             a.openModal = g, a.resetInput = w, a.resetInputError = C, a.fixVerticalPosition = S;
         }, {
             "./default-params": 2,
             "./handle-dom": 4,
             "./injected-html": 7,
             "./utils": 9
-        } ],
-        7: [ function(e, t, n) {
+        }],
+        7: [function (e, t, n) {
             Object.defineProperty(n, "__esModule", {
                 value: !0
             });
             var o = '<div class="sweet-overlay" tabIndex="-1"></div><div class="sweet-alert"><div class="sa-icon sa-error">\n      <span class="sa-x-mark">\n        <span class="sa-line sa-left"></span>\n        <span class="sa-line sa-right"></span>\n      </span>\n    </div><div class="sa-icon sa-warning">\n      <span class="sa-body"></span>\n      <span class="sa-dot"></span>\n    </div><div class="sa-icon sa-info"></div><div class="sa-icon sa-success">\n      <span class="sa-line sa-tip"></span>\n      <span class="sa-line sa-long"></span>\n\n      <div class="sa-placeholder"></div>\n      <div class="sa-fix"></div>\n    </div><div class="sa-icon sa-custom"></div><h2>Title</h2>\n    <p>Text</p>\n    <fieldset>\n      <input type="text" tabIndex="3" />\n      <div class="sa-input-error"></div>\n    </fieldset><div class="sa-error-container">\n      <div class="icon">!</div>\n      <p>Not valid!</p>\n    </div><div class="sa-button-container">\n      <button class="cancel" tabIndex="2">Cancel</button>\n      <div class="sa-confirm-button-container">\n        <button class="confirm" tabIndex="1">OK</button><div class="la-ball-fall">\n          <div></div>\n          <div></div>\n          <div></div>\n        </div>\n      </div>\n    </div></div>';
             n["default"] = o, t.exports = n["default"];
-        }, {} ],
-        8: [ function(e, t, o) {
+        }, {}],
+        8: [function (e, t, o) {
             Object.defineProperty(o, "__esModule", {
                 value: !0
             });
-            var a = e("./utils"), r = e("./handle-swal-dom"), s = e("./handle-dom"), l = [ "error", "warning", "info", "success", "input", "prompt" ], i = function(e) {
+            var a = e("./utils"), r = e("./handle-swal-dom"), s = e("./handle-dom"), l = ["error", "warning", "info", "success", "input", "prompt"], i = function (e) {
                 var t = r.getModal(), o = t.querySelector("h2"), i = t.querySelector("p"), u = t.querySelector("button.cancel"), c = t.querySelector("button.confirm");
-                if (o.innerHTML = e.html ? e.title : s.escapeHtml(e.title).split("\n").join("<br>"), 
-                i.innerHTML = e.html ? e.text : s.escapeHtml(e.text || "").split("\n").join("<br>"), 
+                if (o.innerHTML = e.html ? e.title : s.escapeHtml(e.title).split("\n").join("<br>"),
+                i.innerHTML = e.html ? e.text : s.escapeHtml(e.text || "").split("\n").join("<br>"),
                 e.text && s.show(i), e.customClass) s.addClass(t, e.customClass), t.setAttribute("data-custom-class", e.customClass); else {
                     var d = t.getAttribute("data-custom-class");
                     s.removeClass(t, d), t.setAttribute("data-custom-class", "");
                 }
                 if (s.hide(t.querySelectorAll(".sa-icon")), e.type && !a.isIE8()) {
-                    var f = function() {
+                    var f = function () {
                         for (var o = !1, a = 0; a < l.length; a++) if (e.type === l[a]) {
                             o = !0;
                             break;
@@ -10937,32 +10937,32 @@ if (window.Modernizr = function(window, document, undefined) {
                         if (!o) return logStr("Unknown alert type: " + e.type), {
                             v: !1
                         };
-                        var i = [ "success", "error", "warning", "info" ], u = n;
-                        -1 !== i.indexOf(e.type) && (u = t.querySelector(".sa-icon.sa-" + e.type), s.show(u));
+                        var i = ["success", "error", "warning", "info"], u = n;
+-1 !== i.indexOf(e.type) && (u = t.querySelector(".sa-icon.sa-" + e.type), s.show(u));
                         var c = r.getInput();
                         switch (e.type) {
-                          case "success":
-                            s.addClass(u, "animate"), s.addClass(u.querySelector(".sa-tip"), "animateSuccessTip"), 
+                            case "success":
+                                s.addClass(u, "animate"), s.addClass(u.querySelector(".sa-tip"), "animateSuccessTip"),
                             s.addClass(u.querySelector(".sa-long"), "animateSuccessLong");
-                            break;
+                                break;
 
-                          case "error":
-                            s.addClass(u, "animateErrorIcon"), s.addClass(u.querySelector(".sa-x-mark"), "animateXMark");
-                            break;
+                            case "error":
+                                s.addClass(u, "animateErrorIcon"), s.addClass(u.querySelector(".sa-x-mark"), "animateXMark");
+                                break;
 
-                          case "warning":
-                            s.addClass(u, "pulseWarning"), s.addClass(u.querySelector(".sa-body"), "pulseWarningIns"), 
+                            case "warning":
+                                s.addClass(u, "pulseWarning"), s.addClass(u.querySelector(".sa-body"), "pulseWarningIns"),
                             s.addClass(u.querySelector(".sa-dot"), "pulseWarningIns");
-                            break;
+                                break;
 
-                          case "input":
-                          case "prompt":
-                            c.setAttribute("type", e.inputType), c.value = e.inputValue, c.setAttribute("placeholder", e.inputPlaceholder), 
-                            s.addClass(t, "show-input"), setTimeout(function() {
+                            case "input":
+                            case "prompt":
+                                c.setAttribute("type", e.inputType), c.value = e.inputValue, c.setAttribute("placeholder", e.inputPlaceholder),
+                            s.addClass(t, "show-input"), setTimeout(function () {
                                 c.focus(), c.addEventListener("keyup", swal.resetInputError);
                             }, 400);
                         }
-                    }();
+                    } ();
                     if ("object" == typeof f) return f.v;
                 }
                 if (e.imageUrl) {
@@ -10975,14 +10975,14 @@ if (window.Modernizr = function(window, document, undefined) {
                     }
                     p.setAttribute("style", p.getAttribute("style") + "width:" + m + "px; height:" + v + "px");
                 }
-                t.setAttribute("data-has-cancel-button", e.showCancelButton), e.showCancelButton ? u.style.display = "inline-block" : s.hide(u), 
-                t.setAttribute("data-has-confirm-button", e.showConfirmButton), e.showConfirmButton ? c.style.display = "inline-block" : s.hide(c), 
-                e.cancelButtonText && (u.innerHTML = s.escapeHtml(e.cancelButtonText)), e.confirmButtonText && (c.innerHTML = s.escapeHtml(e.confirmButtonText)), 
-                e.confirmButtonColor && (c.style.backgroundColor = e.confirmButtonColor, c.style.borderLeftColor = e.confirmLoadingButtonColor, 
-                c.style.borderRightColor = e.confirmLoadingButtonColor, r.setFocusStyle(c, e.confirmButtonColor)), 
+                t.setAttribute("data-has-cancel-button", e.showCancelButton), e.showCancelButton ? u.style.display = "inline-block" : s.hide(u),
+                t.setAttribute("data-has-confirm-button", e.showConfirmButton), e.showConfirmButton ? c.style.display = "inline-block" : s.hide(c),
+                e.cancelButtonText && (u.innerHTML = s.escapeHtml(e.cancelButtonText)), e.confirmButtonText && (c.innerHTML = s.escapeHtml(e.confirmButtonText)),
+                e.confirmButtonColor && (c.style.backgroundColor = e.confirmButtonColor, c.style.borderLeftColor = e.confirmLoadingButtonColor,
+                c.style.borderRightColor = e.confirmLoadingButtonColor, r.setFocusStyle(c, e.confirmButtonColor)),
                 t.setAttribute("data-allow-outside-click", e.allowOutsideClick);
                 var g = e.doneFunction ? !0 : !1;
-                t.setAttribute("data-has-done-function", g), e.animation ? "string" == typeof e.animation ? t.setAttribute("data-animation", e.animation) : t.setAttribute("data-animation", "pop") : t.setAttribute("data-animation", "none"), 
+                t.setAttribute("data-has-done-function", g), e.animation ? "string" == typeof e.animation ? t.setAttribute("data-animation", e.animation) : t.setAttribute("data-animation", "pop") : t.setAttribute("data-animation", "none"),
                 t.setAttribute("data-timer", e.timer);
             };
             o["default"] = i, t.exports = o["default"];
@@ -10990,54 +10990,58 @@ if (window.Modernizr = function(window, document, undefined) {
             "./handle-dom": 4,
             "./handle-swal-dom": 6,
             "./utils": 9
-        } ],
-        9: [ function(t, n, o) {
+        }],
+        9: [function (t, n, o) {
             Object.defineProperty(o, "__esModule", {
                 value: !0
             });
-            var a = function(e, t) {
+            var a = function (e, t) {
                 for (var n in t) t.hasOwnProperty(n) && (e[n] = t[n]);
                 return e;
-            }, r = function(e) {
+            }, r = function (e) {
                 var t = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(e);
                 return t ? parseInt(t[1], 16) + ", " + parseInt(t[2], 16) + ", " + parseInt(t[3], 16) : null;
-            }, s = function() {
+            }, s = function () {
                 return e.attachEvent && !e.addEventListener;
-            }, l = function(t) {
+            }, l = function (t) {
                 e.console && e.console.log("SweetAlert: " + t);
-            }, i = function(e, t) {
-                e = String(e).replace(/[^0-9a-f]/gi, ""), e.length < 6 && (e = e[0] + e[0] + e[1] + e[1] + e[2] + e[2]), 
+            }, i = function (e, t) {
+                e = String(e).replace(/[^0-9a-f]/gi, ""), e.length < 6 && (e = e[0] + e[0] + e[1] + e[1] + e[2] + e[2]),
                 t = t || 0;
                 var n, o, a = "#";
-                for (o = 0; 3 > o; o++) n = parseInt(e.substr(2 * o, 2), 16), n = Math.round(Math.min(Math.max(0, n + n * t), 255)).toString(16), 
+                for (o = 0; 3 > o; o++) n = parseInt(e.substr(2 * o, 2), 16), n = Math.round(Math.min(Math.max(0, n + n * t), 255)).toString(16),
                 a += ("00" + n).substr(n.length);
                 return a;
             };
             o.extend = a, o.hexToRgb = r, o.isIE8 = s, o.logStr = l, o.colorLuminance = i;
-        }, {} ]
-    }, {}, [ 1 ]), "function" == typeof define && define.amd ? define(function() {
+        }, {}]
+    }, {}, [1]), "function" == typeof define && define.amd ? define(function () {
         return sweetAlert;
     }) : "undefined" != typeof module && module.exports && (module.exports = sweetAlert);
-}(window, document), $(function() {
+} (window, document), $(function () {
     $.material.init();
-}), $(function() {
+}), $(function () {
     slider = $("#slider").slideReveal({
         push: !1,
         position: "right",
         speed: 600,
         trigger: $("#trigger"),
-        show: function(obj) {
+        show: function (obj) {
+            $('.overlay').fadeTo("slow", 0.7),
+            $('.cambiarToggle').fadeToggle(),
             $("#main-container").addClass("disabled"), $(".btn-fab").animate({
                 right: "+=200"
             }, 500);
         },
-        shown: function(obj) {},
-        hide: function(obj) {
+        shown: function (obj) { },
+        hide: function (obj) {
+            $('.overlay').fadeOut("slow"),
+            $('.cambiarToggle').fadeToggle(),
             $("#main-container").removeClass("disabled"), $(".btn-fab").animate({
                 right: "-=200"
             }, 500);
         },
-        hidden: function(obj) {}
+        hidden: function (obj) { }
     });
 });
 
