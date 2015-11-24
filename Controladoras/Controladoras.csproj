@@ -56,10 +56,6 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\QRCodeLib.csproj">
-      <Project>{E98126B2-AF17-4783-96B9-856D6744DCA3}</Project>
-      <Name>QRCodeLib</Name>
-    </ProjectReference>
     <ProjectReference Include="..\accesoDatos\accesoDatos.csproj">
       <Project>{65D0B7DA-C31A-4CBB-85C2-3767E8FCF89A}</Project>
       <Name>accesoDatos</Name>
@@ -67,6 +63,10 @@
     <ProjectReference Include="..\Modelos\Modelos.csproj">
       <Project>{5365C5E9-1B2A-4B28-A21E-55D5CD2E191F}</Project>
       <Name>Modelos</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\QRCodeLib\QRCodeLib.csproj">
+      <Project>{E98126B2-AF17-4783-96B9-856D6744DCA3}</Project>
+      <Name>QRCodeLib</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

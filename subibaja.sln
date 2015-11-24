@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Modelos", "Modelos\Modelos.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SVC", "SVC\SVC.csproj", "{4BEF2122-8492-4380-9AFB-4755AB415736}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCodeLib", "..\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\QRCodeLib.csproj", "{E98126B2-AF17-4783-96B9-856D6744DCA3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QRCodeLib", "QRCodeLib\QRCodeLib.csproj", "{E98126B2-AF17-4783-96B9-856D6744DCA3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
