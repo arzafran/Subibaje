@@ -2,25 +2,26 @@
 <%@ Register TagPrefix="mc" Namespace="subibaja.Controles" Assembly="subibaja" %>
 
 <asp:Content ID="Content2" ContentPlaceHolderID="contenido" runat="server">
-    <h2>Cambiar Password</h2>
+    <h2>Home</h2>
     <hr/>
-    <asp:Image runat="server" ID="imagenQr" Visible="false"/>
-    <div class="col-md-6 col-md-offset-3">
+    <div class="col-sm-5">
+        <h4>Cambiar Password</h4>
+        <hr />
         <div class="form-group">
-            <label class="col-sm-4 control-label" for="txtPassViejo">Password Anterior:</label>
-            <div class="col-sm-8">
+            <label class="col-sm-5 control-label" for="txtPassViejo">Password Anterior:</label>
+            <div class="col-sm-7">
                 <asp:TextBox TextMode="Password" autocomplete="off" CssClass="form-control" ID="txtPassViejo" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label" for="txtPassNuevo">Password nueva:</label>
-            <div class="col-sm-8">
+            <label class="col-sm-5 control-label" for="txtPassNuevo">Password nueva:</label>
+            <div class="col-sm-7">
                 <asp:TextBox TextMode="Password" autocomplete="off" CssClass="form-control" ID="txtPassNuevo" runat="server"></asp:TextBox>
             </div>
         </div>
         <div class="form-group">
-            <label class="col-sm-4 control-label" for="txtPassNuevo2">Repetir nueva:</label>
-            <div class="col-sm-8">
+            <label class="col-sm-5 control-label" for="txtPassNuevo2">Repetir nueva:</label>
+            <div class="col-sm-7">
                 <asp:TextBox TextMode="Password" autocomplete="off" CssClass="form-control" ID="txtPassNuevo2" runat="server"></asp:TextBox>
             </div>
         </div>
@@ -32,9 +33,16 @@
                 </mc:ModernButton>
             </div>
         </div>
+        <asp:Panel runat="server" cssclass="col-sm-6 col-sm-offset-3" ID="panelQr" Visible="false">
+            <h4>Descarga tu QR</h4>
+            <hr />
+            <asp:Image runat="server" ID="imagenQr"/>
+        </asp:Panel>
     </div>
-    <asp:Panel ID="panelGrid" CssClass="col-sm-6 col-sm-offset-3" runat="server">
-        <asp:GridView Visible="false" EmptyDataText="No hay boletos para este estudiante"
+    <asp:Panel Visible="false" ID="panelGrid" CssClass="col-sm-5 col-sm-offset-2" runat="server">
+        <h4>Listado de boletos</h4>
+        <hr />
+        <asp:GridView EmptyDataText="No hay boletos para este estudiante"
             CssClass="table table-condensed table-hover sortable" ID="grdBoletos" runat="server" 
             GridLines="None" AutoGenerateColumns="false">
             <Columns>

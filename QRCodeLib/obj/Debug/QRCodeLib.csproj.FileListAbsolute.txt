@@ -6,3 +6,11 @@ C:\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCod
 C:\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.pdb
 C:\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\ThoughtWorks.QRCode.dll
 C:\Documents and Settings\operacion\Escritorio\Final\Proyecto Final Micros\QRCodeLib\ThoughtWorks.QRCode.pdb
+C:\Subibaje\QRCodeLib\obj\Debug\ResolveAssemblyReference.cache
+C:\Subibaje\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.Properties.Resources.resources
+C:\Subibaje\QRCodeLib\obj\Debug\GenerateResource-ResGen.read.1.tlog
+C:\Subibaje\QRCodeLib\obj\Debug\GenerateResource-ResGen.write.1.tlog
+C:\Subibaje\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.dll
+C:\Subibaje\QRCodeLib\obj\Debug\ThoughtWorks.QRCode.pdb
+C:\Subibaje\QRCodeLib\ThoughtWorks.QRCode.dll
+C:\Subibaje\QRCodeLib\ThoughtWorks.QRCode.pdb

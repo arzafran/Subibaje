@@ -1,3 +1,9 @@
+USE subibaje
+GO
+
+DROP DATABASE micros
+GO
+
 CREATE DATABASE micros
 GO
 
@@ -143,7 +149,7 @@ CREATE TABLE usuarios (
 	email varchar(50) not null,
 	dni int not null,
 	password varchar (32) not null,
-	borrado datetime CURRENT_TIMESTAMP,
+	borrado datetime default CURRENT_TIMESTAMP,
 	CONSTRAINT PK_USUARIO PRIMARY KEY (id),
 	CONSTRAINT UNQ_EMAIL_USUARIO UNIQUE (email),
 	CONSTRAINT UNQ_DNI_USUARIO UNIQUE (dni)
@@ -167,7 +173,7 @@ CREATE TABLE roles (
 	tipo_id int not null,
 	usuario_id int not null,
 	establecimiento_nivel_id int null,
-	borrado datetime CURRENT_TIMESTAMP,
+	borrado datetime default CURRENT_TIMESTAMP,
 	CONSTRAINT PK_ROL PRIMARY KEY (id),
 	CONSTRAINT FK_TIPO_ROL FOREIGN KEY (tipo_id) REFERENCES tipos(id),
 	CONSTRAINT FK_USUARIO_ROL FOREIGN KEY (usuario_id) REFERENCES usuarios(id),
