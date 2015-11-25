@@ -21,6 +21,9 @@ namespace Controladoras
 
         public void Nuevo(string linea, int ciudad_id)
         {
+            if (string.IsNullOrEmpty(linea))
+                throw new Exception("La línea no puede estar vacía");
+
             Ciudad oCiudad = ciudades.BuscarPorId(ciudad_id);
             Urbano previo = _urbanos.BuscarPorNombre(linea).Find(p => p.Ciudad.Id == ciudad_id),
                    oUrbano;
@@ -44,6 +47,9 @@ namespace Controladoras
 
         public void Editar(string linea, int id, int ciudad_id)
         {
+            if (string.IsNullOrEmpty(linea))
+                throw new Exception("La línea no puede estar vacía");
+
             Ciudad oCiudad = ciudades.BuscarPorId(ciudad_id);
             Urbano oUrbano = _urbanos.BuscarPorId(id),
                    previo = _urbanos.BuscarPorNombre(linea).Find(p => p.Ciudad.Id == ciudad_id);

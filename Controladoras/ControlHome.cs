@@ -15,6 +15,9 @@ namespace Controladoras
 
         public void CambiarPassword(int usuario_id, string passVieja, string passNueva1, string passNueva2)
         {
+            if (String.IsNullOrEmpty(passNueva1) || String.IsNullOrEmpty(passNueva2) || string.IsNullOrEmpty(passVieja))
+                throw new Exception("Debe completar todos los campos");
+
             if (passNueva1 != passNueva2)
                 throw new Exception("El password ingresado y su confirmación no concuerdan");
 

@@ -19,6 +19,8 @@ namespace Controladoras
 
         public void Nuevo(string nombre)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
             if (_provincias.BuscarPorNombre(nombre) != null)
                 throw new Exception("Ya existe una provincia con ese nombre");
             

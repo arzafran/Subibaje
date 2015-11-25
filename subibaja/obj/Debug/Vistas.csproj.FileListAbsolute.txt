@@ -66,3 +66,5 @@ C:\Users\colo\Desktop\Subibaje\subibaja\bin\Modelos.pdb
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Debug\subibaja.dll
 C:\Users\colo\Desktop\Subibaje\subibaja\obj\Debug\subibaja.pdb
+C:\Subibaje\subibaja\bin\ThoughtWorks.QRCode.dll
+C:\Subibaje\subibaja\bin\ThoughtWorks.QRCode.pdb

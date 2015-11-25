@@ -38,11 +38,19 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar Rol</h4>
                 </div>
                 <div class="modal-body">
+                    <asp:ValidationSummary runat="server" ID="summary"
+                        DisplayMode="BulletList"
+                        ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlTipo">Tipo:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:DropDownList ID="ddlTipo" runat="server" CssClass="form-control">
                             </asp:DropDownList>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredNombre" runat="server" CssClass="validadores"
+                                ErrorMessage="El tipo es obligatorio" SetFocusOnError="True"
+                                ControlToValidate="ddlTipo">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">

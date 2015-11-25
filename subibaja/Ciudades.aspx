@@ -42,29 +42,38 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar Ciudad</h4>
                 </div>
                 <div class="modal-body">
+                    <asp:ValidationSummary runat="server" ID="summary"
+                        DisplayMode="BulletList"
+                        ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="txtNombre">Nombre:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:TextBox autocomplete="off" CssClass="form-control" ID="txtNombre" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredNombre" runat="server" CssClass="validadores"
+                                ErrorMessage="El nombre es obligatorio" SetFocusOnError="True"
+                                ControlToValidate="txtNombre">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlProvincia">Provincia:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:DropDownList ID="ddlProvincia" runat="server" CssClass="form-control">
                             </asp:DropDownList>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredProvincia" runat="server" CssClass="validadores"
+                                ErrorMessage="La provincia es obligatoria" SetFocusOnError="True"
+                                ControlToValidate="ddlProvincia">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <div class="col-sm-12 text-right">
                             <mc:ModernButton runat="server" ID="btnEditar" CssClass="btn btn-warning" 
-                                onclick="btnEditar_Click" >
-                                <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>
-                            </mc:ModernButton>
+                                onclick="btnEditar_Click" ><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span></mc:ModernButton>
                             <mc:ModernButton runat="server" ID="btnAgregar" CssClass="btn btn-success" 
-                                onclick="btnAgregar_Click" >
-                                <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
-                            </mc:ModernButton>
+                                onclick="btnAgregar_Click" ><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></mc:ModernButton>
                             <button type="button" class="btn btn-danger" data-dismiss="modal">
                                 <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>
                             </button>

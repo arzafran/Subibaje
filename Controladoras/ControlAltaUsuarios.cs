@@ -21,6 +21,9 @@ namespace Controladoras
 
         public void Nuevo(string nombre, int dni, string email)
         {
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email))
+                throw new Exception("Debe completar todos los campos");
+
             if (_usuarios.BuscarPorDni(dni) != null)
                 throw new Exception("Ya existe un usuario con ese dni");
 
@@ -41,6 +44,9 @@ namespace Controladoras
 
         public void Editar(string nombre, int dni, string email, int id)
         {
+            if (string.IsNullOrEmpty(nombre) || string.IsNullOrEmpty(email))
+                throw new Exception("Debe completar todos los campos");
+
             Usuario previo,
                     oUsuario = _usuarios.BuscarPorId(id);
 

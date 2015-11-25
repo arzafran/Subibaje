@@ -19,6 +19,9 @@ namespace Controladoras
 
         public void Nuevo(string nombre)
         {
+            if (String.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             if (_niveles.BuscarPorNombre(nombre) != null)
                 throw new Exception("Ya existe un nivel educativo con ese nombre");
 
@@ -34,6 +37,9 @@ namespace Controladoras
 
         public void Editar(string nombre, int id)
         {
+            if (String.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             NivelEducativo oNivel = _niveles.BuscarPorId(id),
                            previo = _niveles.BuscarPorNombre(nombre);
 

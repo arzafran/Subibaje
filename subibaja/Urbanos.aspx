@@ -42,17 +42,30 @@
                     <h4 class="modal-title" id="myModalLabel">Agregar servicio urbano</h4>
                 </div>
                 <div class="modal-body">
+                    <asp:ValidationSummary runat="server" ID="summary"
+                        DisplayMode="BulletList"
+                        ShowMessageBox="False" ShowSummary="True" CssClass="alert alert-danger" />
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="txtLinea">Linea:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:TextBox autocomplete="off" CssClass="form-control" ID="txtLinea" runat="server"></asp:TextBox>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredLinea" runat="server" CssClass="validadores"
+                                ErrorMessage="La línea es obligatoria" SetFocusOnError="True"
+                                ControlToValidate="txtLinea">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlCiudades">Ciudad:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:DropDownList ID="ddlCiudades" runat="server" CssClass="form-control">
                             </asp:DropDownList>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredNombre" runat="server" CssClass="validadores"
+                                ErrorMessage="La ciudad es obligatoria" SetFocusOnError="True"
+                                ControlToValidate="ddlCiudades">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     <div class="form-group">

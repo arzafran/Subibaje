@@ -35,6 +35,12 @@
     .modal-dialog{width:768px;margin:30px auto}
 }
 
+.validadores
+{
+    color: #F00;
+    font-size: 14px;
+}
+
 #trigger
 {
     color: #FFF;    

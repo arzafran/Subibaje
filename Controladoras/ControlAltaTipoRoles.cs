@@ -19,6 +19,9 @@ namespace Controladoras
 
         public void Nuevo(string nombre)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             if (_roles.BuscarPorNombre(nombre) != null)
                 throw new Exception("Ya existe un rol con ese nombre");
 
@@ -34,6 +37,9 @@ namespace Controladoras
 
         public void Editar(string nombre, int id)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             TipoRol oRol = _roles.BuscarPorId(id),
                       previo = _roles.BuscarPorNombre(nombre);
 

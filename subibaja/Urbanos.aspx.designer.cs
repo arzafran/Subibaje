@@ -31,6 +31,15 @@ namespace subibaja {
         protected global::System.Web.UI.WebControls.HiddenField idEdicion;
         
         /// <summary>
+        /// Control summary.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.ValidationSummary summary;
+        
+        /// <summary>
         /// Control txtLinea.
         /// </summary>
         /// <remarks>
@@ -40,6 +49,15 @@ namespace subibaja {
         protected global::System.Web.UI.WebControls.TextBox txtLinea;
         
         /// <summary>
+        /// Control requiredLinea.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredLinea;
+        
+        /// <summary>
         /// Control ddlCiudades.
         /// </summary>
         /// <remarks>
@@ -47,6 +65,15 @@ namespace subibaja {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlCiudades;
+        
+        /// <summary>
+        /// Control requiredNombre.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredNombre;
         
         /// <summary>
         /// Control btnEditar.

@@ -65,17 +65,25 @@
         <script type"text/javascript">
             $(document).ready(function () {
                 var btnEditar = $('#modalCarga_btnEditar'),
-                    btnAgregar = $('#modalCarga_btnAgregar');
+                    btnAgregar = $('#modalCarga_btnAgregar'),
+                    inputsText = $('input[type=text]');
 
                 btnAgregar.hide();
 
                 $('#btnMas').click(function () {
                     btnEditar.remove();
                     btnAgregar.show();
+                    inputsText.val("");
                 });
                 $('body').show();
                 $('.cerrarMenu').on('click', function () {
                     $("#slider").slideReveal('hide');
+                });
+
+                /* ESTO ES PARA QUE PONGA ALGO EN LOS INPUT TEXT CUANDO QUIERO EDITAR, SINO 
+                NO ME HACE EL POSTBACK POR LOS REQUIREDFIELDVALIDATOR */
+                $('.edicion').on('click', function () {
+                    inputsText.val(".");
                 });
             });
         </script>

@@ -23,6 +23,9 @@ namespace Controladoras
 
         public void Nuevo(string nombre, int ciudad_id, List<int> listaNiveles)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre del establecimiento no puede estar vacío");
+
             NivelEducativo oNivel;
             Establecimiento previo = _establecimientos.BuscarPorNombre(nombre).Find(p => p.Ciudad.Id == ciudad_id);
             Ciudad oCiudad = ciudades.BuscarPorId(ciudad_id);
@@ -60,6 +63,9 @@ namespace Controladoras
 
         public void Editar(string nombre, int id, int ciudad_id, List<int> listaNiveles)
         {
+            if (string.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre del establecimiento no puede estar vacío");
+
             Ciudad oCiudad = ciudades.BuscarPorId(ciudad_id);
             Establecimiento oEstablecimiento = _establecimientos.BuscarPorId(id),
                     previo = _establecimientos.BuscarPorNombre(nombre).Find(p => p.Ciudad.Id == ciudad_id);

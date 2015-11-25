@@ -21,6 +21,9 @@ namespace Controladoras
         
         public void Nuevo(string nombre, int provincia_id)
         {
+            if(String.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             Provincia oProvincia = provincias.BuscarPorId(provincia_id);
             Ciudad oCiudad,
                    previa = _ciudades.BuscarPorNombre(nombre).Find(p => p.Provincia.Id == provincia_id);
@@ -47,6 +50,9 @@ namespace Controladoras
 
         public void Editar(string nombre, int id, int provincia_id)
         {
+            if (String.IsNullOrEmpty(nombre))
+                throw new Exception("El nombre no puede estar vacío");
+
             Provincia oProvincia = provincias.BuscarPorId(provincia_id);
             Ciudad oCiudad = _ciudades.BuscarPorId(id),
                     previa = _ciudades.BuscarPorNombre(nombre).Find(p => p.Provincia.Id == provincia_id);

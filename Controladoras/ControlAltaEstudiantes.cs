@@ -27,6 +27,9 @@ namespace Controladoras
 
         public void Nuevo(int dni, string nombre, string email, int director_id)
         {
+            if (String.IsNullOrEmpty(nombre) || String.IsNullOrEmpty(email))
+                throw new Exception("Debe completar todos los campos");
+
             TipoRol oTipo = _tipos.BuscarPorNombre("Estudiante");
             Usuario director = _usuarios.BuscarPorId(director_id),
                     oUser = _usuarios.BuscarPorDni(dni);
