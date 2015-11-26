@@ -26,17 +26,13 @@ namespace subibaja
                 ddlEstablecimiento.DataValueField = "Id";
                 ddlEstablecimiento.DataTextField = "NombreCompleto";
                 ddlEstablecimiento.DataBind();
-                ddlEstablecimiento.Items.Insert(0, new ListItem(String.Empty, "0"));
-                ddlEstablecimiento.SelectedIndex = 0;
 
                 ddlNivel.DataSource = _controladora.niveles.TraerActivos();
                 ddlNivel.DataValueField = "Id";
                 ddlNivel.DataTextField = "Nombre";
                 ddlNivel.DataBind();
-                ddlNivel.Items.Insert(0, new ListItem(String.Empty, "0"));
-                ddlNivel.SelectedIndex = 0;
 
-                ddlTipo.DataSource = _controladora.tipo_roles.TraerActivos();
+                ddlTipo.DataSource = _controladora.tipo_roles.TraerInferiores(50);
                 ddlTipo.DataValueField = "Id";
                 ddlTipo.DataTextField = "Nombre";
                 ddlTipo.DataBind();

@@ -9,3 +9,4 @@ C:\Subibaje\SVC\bin\accesoDatos.pdb
 C:\Subibaje\SVC\bin\Modelos.pdb
 C:\Subibaje\SVC\obj\Release\SVC.dll
 C:\Subibaje\SVC\obj\Release\SVC.pdb
+C:\Subibaje\SVC\bin\ThoughtWorks.QRCode.dll

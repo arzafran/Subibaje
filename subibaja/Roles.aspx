@@ -21,7 +21,7 @@
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
-                    <asp:LinkButton OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
+                    <asp:LinkButton CssClass="mentira" OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>
@@ -55,17 +55,27 @@
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlEstablecimiento">Establecimiento:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:DropDownList ID="ddlEstablecimiento" runat="server" 
                                 CssClass="form-control" >
                             </asp:DropDownList>
                         </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredEstablecimiento" runat="server" CssClass="validadores"
+                                ErrorMessage="El establecimiento es obligatorio" SetFocusOnError="True"
+                                ControlToValidate="ddlEstablecimiento">*</asp:RequiredFieldValidator>
+                        </div>
                     </div>
                     <div class="form-group">
                         <label class="col-sm-2 control-label" for="ddlNivel">Nivel:</label>
-                        <div class="col-sm-10">
+                        <div class="col-sm-9">
                             <asp:DropDownList ID="ddlNivel" runat="server" CssClass="form-control">
                             </asp:DropDownList>
+                        </div>
+                        <div class="col-sm-1">
+                            <asp:RequiredFieldValidator ID="requiredNivel" runat="server" CssClass="validadores"
+                                ErrorMessage="El nivel es obligatorio" SetFocusOnError="True"
+                                ControlToValidate="ddlNivel">*</asp:RequiredFieldValidator>
                         </div>
                     </div>
                     

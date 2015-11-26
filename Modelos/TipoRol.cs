@@ -10,6 +10,7 @@ namespace Modelos
         public int Id { get; set; }
         public string Nombre { get; set; }
         public DateTime Borrado { get; set; }
+        public int Peso { get; set; }
 
         public override string ToString()
         {
@@ -21,11 +22,12 @@ namespace Modelos
             Nombre = nombre;
         }
 
-        public TipoRol(string nombre, int id, DateTime borrado)
+        public TipoRol(string nombre, int id, DateTime borrado, int peso)
         {
             Nombre = nombre;
             Id = id;
             Borrado = borrado;
+            Peso = peso;
         }
     }
 }

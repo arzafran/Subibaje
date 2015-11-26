@@ -67,6 +67,15 @@ namespace subibaja {
         protected global::System.Web.UI.WebControls.DropDownList ddlEstablecimiento;
         
         /// <summary>
+        /// Control requiredEstablecimiento.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredEstablecimiento;
+        
+        /// <summary>
         /// Control ddlNivel.
         /// </summary>
         /// <remarks>
@@ -74,6 +83,15 @@ namespace subibaja {
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.DropDownList ddlNivel;
+        
+        /// <summary>
+        /// Control requiredNivel.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.RequiredFieldValidator requiredNivel;
         
         /// <summary>
         /// Control btnAgregar.

@@ -130,6 +130,7 @@ CREATE TABLE tipos (
 	id int identity(1,1) not null,
 	nombre varchar(50) not null,
 	borrado datetime null,
+	peso int default 0,
 	CONSTRAINT PK_TIPO PRIMARY KEY (id),
 	CONSTRAINT UNQ_NOMBRE_TIPO UNIQUE (nombre)
 )
@@ -149,7 +150,7 @@ CREATE TABLE usuarios (
 	email varchar(50) not null,
 	dni int not null,
 	password varchar (32) not null,
-	borrado datetime default CURRENT_TIMESTAMP,
+	borrado datetime null,
 	CONSTRAINT PK_USUARIO PRIMARY KEY (id),
 	CONSTRAINT UNQ_EMAIL_USUARIO UNIQUE (email),
 	CONSTRAINT UNQ_DNI_USUARIO UNIQUE (dni)
@@ -213,7 +214,7 @@ GO
  * antes de que la provincia fuera borradas
  *
 **/
-/*
+
 GO
 
 CREATE TRIGGER borrar_ciudades_provincias
@@ -229,4 +230,73 @@ else
 	update ciudades set borrado = @fecha_nueva where provincia_id = @id and borrado is null
 	
 GO
-*/
+
+CREATE TRIGGER borrar_establecimientos_ciudades
+on ciudades
+for update 
+as
+declare @fecha_vieja datetime, @fecha_nueva datetime, @id int
+select @fecha_vieja = borrado, @id = id from deleted 
+select @fecha_nueva = borrado from inserted
+if @fecha_nueva is null 
+	update establecimentos set borrado = @fecha_nueva where ciudad_id = @id and borrado = @fecha_vieja
+else 
+	update establecimientos set borrado = @fecha_nueva where ciudad_id = @id and borrado is null
+	
+GO
+
+CREATE TRIGGER borrar_urbanos_ciudades
+on ciudades
+for update 
+as
+declare @fecha_vieja datetime, @fecha_nueva datetime, @id int
+select @fecha_vieja = borrado, @id = id from deleted 
+select @fecha_nueva = borrado from inserted
+if @fecha_nueva is null 
+	update urbanos set borrado = @fecha_nueva where ciudad_id = @id and borrado = @fecha_vieja
+else 
+	update urbanos set borrado = @fecha_nueva where ciudad_id = @id and borrado is null
+	
+GO
+
+CREATE TRIGGER borrar_estanivel_establecimientos
+on establecimientos
+for update 
+as
+declare @fecha_vieja datetime, @fecha_nueva datetime, @id int
+select @fecha_vieja = borrado, @id = id from deleted 
+select @fecha_nueva = borrado from inserted
+if @fecha_nueva is null 
+	update establecimiento_nivel set borrado = @fecha_nueva where establecimiento_id = @id and borrado = @fecha_vieja
+else 
+	update establecimiento_nivel set borrado = @fecha_nueva where establecimiento_id = @id and borrado is null
+	
+GO
+
+CREATE TRIGGER borrar_roles_usuarios
+on usuarios
+for update 
+as
+declare @fecha_vieja datetime, @fecha_nueva datetime, @id int
+select @fecha_vieja = borrado, @id = id from deleted 
+select @fecha_nueva = borrado from inserted
+if @fecha_nueva is null 
+	update roles set borrado = @fecha_nueva where usuario_id = @id and borrado = @fecha_vieja
+else 
+	update roles set borrado = @fecha_nueva where usuario_id = @id and borrado is null
+	
+GO
+
+CREATE TRIGGER borrar_roles_estanivel
+on establecimiento_nivel
+for update 
+as
+declare @fecha_vieja datetime, @fecha_nueva datetime, @id int
+select @fecha_vieja = borrado, @id = id from deleted 
+select @fecha_nueva = borrado from inserted
+if @fecha_nueva is null 
+	update roles set borrado = @fecha_nueva where establecimiento_nivel_id = @id and borrado = @fecha_vieja
+else 
+	update roles set borrado = @fecha_nueva where establecimiento_nivel_id = @id and borrado is null
+	
+GO

@@ -14,6 +14,7 @@ namespace accesoDatos
         private DBConnector _conexion = new DBConnector();
         private DBCiudades _ciudades = new DBCiudades();
         private DBNivelesEducativos _niveles = new DBNivelesEducativos();
+        private DBEstablecimientoNivel _establecimiento_nivel = new DBEstablecimientoNivel();
 
         /// <summary>
         /// Guarda un establecimiento en la DB
@@ -24,7 +25,7 @@ namespace accesoDatos
         {
             string query = "INSERT INTO establecimientos (nombre, ciudad_id) VALUES ('" + oEstablecimiento.Nombre + "', " + oEstablecimiento.Ciudad.Id + ")";
             int id = _conexion.EjecutarEscalar(query);
-            InsertarNiveles(id, oEstablecimiento.ListaNiveles);
+            ManejarNiveles(id, oEstablecimiento.ListaNiveles);
         }
 
         /// <summary>
@@ -69,8 +70,7 @@ namespace accesoDatos
             int id = oEstablecimiento.Id;
             string query = "UPDATE establecimientos SET nombre = '" + oEstablecimiento.Nombre + "', ciudad_id=" + oEstablecimiento.Ciudad.Id + " WHERE id=" + id.ToString();
             _conexion.EjecutarNonSql(query);
-            BorrarNiveles(id);
-            InsertarNiveles(id, oEstablecimiento.ListaNiveles);
+            ManejarNiveles(id, oEstablecimiento.ListaNiveles);
         }
 
         /// <summary>
@@ -177,7 +177,7 @@ namespace accesoDatos
         }
 
         /// <summary>
-        /// Busca todos los niveles educativos asociados con el establecimiento especificado
+        /// Busca todos los niveles educativos activos asociados con el establecimiento especificado
         /// </summary>
         /// <param name="id">ID del establecimiento</param>
         /// <returns>Devuelve una lista de niveles educativos</returns>
@@ -193,6 +193,75 @@ namespace accesoDatos
             }
 
             return devolver;
+        }
+
+        /// <summary>
+        /// Busca todos los niveles educativos asociados con el establecimiento especificado
+        /// </summary>
+        /// <param name="id">ID del establecimiento</param>
+        /// <returns>Devuelve una lista de niveles educativos</returns>
+
+        public List<NivelEducativo> NivelesAsociadosCompletos(int id)
+        {
+            List<NivelEducativo> devolver = new List<NivelEducativo>();
+            string query = "SELECT * FROM establecimiento_nivel WHERE establecimiento_id = " + id.ToString();
+            DataTable dt = _conexion.TraerDatos(query);
+            foreach (DataRow dr in dt.Rows)
+            {
+                devolver.Add(_niveles.BuscarPorId((int)dr["nivel_id"]));
+            }
+
+            return devolver;
+        }
+
+        private string ArmarIds(List<NivelEducativo> niveles)
+        {
+            List<string> lista = new List<string>();
+
+            foreach (NivelEducativo oNivel in niveles)
+            {
+                lista.Add(oNivel.Id.ToString());
+            }
+
+            return string.Join(",", lista);
+        }
+
+        private void ManejarNiveles(int id, List<NivelEducativo> niveles)
+        {
+            string query;
+
+            if (niveles.Count == 0)
+            {
+                query = "UPDATE establecimiento_nivel SET borrado = getdate() WHERE establecimiento_id = " + id.ToString();
+                _conexion.EjecutarNonSql(query);
+            }
+            else
+            {
+                List<NivelEducativo> faltan = new List<NivelEducativo>();
+                string ingresados = ArmarIds(niveles);
+                List<NivelEducativo> guardadosEnDb = NivelesAsociadosCompletos(id);
+                string activar = "UPDATE establecimiento_nivel SET borrado = NULL WHERE establecimiento_id = " + id.ToString() + " AND nivel_id IN (" + ingresados + ")";
+                _conexion.EjecutarNonSql(activar);
+                string desactivar = "UPDATE establecimiento_nivel SET borrado = getdate() WHERE establecimiento_id = " + id.ToString() + " AND nivel_id NOT IN (" + ingresados + ")";
+                _conexion.EjecutarNonSql(desactivar);
+                if (guardadosEnDb.Count > 0)
+                {
+                    NivelEducativo ingresar;
+                    foreach (NivelEducativo oNivel in niveles)
+                    {
+                        ingresar = guardadosEnDb.Find(n => n.Id == oNivel.Id);
+                        if (ingresar == null)
+                        {
+                            faltan.Add(oNivel);
+                        }
+
+                    }
+                }
+                else
+                    faltan = niveles;
+
+                this.InsertarNiveles(id, faltan);
+            }
         }
 
         /// <summary>
@@ -219,7 +288,7 @@ namespace accesoDatos
                 _conexion.EjecutarNonSql(insertarNivel);
             }
         }
-
+        /*
         /// <summary>
         /// Borra todas las relaciones con los niveles educativos asociados a un establecimiento
         /// </summary>
@@ -230,5 +299,7 @@ namespace accesoDatos
             string query = "DELETE FROM establecimiento_nivel WHERE borrado IS NULL AND establecimiento_id = " + id.ToString();
             _conexion.EjecutarNonSql(query);
         }
+         * 
+         */
     }
 }

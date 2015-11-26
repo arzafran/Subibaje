@@ -9,7 +9,7 @@ using System.Data;
 
 namespace accesoDatos
 {
-    public class DBRoles
+    public class DBRoles : IcapaDato<Rol>
     {
         private DBConnector _conexion = new DBConnector();
         private DBUsuarios _usuarios = new DBUsuarios();
@@ -201,6 +201,25 @@ namespace accesoDatos
         {
             List<Rol> devolver = new List<Rol>();
             string query = "SELECT * FROM roles WHERE usuario_id = " + id.ToString() + " ORDER BY borrado ASC";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                devolver.Add(ArmarObjeto(dr));
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
+        /// Busca todos los roles de la DB
+        /// </summary>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<Rol> TraerTodos()
+        {
+            List<Rol> devolver = new List<Rol>();
+            string query = "SELECT * FROM roles ORDER BY borrado ASC";
             DataTable dt = _conexion.TraerDatos(query);
 
             foreach (DataRow dr in dt.Rows)

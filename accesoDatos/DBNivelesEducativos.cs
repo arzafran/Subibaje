@@ -96,14 +96,16 @@ namespace accesoDatos
         public List<NivelEducativo> Traer(List<int> ids)
         {
             List<NivelEducativo> devolver = new List<NivelEducativo>();
-            string query = "SELECT * from niveles WHERE id IN (" + string.Join(",",ids) + ") AND borrado IS NULL";
-            DataTable dt = _conexion.TraerDatos(query);
-            
-            foreach (DataRow dr in dt.Rows)
+            if (ids.Count > 0)
             {
-                devolver.Add(ArmarObjeto(dr));
-            }
+                string query = "SELECT * from niveles WHERE id IN (" + string.Join(",", ids) + ") AND borrado IS NULL";
+                DataTable dt = _conexion.TraerDatos(query);
 
+                foreach (DataRow dr in dt.Rows)
+                {
+                    devolver.Add(ArmarObjeto(dr));
+                }
+            }
             return devolver;
         }
 

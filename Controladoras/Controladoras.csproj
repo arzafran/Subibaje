@@ -39,6 +39,10 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="ThoughtWorks.QRCode, Version=1.0.4778.30637, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ThoughtWorks.QRCode.1.1.0\lib\ThoughtWorks.QRCode.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ControlAltaBoletos.cs" />
@@ -64,10 +68,9 @@
       <Project>{5365C5E9-1B2A-4B28-A21E-55D5CD2E191F}</Project>
       <Name>Modelos</Name>
     </ProjectReference>
-    <ProjectReference Include="..\QRCodeLib\QRCodeLib.csproj">
-      <Project>{E98126B2-AF17-4783-96B9-856D6744DCA3}</Project>
-      <Name>QRCodeLib</Name>
-    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

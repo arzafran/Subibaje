@@ -107,6 +107,25 @@ namespace accesoDatos
         }
 
         /// <summary>
+        /// Busca todos los roles de la DB con peso menor al propio
+        /// </summary>
+        /// <returns>Devuelve una lista de roles</returns>
+
+        public List<TipoRol> TraerInferiores(int peso)
+        {
+            List<TipoRol> devolver = new List<TipoRol>();
+            string query = "SELECT * FROM tipos WHERE peso < " + peso.ToString() + " ORDER BY borrado ASC, nombre ASC";
+            DataTable dt = _conexion.TraerDatos(query);
+
+            foreach (DataRow dr in dt.Rows)
+            {
+                devolver.Add(this.ArmarObjeto(dr));
+            }
+
+            return devolver;
+        }
+
+        /// <summary>
         /// Busca todos los roles activos de la DB
         /// </summary>
         /// <returns>Devuelve una lista de roles</returns>
@@ -160,7 +179,7 @@ namespace accesoDatos
 
             DateTime.TryParse(dr["borrado"].ToString(), out dt);
 
-            return new TipoRol((string)dr["nombre"], (int)dr["id"], dt);
+            return new TipoRol((string)dr["nombre"], (int)dr["id"], dt, (int)dr["peso"]);
         }
     }
 }

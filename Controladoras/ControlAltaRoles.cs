@@ -42,8 +42,8 @@ namespace Controladoras
         public void Nuevo(int usuario_id, int tipo_id, int establecimiento_id, int nivel_id)
         {
             Rol oRol;
-            NivelEducativo oNivel = null;
-            Establecimiento oEstablecimiento = null;
+            NivelEducativo oNivel = niveles.BuscarPorId(nivel_id);
+            Establecimiento oEstablecimiento = establecimientos.BuscarPorId(establecimiento_id);
             Usuario oUsuario = usuarios.BuscarPorId(usuario_id);
             TipoRol oTipo = tipo_roles.BuscarPorId(tipo_id);
 
@@ -52,19 +52,14 @@ namespace Controladoras
 
             if (oTipo == null)
                 throw new Exception("No existe un tipo de rol con ese ID");
+           
+            if(oNivel == null)
+                throw new Exception("El establecimiento no tiene asociado ese nivel educativo");
 
-            if (establecimiento_id != 0 && nivel_id != 0)
-            {
-                oNivel = niveles.BuscarPorId(nivel_id);
-                if(oNivel == null)
-                    throw new Exception("El establecimiento no tiene asociado ese nivel educativo");
+            if (oEstablecimiento == null)
+                throw new Exception("No existe establecimiento con ese id");
 
-                oEstablecimiento = establecimientos.BuscarPorId(establecimiento_id);
-                if (oEstablecimiento == null)
-                    throw new Exception("No existe establecimiento con ese id");
-            }
-
-            if (establecimientos_niveles.BuscarPorParametros(oEstablecimiento == null ? 0 : oEstablecimiento.Id, oNivel == null ? 0 : oNivel.Id) == 0)
+            if (establecimientos_niveles.BuscarPorParametros(oEstablecimiento.Id, oNivel.Id) == 0)
                 throw new Exception("No existe dupla Establecimiento/Nivel como la que elegiste");
 
             oRol = new Rol(oTipo, oUsuario, oEstablecimiento, oNivel);

@@ -35,4 +35,3 @@ C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\ResolveAssemblyReference.
 C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\Controladoras.dll
 C:\Users\colo\Desktop\Subibaje\Controladoras\obj\Debug\Controladoras.pdb
 C:\Subibaje\Controladoras\bin\Debug\ThoughtWorks.QRCode.dll
-C:\Subibaje\Controladoras\bin\Debug\ThoughtWorks.QRCode.pdb

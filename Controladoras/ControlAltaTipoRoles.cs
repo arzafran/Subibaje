@@ -64,6 +64,16 @@ namespace Controladoras
         }
 
         /// <summary>
+        /// Busca todos los roles con peso menor al propio
+        /// </summary>
+        /// <returns>Devuelve un lista de objetos rol</returns>
+
+        public List<TipoRol> TraerInferiores(int peso)
+        {
+            return _roles.TraerInferiores(peso);
+        }
+
+        /// <summary>
         /// Busca todos los roles activos
         /// </summary>
         /// <returns>Devuelve un lista de objetos rol</returns>

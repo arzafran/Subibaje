@@ -82,7 +82,7 @@
 
                 /* ESTO ES PARA QUE PONGA ALGO EN LOS INPUT TEXT CUANDO QUIERO EDITAR, SINO 
                 NO ME HACE EL POSTBACK POR LOS REQUIREDFIELDVALIDATOR */
-                $('.edicion').on('click', function () {
+                $('.mentira').on('click', function () {
                     inputsText.val(".");
                 });
             });

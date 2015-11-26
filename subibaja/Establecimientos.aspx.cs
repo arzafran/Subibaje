@@ -84,6 +84,7 @@ namespace subibaja
 
         protected void btnAgregar_Click1(object sender, EventArgs e)
         {
+            _wrapperError.Style.Add("display", "none");
             try
             {
                 _controladora.Nuevo(txtNombre.Text, Convert.ToInt32(ddlCiudades.SelectedValue), listaIdsSeleccionados());

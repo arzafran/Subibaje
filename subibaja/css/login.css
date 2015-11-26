@@ -1,4 +1,9 @@
-﻿.imglogo
+﻿body
+{
+    padding-bottom: 25px;
+}
+
+.imglogo
 {
     float: left;
     height: 30px;

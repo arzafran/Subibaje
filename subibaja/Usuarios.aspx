@@ -24,6 +24,7 @@
                     <asp:LinkButton 
                         PostBackUrl='<%# string.Format("~/Roles.aspx?id={0}", Eval("id")) %>'
                         ID="agregarRol" 
+                        CssClass="mentira"
                         runat="server" 
                         Text="<span class='glyphicon glyphicon-list'></span>">
                     </asp:LinkButton>
@@ -32,13 +33,13 @@
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
-                    <asp:LinkButton ID="linkEdicion" runat="server" CssClass="edicion" Text="<span class='glyphicon glyphicon-pencil'></span>" CommandName="comandoEdicion" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
+                    <asp:LinkButton ID="linkEdicion" runat="server" CssClass="mentira edicion" Text="<span class='glyphicon glyphicon-pencil'></span>" CommandName="comandoEdicion" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
 
             <asp:TemplateField ItemStyle-Width="40px">
                 <ItemTemplate>
-                    <asp:LinkButton OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
+                    <asp:LinkButton CssClass="mentira" OnClientClick="return confirm('Estás seguro?');" ID="linkBorrado" runat="server" Text="<span class='glyphicon glyphicon-remove'></span>" CommandName="comandoBorrado" CommandArgument="<%# ((GridViewRow)Container).RowIndex %>"></asp:LinkButton>
                 </ItemTemplate>
             </asp:TemplateField>
         </Columns>

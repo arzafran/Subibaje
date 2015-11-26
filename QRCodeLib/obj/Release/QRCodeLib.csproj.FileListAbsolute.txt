@@ -1,7 +1,0 @@
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\obj\Release\ThoughtWorks.QRCode.Properties.Resources.resources
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\obj\Release\QRCodeLib.csproj.GenerateResource.Cache
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\obj\Release\ThoughtWorks.QRCode.dll
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\obj\Release\ThoughtWorks.QRCode.pdb
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\ThoughtWorks.QRCode.dll
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\ThoughtWorks.QRCode.pdb
-C:\Users\usuario\Desktop\Facultad UTN\Final\Proyecto Final Micros\QRCodeLib\obj\Release\QRCodeLib.csprojResolveAssemblyReference.cache
